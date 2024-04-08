@@ -35,4 +35,15 @@ docker build -t 3dify .
 docker run -d -p 3000:3000 --name 3dify 3dify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Watch with Docker Compose is also supported:
+
+```bash
+# launch application
+docker compose -f dev.docker-compose.yml up -d
+
+# watch application
+docker compose -f dev.docker-compose.yml watch
+
+# stop the application
+docker compose -f dev.docker-compose.yml down
+```
