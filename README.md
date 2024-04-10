@@ -15,6 +15,7 @@ The architecture comprises a web application, a file store, and a NoSQL database
 ![Architecture](assets/3dify_architecture.png 'Architecture')
 
 ## External Client API Flow
+
 ![External Client API Flow](assets/3dify_api_flow.png 'External Client API Flow')
 
 ## Getting Started
