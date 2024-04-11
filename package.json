@@ -11,6 +11,7 @@
     "format-fix": "prettier --write ."
   },
   "dependencies": {
+    "antd": "^5.16.1",
     "next": "14.1.2",
     "react": "^18",
     "react-dom": "^18"
