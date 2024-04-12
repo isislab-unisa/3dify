@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { Button, Layout } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
+import Title from 'antd/es/typography/Title';
 
-import Sidebar from '@/components/sidebar';
+import Sidebar from '@/app/components/sidebar';
 
 import './globals.css';
-import Title from 'antd/es/typography/Title';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -52,13 +52,7 @@ export default function RootLayout({
             </Header>
 
             <Content className='mb-1'>
-              <div
-                style={{
-                  padding: 8,
-                  minHeight: 360,
-                  background: 'white',
-                }}
-              >
+              <div className='min-h-screen items-center justify-between p-8'>
                 {children}
               </div>
             </Content>
