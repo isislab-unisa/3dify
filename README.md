@@ -23,6 +23,10 @@ The architecture comprises a web application, a file store, and a NoSQL database
 The easiest way to start the application is to run the development server:
 
 ```bash
+# install missing required dependencies
+npm install
+
+# run the development server
 npm run dev
 ```
 
