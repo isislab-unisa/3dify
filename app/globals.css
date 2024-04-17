@@ -20,7 +20,7 @@ body {
   margin-bottom: 42px;
   color: #fff;
   font-size: 22px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 100px;
   transform: translateX(-50%);
 }
