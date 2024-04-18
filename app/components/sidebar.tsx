@@ -2,14 +2,19 @@
 
 import { FC } from 'react';
 import { Menu } from 'antd';
-import { UploadOutlined, UserOutlined } from '@ant-design/icons';
+import { FileImageOutlined, UploadOutlined, UserOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
 
 const items = [
   {
     key: 'my-avatars',
-    icon: <UploadOutlined />,
+    icon: <FileImageOutlined />,
     label: 'My Avatars',
+  },
+  {
+    key: 'upload',
+    icon: <UploadOutlined />,
+    label: 'Upload',
   },
   {
     key: 'logout',
@@ -33,6 +38,10 @@ const Sidebar: FC = () => {
           if (key === 'my-avatars') {
             // TODO: Implement my avatars
             console.log('My Avatars');
+          }
+          if (key === 'upload') {
+            // TODO: Implement upload
+            console.log('Upload');
           }
           if (key === 'logout') {
             // TODO: Implement logout
