@@ -45,76 +45,82 @@ const Gallery: FC = () => {
   };
 
   return (
-    <PreviewGroup
-      preview={{
-        countRender: () => null,
-        toolbarRender: (
-          _,
-          {
-            transform: { scale },
-            actions: {
-              onFlipY,
-              onFlipX,
-              onRotateLeft,
-              onRotateRight,
-              onZoomOut,
-              onZoomIn,
-            },
-            current,
-          }
-        ) => {
-          // TODO: handle max zoom in and outs
-          return (
-            <Space size={30} className='toolbar-wrapper'>
-              <DownloadOutlined
-                onClick={() => onDownload(current)}
-                className='toolbar-icon'
-              />
-              <SwapOutlined
-                rotate={90}
-                onClick={onFlipY}
-                className='toolbar-icon'
-              />
-              <SwapOutlined onClick={onFlipX} className='toolbar-icon' />
-              <RotateLeftOutlined
-                onClick={onRotateLeft}
-                className='toolbar-icon'
-              />
-              <RotateRightOutlined
-                onClick={onRotateRight}
-                className='toolbar-icon'
-              />
-              <ZoomOutOutlined
-                disabled={scale === 1}
-                onClick={onZoomOut}
-                className='toolbar-icon'
-              />
-              <ZoomInOutlined
-                disabled={scale === 50}
-                onClick={onZoomIn}
-                className='toolbar-icon'
-              />
-              <Tooltip title='Preview your Avatar!'>
-                <a href='/?id=123456' target='_blank' className='toolbar-icon'>
-                  Preview
-                </a>
-              </Tooltip>
-            </Space>
-          );
-        },
-      }}
-    >
-      {images.map(({ width, height, src }, i) => (
-        <Image
-          key={i}
-          width={width}
-          height={height}
-          src={src}
-          fallback={fallback}
-          className='p-0.5'
-        />
-      ))}
-    </PreviewGroup>
+    <div id='gallery'>
+      <PreviewGroup
+        preview={{
+          countRender: () => null,
+          toolbarRender: (
+            _,
+            {
+              transform: { scale },
+              actions: {
+                onFlipY,
+                onFlipX,
+                onRotateLeft,
+                onRotateRight,
+                onZoomOut,
+                onZoomIn,
+              },
+              current,
+            }
+          ) => {
+            // TODO: handle max zoom in and outs
+            return (
+              <Space size={30} className='toolbar-wrapper'>
+                <DownloadOutlined
+                  onClick={() => onDownload(current)}
+                  className='toolbar-icon'
+                />
+                <SwapOutlined
+                  rotate={90}
+                  onClick={onFlipY}
+                  className='toolbar-icon'
+                />
+                <SwapOutlined onClick={onFlipX} className='toolbar-icon' />
+                <RotateLeftOutlined
+                  onClick={onRotateLeft}
+                  className='toolbar-icon'
+                />
+                <RotateRightOutlined
+                  onClick={onRotateRight}
+                  className='toolbar-icon'
+                />
+                <ZoomOutOutlined
+                  disabled={scale === 1}
+                  onClick={onZoomOut}
+                  className='toolbar-icon'
+                />
+                <ZoomInOutlined
+                  disabled={scale === 50}
+                  onClick={onZoomIn}
+                  className='toolbar-icon'
+                />
+                <Tooltip title='Preview your Avatar!'>
+                  <a
+                    href='/?id=123456'
+                    target='_blank'
+                    className='toolbar-icon'
+                  >
+                    Preview
+                  </a>
+                </Tooltip>
+              </Space>
+            );
+          },
+        }}
+      >
+        {images.map(({ width, height, src }, i) => (
+          <Image
+            key={i}
+            width={width}
+            height={height}
+            src={src}
+            fallback={fallback}
+            className='p-0.5'
+          />
+        ))}
+      </PreviewGroup>
+    </div>
   );
 };
 

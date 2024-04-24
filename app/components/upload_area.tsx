@@ -46,7 +46,7 @@ const props: UploadProps = {
 };
 
 const UploadArea: FC = () => (
-  <div className='mb-10'>
+  <div id='upload-area' className='mb-10'>
     <Dragger {...props}>
       <p className='ant-upload-drag-icon'>
         <InboxOutlined />
