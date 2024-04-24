@@ -2,7 +2,11 @@
 
 import { FC } from 'react';
 import { Menu } from 'antd';
-import { FileImageOutlined, UploadOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  FileImageOutlined,
+  UploadOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
 
 const items = [
@@ -33,6 +37,7 @@ const Sidebar: FC = () => {
     >
       <Menu
         style={{ backgroundColor: '#eaf4fc' }}
+        items={items}
         defaultSelectedKeys={['my-avatars']}
         onClick={({ key }) => {
           if (key === 'my-avatars') {
@@ -48,13 +53,7 @@ const Sidebar: FC = () => {
             console.log('Logout');
           }
         }}
-      >
-        {items.map(({ key, icon, label }) => (
-          <Menu.Item key={key} icon={icon}>
-            {label}
-          </Menu.Item>
-        ))}
-      </Menu>
+      />
     </Sider>
   );
 };
