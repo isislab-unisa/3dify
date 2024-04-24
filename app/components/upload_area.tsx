@@ -2,19 +2,21 @@
 
 import { FC, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
 import { message, Upload } from 'antd';
+
+type FileInfo = {
+  name: string;
+  ext: string;
+  type: string;
+};
 
 const { Dragger } = Upload;
 
-const mockAction = 'http://localhost:3000/api/uploadPhoto';
+// const url = 'http://www.isislab.it:3004/api/uploadPhoto';
+const url = 'http://www.isislab.it:3004/api/uploadPhoto';
 
 const UploadArea: FC = () => {
-  const [fileInfo, setFileInfo] = useState<{
-    name: string;
-    ext: string;
-    type: string;
-  }>({ name: '', ext: '', type: '' });
+  const [fileInfo, setFileInfo] = useState<FileInfo>({ name: '', ext: '', type: '' });
 
   const beforeUpload = (file: any) => {
     const isImage = file.type.includes('image');
@@ -23,21 +25,20 @@ const UploadArea: FC = () => {
     }
     const ext = file.name.split('.').pop();
     setFileInfo({ name: file.name, ext: ext, type: file.type });
-    console.log('fileInfo', { fileInfo });
     return isImage || Upload.LIST_IGNORE;
   };
 
   const onChange = (info: any) => {
     const { status } = info.file;
     if (status !== 'uploading') {
-      console.log(
-        'info',
-        info,
-        'info.file ->',
-        info.file,
-        'info.fileList ->',
-        info.fileList
-      );
+      // console.log(
+      //   'info',
+      //   info,
+      //   'info.file ->',
+      //   info.file,
+      //   'info.fileList ->',
+      //   info.fileList
+      // );
     }
     if (status === 'done') {
       message.success(`${info.file.name} file uploaded successfully.`);
@@ -46,22 +47,54 @@ const UploadArea: FC = () => {
     }
   };
 
+  const customRequest = async (options: any) => {
+    const { file, onSuccess, onError } = options;
+
+    try {
+      // Read the file as base64
+      const reader = new FileReader();
+
+      reader.onload = async (event: any) => {
+        const base64Data = event.target.result;
+
+        const response: Response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            file: base64Data,
+            filename: fileInfo.name,
+            type: fileInfo.type,
+          }),
+        });
+
+        const body = await response.json();
+
+        if (Object.keys(body ?? {}).includes('error')) {
+          console.log('keys', Object.keys(body ?? {}));
+          onError('Failed to upload file');
+        } else {
+          console.log('keys success', Object.keys(body ?? {}));
+          onSuccess();
+        }
+      };
+
+      reader.readAsDataURL(file);
+    } catch (error) {
+      onError('Failed to upload file');
+    }
+  };
+
   return (
     <div id='upload-area' className='mb-10'>
       <Dragger
-        method='POST'
-        action={mockAction}
-        name='file'
-        headers={{
-          filename: fileInfo.name,
-          fileext: fileInfo.ext,
-          type: fileInfo.type,
-        }}
         multiple={false}
         listType='picture'
+        customRequest={customRequest}
         beforeUpload={beforeUpload}
         onChange={onChange}
-        onDrop={(e) => console.log('Dropped files', e.dataTransfer.files)}
+        // onDrop={(e) => console.log('Dropped files', e.dataTransfer.files)}
       >
         <p className='ant-upload-drag-icon'>
           <InboxOutlined />
