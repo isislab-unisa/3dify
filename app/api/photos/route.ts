@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import AWS from 'aws-sdk';
 import {
   DeleteBucketRequest,
@@ -7,7 +6,6 @@ import {
   ListObjectsV2Request,
 } from 'aws-sdk/clients/s3';
 import { Buffer } from 'buffer';
-import { error } from 'console';
 
 export async function GET() {
   const s3 = new AWS.S3({

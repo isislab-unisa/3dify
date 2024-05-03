@@ -66,7 +66,7 @@ export async function POST(req: Request) {
     await s3
       .upload({
         Bucket: bucketName,
-        Key: `image${fileExtension}`,
+        Key: `image.${fileExtension}`,
         Body: buffer,
         ContentType: fileType,
       })
