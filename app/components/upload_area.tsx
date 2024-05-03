@@ -1,8 +1,12 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
+
+type Props = {
+  setRefresh: Dispatch<SetStateAction<boolean>>;
+};
 
 type FileInfo = {
   name: string;
@@ -13,10 +17,14 @@ type FileInfo = {
 const { Dragger } = Upload;
 
 // const url = 'http://www.isislab.it:3004/api/uploadPhoto';
-const url = 'http://www.isislab.it:3004/api/uploadPhoto';
+const url = 'http://localhost:3000/api/uploadPhoto';
 
-const UploadArea: FC = () => {
-  const [fileInfo, setFileInfo] = useState<FileInfo>({ name: '', ext: '', type: '' });
+const UploadArea: FC<Props> = ({ setRefresh }) => {
+  const [fileInfo, setFileInfo] = useState<FileInfo>({
+    name: '',
+    ext: '',
+    type: '',
+  });
 
   const beforeUpload = (file: any) => {
     const isImage = file.type.includes('image');
@@ -76,6 +84,7 @@ const UploadArea: FC = () => {
           onError('Failed to upload file');
         } else {
           console.log('keys success', Object.keys(body ?? {}));
+          setRefresh((prev) => !prev);
           onSuccess();
         }
       };
@@ -99,7 +108,7 @@ const UploadArea: FC = () => {
         <p className='ant-upload-drag-icon'>
           <InboxOutlined />
         </p>
-        <p className='ant-upload-text'>Click or Drag your Picture to Upload!</p>
+        <p className='ant-upload-text'>Click or drag your picture to upload!</p>
       </Dragger>
     </div>
   );
