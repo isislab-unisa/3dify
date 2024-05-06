@@ -94,7 +94,7 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
       onError('Failed to upload file');
     }
   };
-
+  
   return (
     <div id='upload-area' className='mb-10'>
       <Dragger
