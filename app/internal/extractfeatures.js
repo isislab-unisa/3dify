@@ -38,7 +38,8 @@ const makeHumanParameters = {
     "material eyebrow001": "9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat"
 }
  
-function GetMakehumanParametersFromLandmarks(normalizedLandmarks, age, gender)
+
+export function GetMakehumanParametersFromLandmarks(normalizedLandmarks, age, gender)
 {
     makeHumanParameters["modifier macrodetails/Gender"] = gender.toString();
     makeHumanParameters["modifier macrodetails/Age"] = age.toString();

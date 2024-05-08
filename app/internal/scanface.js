@@ -62,7 +62,7 @@ createFaceLandmarker();
 
 
 // inputImg = html <img> element containing input image with width and height
-async function GetLandmarksFromPhoto(inputImg)
+export async function GetLandmarksFromPhoto(inputImg)
 {
     await changeFaceDetector(SSD_MOBILENETV1)
     await faceapi.loadFaceLandmarkModel('/')

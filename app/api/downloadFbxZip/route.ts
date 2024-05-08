@@ -1,12 +1,12 @@
 import path from 'path';
 import exec from 'exec';
 
-var AdmZip = require('adm-zip');
+import AdmZip from 'adm-zip';
 
 export async function GET(req: Request) {
     // TODO fix path
-    exec('python ' + path.join(__dirname, '..', '..', 'internal', 'MakehumanSocketClient', 'mhrc', 'genericCommand.py') + ' exportFbx',
-    (err, stdout, stderr) => {
+    exec('python3 ' + path.join(__dirname, '..', '..', 'internal', 'MakehumanSocketClient', 'mhrc', 'genericCommand.py') + ' exportFbx',
+    (err: any, stdout: any, stderr: any) => {
       if (err) {
         console.error(`exec error: ${err}`);
         return Response.json({ code: '500', status: 'Can\'t access makehuman server', message: {err}} );

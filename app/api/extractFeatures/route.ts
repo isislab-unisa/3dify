@@ -1,3 +1,5 @@
+import { GetMakehumanParametersFromLandmarks } from "@/app/internal/extractfeatures";
+
 type Body = {
   landmarks: any;
   normalizedLandmarks: any;

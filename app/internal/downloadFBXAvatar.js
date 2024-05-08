@@ -1,4 +1,4 @@
-async function sendJsonModifiers(makeHumanParameters) {
+export async function sendJsonModifiers(makeHumanParameters) {
     let outputFile = JSON.stringify(makeHumanParameters)
 
     await saveJsonFile(outputFile)
@@ -13,7 +13,7 @@ async function saveJsonFile(text) {
     console.log(res)
 }
 
-async function downloadFBX() {
+export async function downloadFBX() {
     const options = {
         method: 'GET',
     };

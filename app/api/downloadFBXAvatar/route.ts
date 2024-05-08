@@ -1,3 +1,5 @@
+import { downloadFBX, sendJsonModifiers } from "@/app/internal/downloadFBXAvatar";
+
 type Body = {
   makehumanParameters: any;
 };
