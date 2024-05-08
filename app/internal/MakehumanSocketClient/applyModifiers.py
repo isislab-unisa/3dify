@@ -3,6 +3,7 @@
 import sys
 from mhrc.JsonCall import JsonCall
 import json
+from dotenv import load_dotenv, dotenv_values 
 
 def usage():
     print("USAGE:\n")
@@ -33,7 +34,18 @@ for (key, value) in data.items():
         jsc.setParam(key, value);
 
 # TODO replace with ip and port got from env
-response = jsc.send("localhost", "12345")
+
+# loading variables from .env file
+load_dotenv() 
+
+ip = os.getenv("MAKEHUMAN_IP")
+port = os.getenv("MAKEHUMAN_PORT")
+if ip is None:
+    up = "localhost"
+if port is None:
+    port = "12345"
+
+response = jsc.send(ip, port)
 
 if not response:
     print("Command failed (returned null response)\n")
