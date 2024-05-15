@@ -11,11 +11,16 @@
     "format-fix": "prettier --write ."
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.14",
     "adm-zip": "^0.5.12",
     "antd": "^5.16.1",
     "aws-sdk": "^2.1605.0",
+    "canvas": "^2.11.2",
+    "encoding": "^0.1.13",
     "exec": "^0.2.1",
+    "face-api.js": "^0.22.2",
     "next": "14.1.2",
+    "original-fs": "^1.2.0",
     "react": "^18",
     "react-dom": "^18",
     "uuidv4": "^6.2.13"

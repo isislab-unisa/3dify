@@ -5,7 +5,7 @@ import AdmZip from 'adm-zip';
 
 export async function GET(req: Request) {
     // TODO fix path
-    exec('python3 ' + path.join(__dirname, '..', '..', 'internal', 'MakehumanSocketClient', 'mhrc', 'genericCommand.py') + ' exportFbx',
+    await exec('python3 ' + path.join(__dirname, '..', '..', 'internal', 'MakehumanSocketClient', 'mhrc', 'genericCommand.py') + ' exportFbx',
     (err: any, stdout: any, stderr: any) => {
       if (err) {
         console.error(`exec error: ${err}`);
@@ -29,4 +29,5 @@ export async function GET(req: Request) {
       console.log(`${stdout}`);
       return Response.json({ code: '200', status: 'OK', message: zipFileContents });
     });
+    return Response.json({ code: '500', status: 'error', message: "Unable to run python script" });
 }

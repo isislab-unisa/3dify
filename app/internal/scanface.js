@@ -1,4 +1,16 @@
-import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
+//import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
+import {FaceLandmarker, FilesetResolver} from '@mediapipe/tasks-vision';
+import * as faceapi from 'face-api.js';
+import * as canvas from 'canvas';
+import { changeFaceDetector, isFaceDetectionModelLoaded } from './faceDetectionControls';
+
+const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
+
+// patch nodejs environment, we need to provide an implementation of
+// HTMLCanvasElement and HTMLImageElement
+const { Canvas, Image, ImageData } = canvas
+faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+
 
 function almost(a, b, delta = 0.000001){
     return Math.abs(a - b) < delta
@@ -39,18 +51,36 @@ function calculateLimits(landmarks) {
     return { minX, minY, maxX, maxY };
 }
 
-const {FaceLandmarker, FilesetResolver, DrawingUtils} = vision;
+function GetHtmlImageElement(imgBase64, width)
+{
+    let img = "<img id=\"image\" src=\"" + imgBase64 + "\" style=\"max-width: " + width + "px;\">";
+    let image = new Image();
+    image.src = imgBase64;
+    return image;
+}
 
+/*
+const vision = await FilesetResolver.forVisionTasks(
+    // path/to/wasm/root
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
+  );
+  */
+
+// const {FaceLandmarker, FilesetResolver, DrawingUtils} = vision;
+
+let vision;
 let faceLandmarker;
 
 //Carica il modello e la libreria di mediaPipe ed imposta i parametri per la rilevazione dei landmark del volto
 async function createFaceLandmarker(){
+
     const filesetResolver = await FilesetResolver.forVisionTasks(
-        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+        "@mediapipe/tasks-vision/wasm"
     );
+
     faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
         baseOptions:{
-            modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+            modelAssetPath: "/MediaPipe_Models/face_landmarker.task",
             delegate: "GPU"
         },
         outputFaceBlendshapes: true,
@@ -58,15 +88,18 @@ async function createFaceLandmarker(){
         numFaces: 1,
     });
 }
-createFaceLandmarker();
-
+//await createFaceLandmarker();
 
 // inputImg = html <img> element containing input image with width and height
-export async function GetLandmarksFromPhoto(inputImg)
+export async function GetLandmarksFromPhoto(base64img, widthImg)
 {
+    vision = (await import("@mediapipe/tasks-vision"));
+    await createFaceLandmarker();
+
+    const inputImg = GetHtmlImageElement(base64img, widthImg)
     await changeFaceDetector(SSD_MOBILENETV1)
-    await faceapi.loadFaceLandmarkModel('/')
-    await faceapi.nets.ageGenderNet.load('/')
+    await faceapi.loadFaceLandmarkModel('http://localhost:3000/weights/')
+    await faceapi.nets.ageGenderNet.load('http://localhost:3000/weights/')
     //const inputImgEl = $('#inputImg').get(0)
 
     //FaceAPI for gender and age
@@ -103,7 +136,7 @@ export async function GetLandmarksFromPhoto(inputImg)
     console.log("AGE : " + age)
 
 
-    if(!faceLandmarker){
+    if(!vision){
         console.log("faceLandmarker not ready");
         return;
     }
@@ -113,12 +146,13 @@ export async function GetLandmarksFromPhoto(inputImg)
     // const python = spawn("python", )
 
     //Se presente rimuove un canvas con le mesh generate precedentemente
-    const oldCanvas = document.getElementById("overlay");
+    /*const oldCanvas = document.getElementById("overlay");
     if(oldCanvas){
         oldCanvas.parentNode.removeChild(oldCanvas);
-    }
+    }*/
 
     //Rileva i landmark del volto e li disegna su un canvas creato appositamente
+    console.log(faceLandmarker)
     const faceLandmarkerResult = faceLandmarker.detect(inputImg);
     /*const canvas = document.createElement("canvas");
     canvas.setAttribute("class", "canvas");
