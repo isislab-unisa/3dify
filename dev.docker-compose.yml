@@ -30,6 +30,12 @@ services:
     environment:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=minioadmin
+  python:
+    build:
+      context: ./pythonServices
+      dockerfile: Dockerfile
+    ports:
+      - 3001:80
 volumes:
   minio_data:
     driver: local
