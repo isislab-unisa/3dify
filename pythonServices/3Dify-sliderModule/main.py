@@ -1,15 +1,14 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from imageProcess import process
+from faceShapeFeatures import inferFaceShapeSliders
 
 
 class Request(BaseModel):
     imageBase64: str | None = None
 
-
 class Response(BaseModel):
     sliders: dict | None = None
-
 
 app = FastAPI()
 

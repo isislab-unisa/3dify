@@ -8,11 +8,10 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import pandas as pd
 from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoints,
-                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width,
-                   chinSlidersValue, foreheadSlidersValue, eyebrowsSlidersValue, eyesSlidersValue,
-                   noseSlidersValue, mouthSliderValue, headSliderValue)
+                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width)
 from faceFeatures import calculateFaceFeatureDistances
 import base64
+from faceShapeFeatures import inferFaceShapeSliders
 
 
 
@@ -102,6 +101,7 @@ def plot_face_blendshapes_bar_graph(face_blendshapes):
 def initializeMediaPipe():
     base_options = python.BaseOptions(
         model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+        # model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
     )
     options = vision.FaceLandmarkerOptions(
         base_options=base_options,
@@ -279,6 +279,10 @@ def process(imgBase64):
     
     for key in normalized_distance_dictionary.keys():
         makeHumanParameters["modifier " + key] = str(normalized_distance_dictionary[key])
+        
+    faceShapeSliders = inferFaceShapeSliders(imgBase64)
+    for key in faceShapeSliders.keys():
+        makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
         
     return makeHumanParameters
 
