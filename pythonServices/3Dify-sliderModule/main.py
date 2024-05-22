@@ -5,8 +5,8 @@ from imageProcess import process, extractLandmarks
 
 class Request(BaseModel):
     imageBase64: str | None = None
-    gender : int | None = None
-    age : int | None = None
+    gender : float | None = None
+    age : float | None = None
 
 class Response(BaseModel):
     sliders: dict | None = None
