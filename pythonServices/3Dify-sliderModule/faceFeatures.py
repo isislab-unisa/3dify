@@ -36,7 +36,7 @@ def calculateChin(normalizedLandmarks, distanceDictionary, faceShapeCoord, lipsC
 def calculateFaceShape(faceShapeCoord, distanceDictionary):
     distanceUpperFace = abs(faceShapeCoord[2]["x"] - faceShapeCoord[3]["x"])
     distanceDictionary["distanceUpperFace"] = distanceUpperFace
-    normalizedDistanceDictionary["head/head-round"] = normalize(distanceUpperFace, 0.871, 1.742);
+    # normalizedDistanceDictionary["head/head-round"] = normalize(distanceUpperFace, 0.871, 1.742);
 
 
     distanceLeftLowerFace = abs(faceShapeCoord[2]["x"] - faceShapeCoord[4]["x"])
