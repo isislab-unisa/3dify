@@ -22,7 +22,7 @@ def pil_to_cv2(pil_image):
     cv2_image = cv2_image[:, :, ::-1].copy()
     return cv2_image
 
-def inferFaceShapeSliders(imageBase64):
+def inferFaceShapeSliders(imageBase64, gender):
     #Convert Base64 to Image
     image = open_base64_image_to_PIL(imageBase64)
     #Load the model
@@ -142,13 +142,15 @@ def inferFaceShapeSliders(imageBase64):
         triangSlider = (diffUpDown - (-0.08)) / ((0.22) - (-0.08))
         diamondSlider = (sumUpDown - 0.98) / (1.22 - 0.98)
         rectSlider = (sumUpDown - 0.76) / (0.98 - 0.76)
+        faceScaleVert = 2 * ((sumUpDown - 0.76) / (1.22 - 0.76)) - 1
         
         sliders = {
             "head/head-round": roundSlider if roundSlider > 0.0 and roundSlider < 1.0 else 0.0,
             "head/head-invertedtriangular": invTriangSlider if invTriangSlider > 0.0 and invTriangSlider < 1.0 else 0.0,
             "head/head-triangular": triangSlider if triangSlider > 0.0 and triangSlider < 1.0 else 0.0,
             "head/head-diamond": diamondSlider if diamondSlider > 0.0 and diamondSlider < 1.0 else 0.0,
-            "head/head-rectangular": rectSlider if rectSlider > 0.0 and rectSlider < 1.0 else 0.0
+            "head/head-rectangular": rectSlider if gender == "male" and rectSlider > 0.0 and rectSlider < 1.0 else 0.0,
+            "head/head-scale-vert-decr|incr" : faceScaleVert if gender == "female" and faceScaleVert > -1.0 and faceScaleVert < 1.0 else 0.0
         }
         
         return sliders

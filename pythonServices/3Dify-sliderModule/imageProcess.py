@@ -278,8 +278,9 @@ def process(imgBase64, gender, age):
     # imshow(annotated_image)
 
     distance_dictionary = {}
+    genderStr = "male" if gender == 1.0 else "female"
     normalized_distance_dictionary = calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
-                                  rightEyeBrowCoord, leftEyeBrowCoord)
+                                  rightEyeBrowCoord, leftEyeBrowCoord, genderStr)
     
     makeHumanParameters = {}
     
@@ -290,7 +291,7 @@ def process(imgBase64, gender, age):
     for key in normalized_distance_dictionary.keys():
         makeHumanParameters["modifier " + key] = str(normalized_distance_dictionary[key])
         
-    faceShapeSliders = inferFaceShapeSliders(imgBase64)
+    faceShapeSliders = inferFaceShapeSliders(imgBase64, genderStr)
     for key in faceShapeSliders.keys():
         makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
         
