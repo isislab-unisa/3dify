@@ -9,7 +9,7 @@ from mediapipe.tasks.python import vision
 import pandas as pd
 from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoints,
                    leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width)
-from faceFeatures import calculateFaceFeatureDistances
+from faceFeatures import calculateFaceFeatureDistances, normalizeminus11
 import base64
 from faceShapeFeatures import inferFaceShapeSliders
 
@@ -278,20 +278,36 @@ def process(imgBase64, gender, age):
     # imshow(annotated_image)
 
     distance_dictionary = {}
-    genderStr = "male" if gender == 1.0 else "female"
     normalized_distance_dictionary = calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
-                                  rightEyeBrowCoord, leftEyeBrowCoord, genderStr)
+                                  rightEyeBrowCoord, leftEyeBrowCoord, gender)
     
     makeHumanParameters = {}
     
-    makeHumanParameters["modifier macrodetails/Age"] = str(age)
-    makeHumanParameters["modifier macrodetails/Gender"] = str(gender)
+    genderValue = 0.0 if gender == "female" else 1.0
+    
+    makeHumanParameters["modifier head/head-age-decr|incr"] = str(normalizeminus11(age, 0.0, 100.0))
+    makeHumanParameters["modifier macrodetails/Gender"] = str(genderValue)
     makeHumanParameters["modifier forehead/forehead-scale-vert-decr|incr"] = "-0.25"
+    
+    skins = {
+        "male": {
+            "young": "skins/young_caucasian_male/young_caucasian_male.mhmat",
+            "middleAge": "skins/middleage_caucasian_male/middleage_caucasian_male.mhmat",
+            "old": "skins/old_caucasian_male/old_caucasian_male.mhmat",
+        },
+        "female": {
+            "young": "skins/young_caucasian_female/young_caucasian_female2.mhmat",
+            "middleAge": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
+            "old": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+        },
+    }
+    
+    makeHumanParameters["skinMaterial"] = skins[gender]["young" if age < 28 else "middleAge" if age < 60 else "old"]
     
     for key in normalized_distance_dictionary.keys():
         makeHumanParameters["modifier " + key] = str(normalized_distance_dictionary[key])
         
-    faceShapeSliders = inferFaceShapeSliders(imgBase64, genderStr)
+    faceShapeSliders = inferFaceShapeSliders(imgBase64, gender)
     for key in faceShapeSliders.keys():
         makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
         

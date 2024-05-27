@@ -6,7 +6,7 @@ from cli.mh.genericCommandPy import sendCommand
 
 class Request(BaseModel):
     imageBase64: str | None = None
-    gender : float | None = None
+    gender : str | None = None
     age : float | None = None
 
 class Response(BaseModel):
