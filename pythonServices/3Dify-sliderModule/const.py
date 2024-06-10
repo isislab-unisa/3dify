@@ -1,7 +1,8 @@
 max_width = 800
 nosePoints = [2, 9, 129, 358]  # GIU, SU, SX, DX
 faceShapePoints = [152, 10, 234, 454, 136, 365]  # GIU. SU, SX, DX, SX_GIU, DX_GIU
-rightEyePoints = [23, 27, 130, 243]  # GIU, SU, SX, DX
+# rightEyePoints = [23, 27, 130, 243]  # GIU, SU, SX, DX
+rightEyePoints = [145, 159, 33, 133]  # GIU, SU, SX, DX
 rightEyeBrowPoints = [
     46,
     55,
@@ -12,7 +13,8 @@ rightEyeBrowPoints = [
     105,
     66,
 ]  # GIU_SX, GIU_DX, GIU_CENT_SX, GIU_CENT_DX, SU_SX, SU_DX, SU_CENT_SX, SU_CENT_DX
-leftEyePoints = [253, 257, 463, 359]  # GIU, SU, SX, DX
+# leftEyePoints = [253, 257, 463, 359]  # GIU, SU, SX, DX
+leftEyePoints = [374, 386, 362, 263]  # GIU, SU, SX, DX
 leftEyeBrowPoints = [
     285,
     276,
