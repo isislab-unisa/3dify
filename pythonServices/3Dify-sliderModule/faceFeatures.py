@@ -24,8 +24,8 @@ def calculate_forehead(faceShapeCoord, noseCoord, distanceDictionary, gender):
 
 
 def calculateChin(normalizedLandmarks, distanceDictionary, faceShapeCoord, lipsCoord, gender):
-    chinSX = normalizedLandmarks[176]
-    chinDX = normalizedLandmarks[400]
+    chinSX = normalizedLandmarks[150]
+    chinDX = normalizedLandmarks[379]
 
     distanceChin = abs(chinSX["x"] - chinDX["x"])
     distanceDictionary["distanceChin"] = distanceChin
