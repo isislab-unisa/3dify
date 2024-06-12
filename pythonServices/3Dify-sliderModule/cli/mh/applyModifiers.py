@@ -3,6 +3,7 @@
 import sys
 from mhrc.JsonCall import JsonCall
 import json
+from dotenv import load_dotenv, dotenv_values 
 
 def usage():
     print("USAGE:\n")
@@ -15,9 +16,8 @@ if len(sys.argv) < 2:
 if len(sys.argv) > 2:
     usage()
 
-modsFileName = sys.argv[1]
-f = open(modsFileName)
-data = json.load(f)
+mods = sys.argv[1]
+data = json.loads(mods)
 
 jsc = JsonCall()
 
@@ -32,7 +32,17 @@ for (key, value) in data.items():
         print(key + ' ' + value)
         jsc.setParam(key, value);
 
-response = jsc.send()
+# loading variables from .env file
+load_dotenv() 
+
+ip = os.getenv("MAKEHUMAN_IP")
+port = os.getenv("MAKEHUMAN_PORT")
+if ip is None:
+    up = "localhost"
+if port is None:
+    port = "12345"
+
+response = jsc.send(ip, int(port))
 
 if not response:
     print("Command failed (returned null response)\n")

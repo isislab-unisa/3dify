@@ -4,6 +4,7 @@ import exec from 'exec';
 import AdmZip from 'adm-zip';
 
 export async function GET(req: Request) {
+
     // TODO fix path
     await exec('python3 ' + path.join(__dirname, '..', '..', 'internal', 'MakehumanSocketClient', 'mhrc', 'genericCommand.py') + ' exportFbx',
     (err: any, stdout: any, stderr: any) => {
