@@ -19,8 +19,10 @@ WORKDIR /app
 
 # install python 
 RUN apt-get update
-RUN apt-get install -y python3
+RUN apt-get install -y python3 python3-pip python3-full
 RUN apt-get upgrade -y
+RUN pip --version
+RUN python3 -m pip install --break-system-packages --no-cache-dir --upgrade numpy python-dotenv
 RUN python3 --version
 
 ENV NODE_ENV production

@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from imageProcess import process, extractLandmarks
 from cli.mh.genericCommandPy import sendCommand
 
-
 class Request(BaseModel):
     imageBase64: str | None = None
     gender : str | None = None
@@ -16,7 +15,6 @@ class Response(BaseModel):
     zipFile64: str | None = None
 
 app = FastAPI()
-
 
 @app.get("/")
 async def root():
@@ -32,12 +30,12 @@ async def getLandmarks(request: Request) -> Response:
 @app.post("/extractFeatures")
 async def generateSliders(request: Request) -> Response:
     imageBase64 = request.imageBase64
-    imageBase64 = imageBase64.split(",")[1]
+    #imageBase64 = imageBase64.split(",")[1]
     sliders = process(imageBase64, request.gender, request.age)
     return Response(sliders=sliders)
 
 @app.get("/downloadFbxZip")
-async def downloadFbxZip(request: Request) -> Response:
+async def downloadFbxZip() -> Response:
     data = sendCommand("exportFbx")
     return Response(zipFile64=data)
     

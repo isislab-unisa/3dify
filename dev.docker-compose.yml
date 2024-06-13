@@ -3,7 +3,7 @@ services:
   3dify:
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
     develop:
@@ -19,6 +19,9 @@ services:
           action: sync
     depends_on:
       - filestore
+    environment:
+      - MAKEHUMAN_IP = 172.16.15.156
+      - MAKEHUMAN_PORT = 12345
   filestore:
     image: minio/minio
     ports:
@@ -30,13 +33,18 @@ services:
     environment:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=minioadmin
-      - MINIO_API_CORS_ALLOW_ORIGIN='*''
+      - MINIO_API_CORS_ALLOW_ORIGIN='*'
   python:
     build:
       context: ./pythonServices
       dockerfile: Dockerfile
     ports:
       - 3001:80
+    develop:
+      watch:
+        - path: .
+          target: /pythonServices
+          action: rebuild
 volumes:
   minio_data:
     driver: local
