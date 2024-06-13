@@ -8,7 +8,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import pandas as pd
 from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoints,
-                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width)
+                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width, jawPoints, foreheadPoints, templePoints, cheeksPoints)
 from faceFeatures import calculateFaceFeatureDistances, normalizeminus11
 import base64
 from faceShapeFeatures import inferFaceShapeSliders
@@ -232,6 +232,11 @@ def process(imgBase64, gender, age):
     leftEyeCoord = []
     leftEyeBrowCoord = []
     lipsCoord = []
+    cheeksCoord = []
+    foreheadCoord = []
+    jawCoord = []
+    templeCoord = []
+    
     coord = {
         "noseCoord": noseCoord,
         "faceShapeCoord": faceShapeCoord,
@@ -240,6 +245,10 @@ def process(imgBase64, gender, age):
         "leftEyeCoord": leftEyeCoord,
         "leftEyeBrowCoord": leftEyeBrowCoord,
         "lipsCoord": lipsCoord,
+        "cheeksCoord": cheeksCoord,
+        "foreheadCoord": foreheadCoord,
+        "jawCoord": jawCoord,
+        "templeCoord": templeCoord,
     }
 
     for p in points:
@@ -268,7 +277,19 @@ def process(imgBase64, gender, age):
             elif p is lipsPoints:
                 color = (255, 255, 255)
                 lipsCoord.append(lm1)
-
+            elif p is jawPoints:
+                color = (255, 255, 0)
+                jawCoord.append(lm1)
+            elif p is templePoints:
+                color = (255, 0, 255)
+                templeCoord.append(lm1)
+            elif p is cheeksPoints:
+                color = (255, 0, 255)
+                cheeksCoord.append(lm1)
+            elif p is foreheadPoints:
+                color = (255, 0, 255)
+                foreheadCoord.append(lm1)
+                
             # x1 = int(lm1["x"] * square_size + start_x_down_sx)
             # y1 = int(lm1["y"] * square_size + start_y_down_sx)
 
@@ -279,7 +300,7 @@ def process(imgBase64, gender, age):
 
     distance_dictionary = {}
     normalized_distance_dictionary = calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
-                                  rightEyeBrowCoord, leftEyeBrowCoord, gender)
+                                  rightEyeBrowCoord, leftEyeBrowCoord, jawCoord, templeCoord, cheeksCoord, foreheadCoord, gender)
     
     makeHumanParameters = {}
     
@@ -306,10 +327,11 @@ def process(imgBase64, gender, age):
     
     for key in normalized_distance_dictionary.keys():
         makeHumanParameters["modifier " + key] = str(normalized_distance_dictionary[key])
+        print("modifier " + key + " " + str(normalized_distance_dictionary[key]))
         
-    faceShapeSliders = inferFaceShapeSliders(imgBase64, gender)
-    for key in faceShapeSliders.keys():
-        makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
+    # faceShapeSliders = inferFaceShapeSliders(imgBase64, gender)
+    # for key in faceShapeSliders.keys():
+    #     makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
         
     return makeHumanParameters
 

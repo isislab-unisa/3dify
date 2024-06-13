@@ -24,8 +24,8 @@ def calculate_forehead(faceShapeCoord, noseCoord, distanceDictionary, gender):
 
 
 def calculateChin(normalizedLandmarks, distanceDictionary, faceShapeCoord, lipsCoord, gender):
-    chinSX = normalizedLandmarks[150]
-    chinDX = normalizedLandmarks[379]
+    chinSX = normalizedLandmarks[149]
+    chinDX = normalizedLandmarks[378]
 
     distanceChin = abs(chinSX["x"] - chinDX["x"])
     distanceDictionary["distanceChin"] = distanceChin
@@ -347,8 +347,73 @@ def calculateLips(normalizedLandmarks, lipsCoord, distanceDictionary, gender):
     normalizedDistanceDictionary["mouth/mouth-cupidsbow-decr|incr"] = normalizeminus11(distanceCupidBowY, limits[gender]["distanceCupidBowY"][0], limits[gender]["distanceCupidBowY"][1]);
 
 
+def calculateFaceShape2(normalizedLandmarks, jawCoord, templeCoord, cheeksCoord, foreheadCoord, distanceDictionary, gender):
+    distanceTemple = abs(templeCoord[0]["x"] - templeCoord[1]["x"])
+    distanceForeheadChin = abs(normalizedLandmarks[168]["y"] - normalizedLandmarks[152]["y"])
+    distanceJawLine = abs(jawCoord[0]["x"] - jawCoord[1]["x"])
+    widthToLengthRatio = distanceTemple / distanceForeheadChin
+    cheekWidthToJawWidthRatio = abs(cheeksCoord[0]["x"] - cheeksCoord[1]["x"]) / distanceJawLine
+    distanceCheeks = abs(cheeksCoord[0]["x"] - cheeksCoord[1]["x"])
+    distanceForehead = abs(foreheadCoord[0]["x"] - foreheadCoord[1]["x"])
+    
+    distanceDictionary["distanceTemple"] = distanceTemple
+    distanceDictionary["distanceForeheadChin"] = distanceForeheadChin
+    distanceDictionary["distanceJawLine"] = distanceJawLine
+    distanceDictionary["widthToLengthRatio"] = widthToLengthRatio
+    distanceDictionary["cheekWidthToJawWidthRatio"] = cheekWidthToJawWidthRatio
+    
+    #Forehead Temple
+    normalizedDistanceDictionary["forehead/forehead-temple-decr|incr"] = normalizeminus11(distanceTemple, limits[gender]["distanceTemple"][0], limits[gender]["distanceTemple"][1])
+    
+    #Triangular vs Inverted Triangular
+    if distanceTemple > distanceJawLine:
+        normalizedDistanceDictionary["head/head-invertedtriangular"] = normalize(
+            distanceTemple / distanceJawLine,
+            limits[gender]["distanceTemple/distanceJawLine"][0],
+            limits[gender]["distanceTemple/distanceJawLine"][1],
+        )
+    else:
+        normalizedDistanceDictionary["head/head-triangular"] = normalize(
+            distanceTemple / distanceJawLine,
+            limits[gender]["distanceTemple/distanceJawLine"][0],
+            limits[gender]["distanceTemple/distanceJawLine"][1],
+        )
+     
+    #rectangular, vs round vs square   
+    if distanceTemple > distanceForeheadChin:
+        normalizedDistanceDictionary["head/head-rectangular"] = normalize(
+            distanceTemple / distanceForeheadChin,
+            limits[gender]["distanceTemple/distanceForeheadChin"][0],
+            limits[gender]["distanceTemple/distanceForeheadChin"][1],
+        )
+    elif abs(distanceTemple - distanceForeheadChin) < 0.05:
+        if cheekWidthToJawWidthRatio > 0.5:
+            normalizedDistanceDictionary["head/head-round"] = normalize(
+                cheekWidthToJawWidthRatio,
+                limits[gender]["cheekWidthToJawWidthRatio"][0],
+                limits[gender]["cheekWidthToJawWidthRatio"][1],
+            )
+        else:
+            normalizedDistanceDictionary["head/head-square"] = normalize(
+                cheekWidthToJawWidthRatio,
+                limits[gender]["cheekWidthToJawWidthRatio"][0],
+                limits[gender]["cheekWidthToJawWidthRatio"][1],
+            )
+    
+    #Diamond 
+    if distanceCheeks > distanceForehead:
+        if distanceForehead > distanceJawLine:
+            normalizedDistanceDictionary["head/head-diamond"] = normalize(
+                distanceCheeks / distanceJawLine,
+                limits[gender]["distanceCheeks/distanceJawLine"][0],
+                limits[gender]["distanceCheeks/distanceJawLine"][1],
+            )
+        
+    
+
+
 def calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
-                                  rightEyeBrowCoord, leftEyeBrowCoord, gender):
+                                  rightEyeBrowCoord, leftEyeBrowCoord, jawCoord, templeCoord, cheeksCoord, foreheadCoord,  gender):
     
     calculate_forehead(faceShapeCoord, noseCoord, distance_dictionary, gender)
     calculateChin(normalizedLandmarks, distance_dictionary, faceShapeCoord, lipsCoord, gender)
@@ -372,6 +437,7 @@ def calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, face
         gender
     )
     calculateLips(normalizedLandmarks, lipsCoord, distance_dictionary, gender)
+    calculateFaceShape2(normalizedLandmarks, jawCoord, templeCoord, cheeksCoord, foreheadCoord, distance_dictionary, gender)
     
     return normalizedDistanceDictionary
 
