@@ -9,9 +9,10 @@ from mediapipe.tasks.python import vision
 import pandas as pd
 from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoints,
                    leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width, jawPoints, foreheadPoints, templePoints, cheeksPoints)
-from faceFeatures import calculateFaceFeatureDistances, normalizeminus11
+from faceFeatures import calculateFaceFeatureDistances, normalizeminus11, reset_normalizedDistanceDictionary
 import base64
-from faceShapeFeatures import inferFaceShapeSliders
+# from faceShapeFeatures import inferFaceShapeSliders
+import traceback
 
 
 
@@ -149,8 +150,8 @@ def extractLandmarks(imgBase64):
     try:
         original_height, original_width = img.shape[:2]
     except Exception as e:
-        skipped += 1
-        print("SKIPPED LOADING IMAGE")
+        print("Failed Loading Image Shape")
+        traceback.print_exc()
         return
     if original_width > max_width:
         scale = max_width / float(original_width)
@@ -222,7 +223,8 @@ def extractLandmarks(imgBase64):
     return landmarks, normalizedLandmarks
 
 
-def process(imgBase64, gender, age):    
+def process(imgBase64, gender, age):
+    reset_normalizedDistanceDictionary()    
     landmarks, normalizedLandmarks = extractLandmarks(imgBase64)
 
     noseCoord = []

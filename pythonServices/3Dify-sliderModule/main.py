@@ -30,7 +30,7 @@ async def getLandmarks(request: Request) -> Response:
 @app.post("/extractFeatures")
 async def generateSliders(request: Request) -> Response:
     imageBase64 = request.imageBase64
-    #imageBase64 = imageBase64.split(",")[1]
+    imageBase64 = imageBase64.split(",")[1]
     sliders = process(imageBase64, request.gender, request.age)
     return Response(sliders=sliders)
 
