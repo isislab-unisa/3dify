@@ -8,7 +8,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import pandas as pd
 from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoints,
-                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width, jawPoints, foreheadPoints, templePoints, cheeksPoints)
+                   leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width, jawPoints, foreheadPoints, templePoints, cheeksPoints, noseCurvePoints, chinPoints)
 from faceFeatures import calculateFaceFeatureDistances, normalizeminus11, reset_normalizedDistanceDictionary
 import base64
 # from faceShapeFeatures import inferFaceShapeSliders
@@ -238,6 +238,8 @@ def process(imgBase64, gender, age):
     foreheadCoord = []
     jawCoord = []
     templeCoord = []
+    noseCurveCoord = []
+    chinCoord = []
     
     coord = {
         "noseCoord": noseCoord,
@@ -251,6 +253,8 @@ def process(imgBase64, gender, age):
         "foreheadCoord": foreheadCoord,
         "jawCoord": jawCoord,
         "templeCoord": templeCoord,
+        "noseCurveCoord": noseCurveCoord,
+        "chinCoord": chinCoord,  
     }
 
     for p in points:
@@ -291,6 +295,12 @@ def process(imgBase64, gender, age):
             elif p is foreheadPoints:
                 color = (255, 0, 255)
                 foreheadCoord.append(lm1)
+            elif p is noseCurvePoints:
+                color = (255, 0, 255)
+                noseCurveCoord.append(lm1)
+            elif p is chinPoints:
+                color = (255, 0, 255)
+                chinCoord.append(lm1)
                 
             # x1 = int(lm1["x"] * square_size + start_x_down_sx)
             # y1 = int(lm1["y"] * square_size + start_y_down_sx)
@@ -302,7 +312,7 @@ def process(imgBase64, gender, age):
 
     distance_dictionary = {}
     normalized_distance_dictionary = calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
-                                  rightEyeBrowCoord, leftEyeBrowCoord, jawCoord, templeCoord, cheeksCoord, foreheadCoord, gender)
+                                  rightEyeBrowCoord, leftEyeBrowCoord, jawCoord, templeCoord, cheeksCoord, foreheadCoord, noseCurveCoord, chinCoord, gender)
     
     makeHumanParameters = {}
     
@@ -310,7 +320,7 @@ def process(imgBase64, gender, age):
     
     makeHumanParameters["modifier head/head-age-decr|incr"] = str(normalizeminus11(age, 0.0, 100.0))
     makeHumanParameters["modifier macrodetails/Gender"] = str(genderValue)
-    makeHumanParameters["modifier forehead/forehead-scale-vert-decr|incr"] = "-0.25"
+    # makeHumanParameters["modifier forehead/forehead-scale-vert-decr|incr"] = "-0.25"
     
     skins = {
         "male": {

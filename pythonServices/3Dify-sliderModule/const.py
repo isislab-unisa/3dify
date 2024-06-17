@@ -31,6 +31,8 @@ cheeksPoints = [340, 111]
 foreheadPoints = [54, 284]
 jawPoints = [397, 172]
 templePoints = [156, 383]
+noseCurvePoints = [8, 168, 6, 197, 195, 5, 4]
+chinPoints = [32, 208, 199, 428, 262]
 
 points = [
     nosePoints,
@@ -44,6 +46,8 @@ points = [
     foreheadPoints,
     jawPoints,
     templePoints,
+    noseCurvePoints,
+    chinPoints,
 ]
 
 
@@ -230,6 +234,11 @@ limits = {
         "distanceCheeks/distanceJawLine": [0.00045, 1.6488],
         "distanceTemple": [0.497, 1.119],
         "lengthToWidthRatio": [0.6272, 1.4113],
+        "noseCompression": [0.13, 0.35],
+        "noseCurve": [0.0, 0.38],
+        "noseGreek": [0.0, 0.3],
+        "noseDepth": [0.0, 0.35],
+        "chinDepth": [0.3, 1.35],
     },
     "female": {
         "distanceChin": [0.2709, 0.6095],
@@ -244,13 +253,13 @@ limits = {
         "distanceYRightEye": [0.0452, 0.1018],
         "distanceYRightEyeSX": [0.055, 0.124],
         "distanceYRightEyeDX": [0.055, 0.124],
-        "distanceRightEyeNose": [0.14, 0.315],
+        "distanceRightEyeNose": [0.11, 0.27],
         "distanceRightEyeCenterChin": [0.46, 1.035],
         "scaledDistanceYLeftEye": [0.2607, 0.5867],
         "distanceYLeftEye": [0.0452, 0.1018],
         "distanceYLeftEyeSX": [0.055, 0.124],
         "distanceYLeftEyeDX": [0.055, 0.124],
-        "distanceLeftEyeNose": [0.14, 0.31],
+        "distanceLeftEyeNose": [0.11, 0.27],
         "distanceLeftEyeCenterChin": [0.47, 1.05],
         "meanDistanceEyeEyeBrow": [0.026, 0.06],
         "meanDistanceYEyeBrow": [0.01794, 0.04036],
@@ -265,5 +274,10 @@ limits = {
         "distanceCheeks/distanceJawLine": [0.669, 1.505],
         "distanceTemple": [0.510, 1.149],
         "lengthToWidthRatio": [0.6111, 1.3750],
+        "noseCompression": [0.15, 0.65],
+        "noseCurve": [0.01, 0.605],
+        "noseGreek": [0.01, 0.605],
+        "noseDepth": [0.01, 0.425],
+        "chinDepth": [0.05, 0.25],
     },
 }
