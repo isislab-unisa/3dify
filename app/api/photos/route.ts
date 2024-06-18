@@ -7,17 +7,22 @@ import {
 } from 'aws-sdk/clients/s3';
 import { Buffer } from 'buffer';
 
+type Img = {
+  image: string;
+  bucket: string;
+};
+
 export async function GET() {
   const s3 = new AWS.S3({
-    region: 'localhost',
-    endpoint: 'http://filestore:9000',
-    accessKeyId: 'admin',
-    secretAccessKey: 'minioadmin',
+    region: process.env.MINIO_REGION as string,
+    endpoint: process.env.MINIO_ENDPOINT as string,
+    accessKeyId: process.env.MINIO_ACCESS_KEY as string,
+    secretAccessKey: process.env.MINIO_SECRET_KEY as string,
     s3ForcePathStyle: true, // Required for MinIO
   });
 
   try {
-    let images: string[] = [];
+    let images: Img[] = [];
 
     const data = await s3.listBuckets().promise();
     const buckets = data.Buckets;
@@ -49,7 +54,10 @@ export async function GET() {
           continue;
         }
         const base64Image = Buffer.from(image.Body as any).toString('base64');
-        images.push(base64Image);
+        images.push({
+          image: base64Image,
+          bucket: bucket.Name as string,
+        });
       }
     }
 
