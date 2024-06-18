@@ -7,6 +7,11 @@ import {
 } from 'aws-sdk/clients/s3';
 import { Buffer } from 'buffer';
 
+type Img = {
+  image: string;
+  bucket: string;
+};
+
 export async function GET() {
   const s3 = new AWS.S3({
     region: 'localhost',
@@ -17,7 +22,7 @@ export async function GET() {
   });
 
   try {
-    let images: string[] = [];
+    let images: Img[] = [];
 
     const data = await s3.listBuckets().promise();
     const buckets = data.Buckets;
@@ -49,7 +54,10 @@ export async function GET() {
           continue;
         }
         const base64Image = Buffer.from(image.Body as any).toString('base64');
-        images.push(base64Image);
+        images.push({
+          image: base64Image,
+          bucket: bucket.Name as string,
+        });
       }
     }
 
