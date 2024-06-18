@@ -14,10 +14,10 @@ type Img = {
 
 export async function GET() {
   const s3 = new AWS.S3({
-    region: 'localhost',
-    endpoint: 'http://filestore:9000',
-    accessKeyId: 'admin',
-    secretAccessKey: 'minioadmin',
+    region: process.env.MINIO_REGION as string,
+    endpoint: process.env.MINIO_ENDPOINT as string,
+    accessKeyId: process.env.MINIO_ACCESS_KEY as string,
+    secretAccessKey: process.env.MINIO_SECRET_KEY as string,
     s3ForcePathStyle: true, // Required for MinIO
   });
 
