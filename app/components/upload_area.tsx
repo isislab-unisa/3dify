@@ -17,7 +17,7 @@ type FileInfo = {
 const { Dragger } = Upload;
 
 // const url = 'http://www.isislab.it:3004/api/uploadPhoto';
-const url = 'http://localhost:3000/api/uploadPhoto';
+// const url = 'http://localhost:3000/api/uploadPhoto';
 
 const UploadArea: FC<Props> = ({ setRefresh }) => {
   const [fileInfo, setFileInfo] = useState<FileInfo>({
@@ -65,7 +65,7 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
       reader.onload = async (event: any) => {
         const base64Data = event.target.result;
 
-        const response: Response = await fetch(url, {
+        const response: Response = await fetch(process.env.NEXT_PUBLIC_UPLOAD as string, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
