@@ -88,7 +88,42 @@ async function createFaceLandmarker(){
         numFaces: 1,
     });
 }
-//await createFaceLandmarker();
+
+export async function GetGenderAndAgeFromPhoto(base64img, widthImg)
+{
+    console.log("1")
+    const faceDetectionNet = faceapi.nets.ssdMobilenetv1
+    const minConfidence = 0.5
+
+    // TinyFaceDetectorOptions
+    const inputSize = 408
+    const scoreThreshold = 0.5
+
+    function getFaceDetectorOptions(net) {
+    return net === faceapi.nets.ssdMobilenetv1
+        ? new faceapi.SsdMobilenetv1Options({ minConfidence })
+        : new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
+    }
+
+    const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
+    
+    await faceDetectionNet.loadFromDisk(process.cwd() + '/app/internal/weights')
+    await faceapi.nets.faceLandmark68Net.loadFromDisk(process.cwd() + '/app/internal/weights')
+    await faceapi.nets.ageGenderNet.loadFromDisk(process.cwd() + '/app/internal/weights')
+    const buf = Buffer.from(base64img, "base64");
+        
+    const img = await canvas.loadImage(buf);
+
+    const results = await faceapi.detectAllFaces(img, faceDetectionOptions).withAgeAndGender()
+    let gender = results[0].gender
+
+    let age = results[0].age
+
+    console.log("GENDER : " + gender)
+    console.log("AGE : " + age)
+
+    return {age: age, gender: gender.toLowerCase()};
+}
 
 // inputImg = html <img> element containing input image with width and height
 export async function GetLandmarksFromPhoto(base64img, widthImg)
@@ -101,6 +136,8 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
     await faceapi.loadFaceLandmarkModel('http://localhost:3000/weights/')
     await faceapi.nets.ageGenderNet.load('http://localhost:3000/weights/')
     //const inputImgEl = $('#inputImg').get(0)
+    console.log(inputImg)
+    
 
     //FaceAPI for gender and age
     if (!isFaceDetectionModelLoaded()) {

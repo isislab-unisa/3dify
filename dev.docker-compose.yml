@@ -16,9 +16,8 @@ services:
           action: rebuild
         - path: next.config.js
           action: rebuild
-        - path: .
-          target: /app
-          action: sync
+        - path: ./app
+          action: rebuild
     depends_on:
       - filestore
     environment:
@@ -44,8 +43,17 @@ services:
       - 3001:80
     develop:
       watch:
-        - path: .
-          target: /pythonServices
+        - path: ./pythonServices
+          action: rebuild
+  unity:
+    build:
+      context: ./unityClient
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    develop:
+      watch:
+        - path: ./unityClient
           action: rebuild
 volumes:
   minio_data:
