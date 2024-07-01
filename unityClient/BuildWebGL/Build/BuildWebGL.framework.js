@@ -1994,13 +1994,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  5480528: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 5480589: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 5480653: function() {return Module.webglContextAttributes.powerPreference;},  
- 5480711: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 5480766: function($0) {performance.now = function() { return $0; };},  
- 5480814: function($0) {performance.now = function() { return $0; };},  
- 5480862: function() {performance.now = Module['emscripten_get_now_backup'];}
+  5480560: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 5480621: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 5480685: function() {return Module.webglContextAttributes.powerPreference;},  
+ 5480743: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 5480798: function($0) {performance.now = function() { return $0; };},  
+ 5480846: function($0) {performance.now = function() { return $0; };},  
+ 5480894: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -2170,6 +2170,27 @@ var ASM_CONSTS = {
         SendMessage(gameObjectName, methodName);
       };
     }
+
+  function _DownloadFileBrowser(array, size, fileNamePtr)
+  	{
+  		var fileName = UTF8ToString(fileNamePtr);
+   
+  		var bytes = new Uint8Array(size);
+  		for (var i = 0; i < size; i++)
+  		{
+  		   bytes[i] = HEAPU8[array + i];
+  		}
+   
+  		var blob = new Blob([bytes]);
+  		var link = document.createElement('a');
+  		link.href = window.URL.createObjectURL(blob);
+  		link.download = fileName;
+   
+  		var event = document.createEvent("MouseEvents");
+  		event.initMouseEvent("click");
+  		link.dispatchEvent(event);
+  		window.URL.revokeObjectURL(link.href);
+  	}
 
   function _GetJSMemoryInfo(totalJSptr, usedJSptr) {
       if (performance.memory) {
@@ -16665,6 +16686,7 @@ function checkIncomingModuleAPI() {
 }
 var asmLibraryArg = {
   "DownloadFile": _DownloadFile,
+  "DownloadFileBrowser": _DownloadFileBrowser,
   "GetJSMemoryInfo": _GetJSMemoryInfo,
   "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
   "JS_Accelerometer_Start": _JS_Accelerometer_Start,
