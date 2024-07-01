@@ -6,6 +6,10 @@ type Body = {
     text: string;
 };
 
+export async function OPTIONS(req: Request) {
+    return Response.json({ code: '200', status: 'OK', message: 'OK' });
+}
+
 export async function POST(req: Request) {
     const body: Body = await req.json();
     console.log(body.text)
@@ -24,3 +28,5 @@ export async function POST(req: Request) {
         return Response.json({ code: '500', status: 'Error', message: 'Error' });        
     }
 }
+
+

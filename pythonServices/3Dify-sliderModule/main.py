@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from imageProcess import process, extractLandmarks
 from cli.mh.genericCommandPy import sendCommand
+from fastapi.middleware.cors import CORSMiddleware
 
 class Request(BaseModel):
     imageBase64: str | None = None
@@ -15,6 +16,20 @@ class Response(BaseModel):
     zipFile64: str | None = None
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
