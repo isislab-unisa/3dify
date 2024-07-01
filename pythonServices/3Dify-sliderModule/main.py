@@ -38,14 +38,14 @@ async def root():
 @app.post("/scanFace")
 async def getLandmarks(request: Request) -> Response:
     imageBase64 = request.imageBase64
-    imageBase64 = imageBase64.split(",")[1]
+    #imageBase64 = imageBase64.split(",")[1]
     landmarks, normalizedLandmarks = extractLandmarks(imageBase64)
     return Response(landmarks=landmarks, normalizedLandmarks=normalizedLandmarks)
 
 @app.post("/extractFeatures")
 async def generateSliders(request: Request) -> Response:
     imageBase64 = request.imageBase64
-    imageBase64 = imageBase64.split(",")[1]
+    #imageBase64 = imageBase64.split(",")[1]
     sliders = process(imageBase64, request.gender, request.age)
     return Response(sliders=sliders)
 
