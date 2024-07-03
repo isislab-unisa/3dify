@@ -344,6 +344,14 @@ def process(imgBase64, gender, age):
     # faceShapeSliders = inferFaceShapeSliders(imgBase64, gender)
     # for key in faceShapeSliders.keys():
     #     makeHumanParameters["modifier " + key] = str(faceShapeSliders[key])
+
+    makeHumanParameters["skeleton"] = "default_no_toes.mhskel";
+    makeHumanParameters["eyelashes"] = "Eyelashes01 d533836f-13ad-4836-8b65-051108253cd2";
+    makeHumanParameters["eyebrows"] = "eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084";
+    makeHumanParameters["eyes"] = "HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6";
+    makeHumanParameters["material HighPolyEyes"] = "2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat";
+    makeHumanParameters["material eyebrow001"] = "9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat";
+    makeHumanParameters["material Eyelashes01"] = "d533836f-13ad-4836-8b65-051108253cd2 eyelashes01.mhmat";
         
     return makeHumanParameters
 
