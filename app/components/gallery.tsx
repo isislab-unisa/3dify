@@ -31,6 +31,7 @@ type Props = {
 type Img = {
   image: string;
   bucket: string;
+  name: string;
 }
 
 type PhotoData = {
@@ -77,6 +78,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
     height: 200,
     src: `data:image/png;base64,${photo.image}`,
     bucket: photo.bucket,
+    name: photo.name,
   }));
 
   const onDownload = (imgIndex: number) => {
@@ -98,6 +100,11 @@ const Gallery: FC<Props> = ({ refresh }) => {
   const getImgBucket = (imgIndex: number): string => {
     const img = images[imgIndex];
     return img.bucket;
+  };
+
+  const getImgName = (imgIndex: number): string => {
+    const img = images[imgIndex];
+    return img.name;
   };
 
   if (loading) {
@@ -174,7 +181,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
                 />
                 <Tooltip title='Customize your Avatar!'>
                   <a
-                    href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}`}
+                    href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}`}
                     target='_blank'
                     className='toolbar-icon'
                   >

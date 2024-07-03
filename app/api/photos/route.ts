@@ -10,6 +10,7 @@ import { Buffer } from 'buffer';
 type Img = {
   image: string;
   bucket: string;
+  name: string;
 };
 
 export async function GET() {
@@ -50,6 +51,7 @@ export async function GET() {
         };
 
         const image = await s3.getObject(getObjectParams).promise();
+        console.log({image}, getObjectParams.Key);
         if (!image.Body) {
           continue;
         }
@@ -57,6 +59,7 @@ export async function GET() {
         images.push({
           image: base64Image,
           bucket: bucket.Name as string,
+          name: getObjectParams.Key,
         });
       }
     }
