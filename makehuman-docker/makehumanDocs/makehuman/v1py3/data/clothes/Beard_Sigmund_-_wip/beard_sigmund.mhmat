@@ -1,0 +1,45 @@
+# Material definition for materialMaterial
+
+name materialMaterial
+description Beard_Sigmund material
+ambientColor 0 0 0
+diffuseColor 1 1 1
+specularColor 0.0341 0.0341 0.0341
+shininess 0.05
+emissiveColor 0.0 0.0 0.0
+opacity 0.0
+translucency 0.2
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull True
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture Material_Diffuse_Color1_d.png
+normalmapTexture Material_Diffuse_Color1_hn.png
+normalmapIntensity 0.5
+specularmapTexture Material_Diffuse_Color1_s.png
+specularmapIntensity 0.5
+aomapTexture Material_Diffuse_Color1_a.png
+aomapIntensity 0.1
+displacementmapTexture Material_Diffuse_Color1_h
+displacementmapIntensity 0.1
+
+shader shaders/glsl/litsphere
+
+shaderParam litsphereTexture litspheres/lit_hair.png
+
+shaderConfig ambientOcclusion True
+shaderConfig normal true
+shaderConfig bump True
+shaderConfig displacement true
+shaderConfig vertexColors False
+shaderConfig spec True
+shaderConfig transparency True
+shaderConfig diffuse True

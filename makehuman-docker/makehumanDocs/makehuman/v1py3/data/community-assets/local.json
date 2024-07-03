@@ -1,0 +1,85 @@
+{
+  "material": {},
+  "model": {},
+  "clothes": {
+    "153": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Glasses_Library_Male\\glasses_library_male.mhclo",
+      "modified": "2024-02-25 14:58:27"
+    },
+    "877": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Beard_Sigmund_-_wip\\beard_sigmund.mhclo",
+      "modified": "2024-02-25 14:56:11"
+    },
+    "3330": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\TBM_Glasses_Frames_01\\TBM_Glasses_Frames_01.mhclo",
+      "modified": "2024-05-08 19:06:21"
+    },
+    "2356": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Faun_beard\\faun_beard.mhclo",
+      "modified": "2024-05-08 19:07:10"
+    },
+    "1769": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Scruffy_Beard\\scruffy_beard.mhclo",
+      "modified": "2024-05-08 19:07:43"
+    },
+    "187": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Moustache\\moustache.mhclo",
+      "modified": "2024-05-08 19:08:01"
+    },
+    "188": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Full_beard\\full_beard.mhclo",
+      "modified": "2024-05-29 10:46:16"
+    },
+    "877": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\Beard_Sigmund_-_wip\\beard_sigmund.mhclo",
+      "modified": "2024-05-29 10:46:24"
+    },
+    "3125": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\clothes\\BTH_Full_Brown_Beard\\BTH_Full_Beard.mhclo",
+      "modified": "2024-05-29 10:46:47"
+    }
+  },
+  "hair": {
+    "480": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\hair\\Hairstyle_Curly_alpha_7_adaptation\\curly.mhclo",
+      "modified": "2024-05-08 19:12:06"
+    },
+    "3542": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\hair\\Messy_Bun\\Messy_Bun.mhclo",
+      "modified": "2024-05-08 19:10:31"
+    },
+    "477": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\hair\\Hairstyle_Curly_2_alpha_7_adaptation\\curly2.mhclo",
+      "modified": "2024-05-08 19:12:12"
+    },
+    "482": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\hair\\Hairstyle_Long_alpha_7_adaptation\\long_alpha7.mhclo",
+      "modified": "2024-05-27 15:01:10"
+    }
+  },
+  "teeth": {},
+  "eyebrows": {},
+  "eyelashes": {
+    "1982": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\eyelashes\\Mind_Eyelashes_05\\mind_eyelashes_05.mhclo",
+      "modified": "2024-05-24 11:41:13"
+    }
+  },
+  "tongue": {},
+  "eyes": {},
+  "proxy": {},
+  "skin": {
+    "1581": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\skins\\Old_Eurasian_Male\\old_eurasian_male.mhmat",
+      "modified": "2024-05-15 11:11:28"
+    },
+    "743": {
+      "file": "C:\\Users\\andal\\Documents\\makehuman\\v1py3\\data\\skins\\Uniform_skin_texture\\skin_texture.mhmat",
+      "modified": "2024-05-15 11:14:13"
+    }
+  },
+  "pose": {},
+  "expression": {},
+  "rig": {},
+  "target": {}
+}

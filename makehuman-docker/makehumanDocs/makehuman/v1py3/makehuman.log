@@ -1,0 +1,660 @@
+[2024-06-21 16:21:38,159] log.py->message():118 -- MESSAGE -- Initialized logging
+[2024-06-21 16:21:38,227] log.py->debug():97 -- DEBUG -- VERSION: master:eb1d1c64
+[2024-06-21 16:21:38,227] log.py->debug():97 -- DEBUG -- SHORT VERSION: alpha
+[2024-06-21 16:21:38,227] log.py->debug():97 -- DEBUG -- LONG VERSION: 1.2.1 alpha (master:eb1d1c64)
+[2024-06-21 16:21:38,227] log.py->debug():97 -- DEBUG -- BASEMESH VERSION: hm08
+[2024-06-21 16:21:38,227] log.py->debug():97 -- DEBUG -- IS BUILT (FROZEN): No
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- IS RELEASE VERSION: No
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- DEFAULT ENCODING: utf-8
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- FILESYSTEM ENCODING: utf-8
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- STDOUT ENCODING: cp1252
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- LOCALE PREFERRED ENCODING: cp1252
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- WORKING DIRECTORY: C:\Users\andal\Documents\gits\makehuman\makehuman
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- HOME LOCATION: C:/Users/andal/Documents
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- PYTHON PATH: ./;./lib;./apps;./shared;./apps/gui;./core;C:\Users\andal\Documents\gits\makehuman\makehuman;C:\Users\andal\miniforge3\envs\makehuman\python312.zip;C:\Users\andal\miniforge3\envs\makehuman\DLLs;C:\Users\andal\miniforge3\envs\makehuman\Lib;C:\Users\andal\miniforge3\envs\makehuman;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\win32;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\win32\lib;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\Pythonwin
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- DLL PATH: C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\PyQt5\Qt5\bin;C:\Users\andal\miniforge3\envs\makehuman;C:\Users\andal\miniforge3\envs\makehuman\Library\mingw-w64\bin;C:\Users\andal\miniforge3\envs\makehuman\Library\usr\bin;C:\Users\andal\miniforge3\envs\makehuman\Library\bin;C:\Users\andal\miniforge3\envs\makehuman\Scripts;C:\Users\andal\miniforge3\envs\makehuman\bin;C:\Program Files\PowerShell\7;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\libnvvp;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\libnvvp;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Users\andal\miniforge3\condabin;C:\Program Files\PuTTY;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.21.3482.0_x64__8wekyb3d8bbwe;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.1.0;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PowerShell\7;C:\Program Files\Tailscale;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\extras\CUPTI\lib64;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\libnvvp;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.3.1;C:\ProgramData\chocolatey\bin;C:\Program Files\PowerShell\7;C:\Users\andal\miniforge3\condabin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY;C:\Users\andal\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\andal\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\andal\AppData\Local\Programs\Pyth;C:\Users\andal\AppData\Local\Microsoft\WinGet\Links;C:\Users\andal\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\andal\AppData\Local\Programs\Hyper\resources\bin;C:\Users\andal\AppData\Local\Programs\mongosh;C:\Users\andal\AppData\Local\JetBrains\Toolbox\scripts;.
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- SYS.VERSION: 3.12.1 | packaged by conda-forge | (main, Dec 23 2023, 07:53:56) [MSC v.1937 64 bit (AMD64)]
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- SYS.PLATFORM: win32
+[2024-06-21 16:21:38,228] log.py->debug():97 -- DEBUG -- SYS.EXECUTABLE: C:\Users\andal\miniforge3\envs\makehuman\python.exe
+[2024-06-21 16:21:38,264] log.py->debug():97 -- DEBUG -- PLATFORM.MACHINE: AMD64
+[2024-06-21 16:21:38,274] log.py->debug():97 -- DEBUG -- PLATFORM.PROCESSOR: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel
+[2024-06-21 16:21:38,274] log.py->debug():97 -- DEBUG -- PLATFORM.UNAME.RELEASE: 11
+[2024-06-21 16:21:38,291] log.py->debug():97 -- DEBUG -- PLATFORM.WIN32_VER: 11 10.0.22631 SP0 Multiprocessor Free
+[2024-06-21 16:21:38,497] log.py->debug():97 -- DEBUG -- NUMPY.VERSION: 1.26.4
+[2024-06-21 16:21:38,529] acceleratesupport.py-><module>():23 -- MESSAGE -- No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[2024-06-21 16:21:39,028] log.py->debug():97 -- DEBUG -- QT.VERSION: 5.15.2
+[2024-06-21 16:21:39,041] log.py->debug():97 -- DEBUG -- QT.JPG_SUPPORT: supported
+[2024-06-21 16:21:39,041] log.py->debug():97 -- DEBUG -- QT.SVG_SUPPORT: supported
+[2024-06-21 16:21:39,042] log.py->debug():97 -- DEBUG -- QT.PLUGIN_PATH: C:/Users/andal/miniforge3/envs/makehuman/Lib/site-packages/PyQt5/Qt5/plugins;C:/Users/andal/miniforge3/envs/makehuman
+[2024-06-21 16:21:39,042] log.py->debug():97 -- DEBUG -- QT.PLUGIN_PATH_ENV: 
+[2024-06-21 16:21:39,042] log.py->debug():97 -- DEBUG -- QT.CONF: NOT PRESENT
+[2024-06-21 16:21:39,567] log.py->debug():97 -- DEBUG -- PYOPENGL.VERSION: 3.1.7
+[2024-06-21 16:21:39,567] log.py->debug():97 -- DEBUG -- NOSHADERS: not set
+[2024-06-21 16:21:39,567] log.py->debug():97 -- DEBUG -- NOSAMPLEBUFFERS: not set
+[2024-06-21 16:21:39,567] log.py->debug():97 -- DEBUG -- GL.VENDOR: NVIDIA Corporation
+[2024-06-21 16:21:39,569] log.py->debug():97 -- DEBUG -- GL.RENDERER: NVIDIA GeForce RTX 4070 Ti/PCIe/SSE2
+[2024-06-21 16:21:39,569] log.py->debug():97 -- DEBUG -- GL.VERSION: 4.6.0 NVIDIA 552.41
+[2024-06-21 16:21:39,570] log.py->debug():97 -- DEBUG -- 4.60 NVIDIA
+[2024-06-21 16:21:39,570] log.py->debug():97 -- DEBUG -- GLSL.VERSION: 4.60 NVIDIA
+[2024-06-21 16:21:39,572] log.py->debug():97 -- DEBUG -- GL.EXTENSION: GL_ARB_multisample not available (0x samples)
+[2024-06-21 16:21:39,578] log.py->debug():97 -- DEBUG -- Creating new texture for image data/textures/texture_notfound.png.
+[2024-06-21 16:21:39,585] log.py->debug():97 -- DEBUG -- GL.EXTENSION: GL_ARB_texture_non_power_of_two enabled
+[2024-06-21 16:21:39,593] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:21:39,697] log.py->debug():97 -- DEBUG -- Setting language to english
+[2024-06-21 16:21:39,698] log.py->debug():97 -- DEBUG -- Setting language to english
+[2024-06-21 16:21:39,707] log.py->message():118 -- MESSAGE -- Initializing default theme first.
+[2024-06-21 16:21:39,711] log.py->message():118 -- MESSAGE -- Theme default version 1.2.0
+[2024-06-21 16:21:39,711] log.py->debug():97 -- DEBUG -- Loaded theme data/themes/default.mht
+[2024-06-21 16:21:39,713] log.py->debug():97 -- DEBUG -- Using Qt system style windowsvista
+[2024-06-21 16:21:40,504] log.py->message():118 -- MESSAGE -- Loading human
+[2024-06-21 16:21:40,514] log.py->debug():97 -- DEBUG -- Loading binary mesh data/3dobjs/base.npz.
+[2024-06-21 16:21:40,537] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 5
+[2024-06-21 16:21:40,596] log.py->debug():97 -- DEBUG -- Loading material from file data/skins/default.mhmat
+[2024-06-21 16:21:40,621] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:21:40,621] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:21:40,769] log.py->message():118 -- MESSAGE -- Loaded vertex weights MakeHuman weights from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/rigs/default_weights.mhw
+[2024-06-21 16:21:40,940] log.py->message():118 -- MESSAGE -- Loading scene
+[2024-06-21 16:21:40,949] log.py->debug():97 -- DEBUG -- Loading scene file: data/scenes/default.mhscene
+[2024-06-21 16:21:40,950] log.py->message():118 -- MESSAGE -- Loading main GUI
+[2024-06-21 16:21:40,955] log.py->debug():97 -- DEBUG -- Assigning setting loaddir value C:/Users/andal/Desktop/3dify/MH_Files that was loaded before the setting was declared.
+[2024-06-21 16:21:40,957] log.py->debug():97 -- DEBUG -- Assigning setting savedir value C:/Users/andal/Desktop/3dify/MH_Files that was loaded before the setting was declared.
+[2024-06-21 16:21:40,959] log.py->debug():97 -- DEBUG -- Assigning setting exportdir value C:/Users/andal/Desktop/3dify/models/sadana that was loaded before the setting was declared.
+[2024-06-21 16:21:40,961] log.py->message():118 -- MESSAGE -- Loading plugins
+[2024-06-21 16:21:40,967] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_0_modifiers
+[2024-06-21 16:21:40,973] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_0_modifiers
+[2024-06-21 16:21:40,977] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_0_modifiers
+[2024-06-21 16:21:40,978] log.py->debug():97 -- DEBUG -- Loading modifiers from data/modifiers/modeling_modifiers.json
+[2024-06-21 16:21:40,983] log.py->debug():97 -- DEBUG -- Attempting to load targets from NPZ file.
+[2024-06-21 16:21:41,714] log.py->debug():97 -- DEBUG -- 1280 targets loaded from NPZ file succesfully.
+[2024-06-21 16:21:44,285] log.py->message():118 -- MESSAGE -- Loaded 249 modifiers from file data/modifiers/modeling_modifiers.json
+[2024-06-21 16:21:44,292] log.py->message():118 -- MESSAGE -- Loaded 249 modifier descriptions from file data/modifiers/modeling_modifiers_desc.json
+[2024-06-21 16:21:44,618] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_0_modifiers
+[2024-06-21 16:21:44,624] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:21:44,625] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:21:44,626] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:21:44,628] log.py->debug():97 -- DEBUG -- Loading modifiers from data/modifiers/bodyshapes_modifiers.json
+[2024-06-21 16:21:44,632] log.py->message():118 -- MESSAGE -- Loaded 22 modifiers from file data/modifiers/bodyshapes_modifiers.json
+[2024-06-21 16:21:44,636] log.py->message():118 -- MESSAGE -- Loaded 22 modifier descriptions from file data/modifiers/bodyshapes_modifiers_desc.json
+[2024-06-21 16:21:44,670] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:21:44,671] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_8_random
+[2024-06-21 16:21:44,673] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_8_random
+[2024-06-21 16:21:44,674] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_8_random
+[2024-06-21 16:21:44,677] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_8_random
+[2024-06-21 16:21:44,679] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_9_custom_targets
+[2024-06-21 16:21:44,681] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_9_custom_targets
+[2024-06-21 16:21:44,684] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_9_custom_targets
+[2024-06-21 16:21:44,686] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_9_custom_targets
+[2024-06-21 16:21:44,688] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_a_measurement
+[2024-06-21 16:21:44,690] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_a_measurement
+[2024-06-21 16:21:44,692] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_a_measurement
+[2024-06-21 16:21:44,693] log.py->debug():97 -- DEBUG -- Loading modifiers from data/modifiers/measurement_modifiers.json
+[2024-06-21 16:21:44,698] log.py->message():118 -- MESSAGE -- Loaded 20 modifiers from file data/modifiers/measurement_modifiers.json
+[2024-06-21 16:21:44,703] log.py->message():118 -- MESSAGE -- Loaded 20 modifier descriptions from file data/modifiers/measurement_modifiers_desc.json
+[2024-06-21 16:21:44,723] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_a_measurement
+[2024-06-21 16:21:44,725] log.py->message():118 -- MESSAGE -- Importing plugin 0_modeling_background
+[2024-06-21 16:21:44,732] log.py->message():118 -- MESSAGE -- Imported plugin 0_modeling_background
+[2024-06-21 16:21:44,734] log.py->message():118 -- MESSAGE -- Loading plugin 0_modeling_background
+[2024-06-21 16:21:44,747] log.py->message():118 -- MESSAGE -- Loaded plugin 0_modeling_background
+[2024-06-21 16:21:44,749] log.py->message():118 -- MESSAGE -- Importing plugin 1_convert_model_tags
+[2024-06-21 16:21:44,753] log.py->message():118 -- MESSAGE -- Imported plugin 1_convert_model_tags
+[2024-06-21 16:21:44,753] log.py->message():118 -- MESSAGE -- Loading plugin 1_convert_model_tags
+[2024-06-21 16:21:44,757] log.py->message():118 -- MESSAGE -- Loaded plugin 1_convert_model_tags
+[2024-06-21 16:21:44,758] log.py->message():118 -- MESSAGE -- Importing plugin 1_mhapi
+[2024-06-21 16:21:44,763] log.py->message():118 -- MESSAGE -- Imported plugin 1_mhapi
+[2024-06-21 16:21:44,764] log.py->message():118 -- MESSAGE -- Loading plugin 1_mhapi
+[2024-06-21 16:21:44,814] log.py->message():118 -- MESSAGE -- Loaded plugin 1_mhapi
+[2024-06-21 16:21:44,815] log.py->message():118 -- MESSAGE -- Importing plugin 2_foot_posing
+[2024-06-21 16:21:44,817] log.py->message():118 -- MESSAGE -- Imported plugin 2_foot_posing
+[2024-06-21 16:21:44,817] log.py->message():118 -- MESSAGE -- Loading plugin 2_foot_posing
+[2024-06-21 16:21:44,820] log.py->message():118 -- MESSAGE -- Loaded plugin 2_foot_posing
+[2024-06-21 16:21:44,821] log.py->message():118 -- MESSAGE -- Importing plugin 2_posing_expression
+[2024-06-21 16:21:44,825] log.py->message():118 -- MESSAGE -- Imported plugin 2_posing_expression
+[2024-06-21 16:21:44,826] log.py->message():118 -- MESSAGE -- Loading plugin 2_posing_expression
+[2024-06-21 16:21:44,830] log.py->message():118 -- MESSAGE -- Loaded plugin 2_posing_expression
+[2024-06-21 16:21:44,831] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_animation
+[2024-06-21 16:21:44,834] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_animation
+[2024-06-21 16:21:44,835] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_animation
+[2024-06-21 16:21:44,842] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_animation
+[2024-06-21 16:21:44,844] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_clothes_chooser
+[2024-06-21 16:21:44,846] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_clothes_chooser
+[2024-06-21 16:21:44,847] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_clothes_chooser
+[2024-06-21 16:21:44,852] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_clothes_chooser
+[2024-06-21 16:21:44,855] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_eye_chooser
+[2024-06-21 16:21:44,856] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_eye_chooser
+[2024-06-21 16:21:44,859] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_eye_chooser
+[2024-06-21 16:21:44,861] log.py->debug():97 -- DEBUG -- According to mh.getSysDataPath here's high poly eyes data/eyes/high-poly/high-poly.mhclo
+[2024-06-21 16:21:44,861] log.py->message():118 -- MESSAGE -- Selecting proxy file "data/eyes/high-poly/high-poly.mhclo" from eyes library.
+[2024-06-21 16:21:44,864] log.py->debug():97 -- DEBUG -- Loading binary proxy data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:21:44,868] log.py->debug():97 -- DEBUG -- Loading proxy file: data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:21:44,873] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/materials/brown.mhmat
+[2024-06-21 16:21:44,880] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:21:44,881] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:21:44,881] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:21:44,881] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:21:44,882] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.npz.
+[2024-06-21 16:21:44,886] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 4
+[2024-06-21 16:21:44,890] log.py->debug():97 -- DEBUG -- remapping weights for proxy HighPolyEyes
+[2024-06-21 16:21:44,910] log.py->debug():97 -- DEBUG -- remapping weights for HighPolyEyes took 0.01827 seconds
+[2024-06-21 16:21:45,039] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_eye_chooser
+[2024-06-21 16:21:45,041] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_eyebrows
+[2024-06-21 16:21:45,044] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_eyebrows
+[2024-06-21 16:21:45,044] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_eyebrows
+[2024-06-21 16:21:45,048] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_eyebrows
+[2024-06-21 16:21:45,049] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_eyelashes
+[2024-06-21 16:21:45,052] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_eyelashes
+[2024-06-21 16:21:45,056] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_eyelashes
+[2024-06-21 16:21:45,058] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_eyelashes
+[2024-06-21 16:21:45,060] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_material_chooser
+[2024-06-21 16:21:45,063] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_material_chooser
+[2024-06-21 16:21:45,064] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_material_chooser
+[2024-06-21 16:21:45,071] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_material_chooser
+[2024-06-21 16:21:45,072] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:21:45,075] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:21:45,075] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:21:45,079] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:21:45,085] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_pose
+[2024-06-21 16:21:45,088] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_pose
+[2024-06-21 16:21:45,089] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_pose
+[2024-06-21 16:21:45,092] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_pose
+[2024-06-21 16:21:45,095] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_proxy_chooser
+[2024-06-21 16:21:45,098] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_proxy_chooser
+[2024-06-21 16:21:45,100] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_proxy_chooser
+[2024-06-21 16:21:45,102] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_proxy_chooser
+[2024-06-21 16:21:45,104] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_skeleton
+[2024-06-21 16:21:45,110] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_skeleton
+[2024-06-21 16:21:45,111] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_skeleton
+[2024-06-21 16:21:45,117] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_skeleton
+[2024-06-21 16:21:45,119] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_teeth
+[2024-06-21 16:21:45,122] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_teeth
+[2024-06-21 16:21:45,123] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_teeth
+[2024-06-21 16:21:45,127] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_teeth
+[2024-06-21 16:21:45,128] log.py->message():118 -- MESSAGE -- Importing plugin 3_libraries_tongue
+[2024-06-21 16:21:45,131] log.py->message():118 -- MESSAGE -- Imported plugin 3_libraries_tongue
+[2024-06-21 16:21:45,132] log.py->message():118 -- MESSAGE -- Loading plugin 3_libraries_tongue
+[2024-06-21 16:21:45,136] log.py->message():118 -- MESSAGE -- Loaded plugin 3_libraries_tongue
+[2024-06-21 16:21:45,137] log.py->message():118 -- MESSAGE -- Importing plugin 4_rendering_9_viewer
+[2024-06-21 16:21:45,140] log.py->message():118 -- MESSAGE -- Imported plugin 4_rendering_9_viewer
+[2024-06-21 16:21:45,141] log.py->message():118 -- MESSAGE -- Loading plugin 4_rendering_9_viewer
+[2024-06-21 16:21:45,145] log.py->message():118 -- MESSAGE -- Loaded plugin 4_rendering_9_viewer
+[2024-06-21 16:21:45,148] log.py->message():118 -- MESSAGE -- Importing plugin 4_rendering_opengl
+[2024-06-21 16:21:45,151] log.py->message():118 -- MESSAGE -- Imported plugin 4_rendering_opengl
+[2024-06-21 16:21:45,152] log.py->message():118 -- MESSAGE -- Loading plugin 4_rendering_opengl
+[2024-06-21 16:21:45,157] log.py->debug():97 -- DEBUG -- Assigning setting rendering_width value 800 that was loaded before the setting was declared.
+[2024-06-21 16:21:45,157] log.py->debug():97 -- DEBUG -- Assigning setting rendering_height value 600 that was loaded before the setting was declared.
+[2024-06-21 16:21:45,157] log.py->debug():97 -- DEBUG -- Assigning setting GL_RENDERER_SSS value True that was loaded before the setting was declared.
+[2024-06-21 16:21:45,157] log.py->debug():97 -- DEBUG -- Assigning setting GL_RENDERER_AA value True that was loaded before the setting was declared.
+[2024-06-21 16:21:45,159] log.py->message():118 -- MESSAGE -- Loaded plugin 4_rendering_opengl
+[2024-06-21 16:21:45,162] log.py->message():118 -- MESSAGE -- Importing plugin 4_rendering_scene
+[2024-06-21 16:21:45,165] log.py->message():118 -- MESSAGE -- Imported plugin 4_rendering_scene
+[2024-06-21 16:21:45,166] log.py->message():118 -- MESSAGE -- Loading plugin 4_rendering_scene
+[2024-06-21 16:21:45,167] mhmain.py->addSetting():355 -- NOTICE -- Setting rendering_width is already declared. Adding it again has no effect.
+[2024-06-21 16:21:45,171] mhmain.py->addSetting():355 -- NOTICE -- Setting rendering_height is already declared. Adding it again has no effect.
+[2024-06-21 16:21:45,173] log.py->message():118 -- MESSAGE -- Loaded plugin 4_rendering_scene
+[2024-06-21 16:21:45,176] log.py->message():118 -- MESSAGE -- Importing plugin 5_settings_0_settings
+[2024-06-21 16:21:45,178] log.py->message():118 -- MESSAGE -- Imported plugin 5_settings_0_settings
+[2024-06-21 16:21:45,180] log.py->message():118 -- MESSAGE -- Loading plugin 5_settings_0_settings
+[2024-06-21 16:21:45,291] log.py->debug():97 -- DEBUG -- Setting language to english
+[2024-06-21 16:21:45,296] log.py->message():118 -- MESSAGE -- Theme makehuman version 1.2.0
+[2024-06-21 16:21:45,300] log.py->debug():97 -- DEBUG -- Loaded theme data/themes/makehuman.mht
+[2024-06-21 16:21:46,019] log.py->debug():97 -- DEBUG -- Loaded Qt style data/themes/makehuman.qss
+[2024-06-21 16:21:46,050] log.py->message():118 -- MESSAGE -- Loaded plugin 5_settings_0_settings
+[2024-06-21 16:21:46,052] log.py->message():118 -- MESSAGE -- Importing plugin 5_settings_mouse
+[2024-06-21 16:21:46,054] log.py->message():118 -- MESSAGE -- Imported plugin 5_settings_mouse
+[2024-06-21 16:21:46,055] log.py->message():118 -- MESSAGE -- Loading plugin 5_settings_mouse
+[2024-06-21 16:21:46,057] log.py->message():118 -- MESSAGE -- Loaded plugin 5_settings_mouse
+[2024-06-21 16:21:46,058] log.py->message():118 -- MESSAGE -- Importing plugin 5_settings_shortcuts
+[2024-06-21 16:21:46,060] log.py->message():118 -- MESSAGE -- Imported plugin 5_settings_shortcuts
+[2024-06-21 16:21:46,061] log.py->message():118 -- MESSAGE -- Loading plugin 5_settings_shortcuts
+[2024-06-21 16:21:46,072] log.py->message():118 -- MESSAGE -- Loaded plugin 5_settings_shortcuts
+[2024-06-21 16:21:46,073] log.py->message():118 -- MESSAGE -- Importing plugin 5_settings_userplugins
+[2024-06-21 16:21:46,074] log.py->message():118 -- MESSAGE -- Imported plugin 5_settings_userplugins
+[2024-06-21 16:21:46,075] log.py->message():118 -- MESSAGE -- Loading plugin 5_settings_userplugins
+[2024-06-21 16:21:46,082] log.py->message():118 -- MESSAGE -- Loaded plugin 5_settings_userplugins
+[2024-06-21 16:21:46,083] log.py->message():118 -- MESSAGE -- Importing plugin 6_help
+[2024-06-21 16:21:46,089] log.py->message():118 -- MESSAGE -- Imported plugin 6_help
+[2024-06-21 16:21:46,090] log.py->message():118 -- MESSAGE -- Loading plugin 6_help
+[2024-06-21 16:21:46,094] log.py->message():118 -- MESSAGE -- Loaded plugin 6_help
+[2024-06-21 16:21:46,095] log.py->message():118 -- MESSAGE -- Importing plugin 7_data
+[2024-06-21 16:21:46,102] log.py->message():118 -- MESSAGE -- Imported plugin 7_data
+[2024-06-21 16:21:46,104] log.py->message():118 -- MESSAGE -- Loading plugin 7_data
+[2024-06-21 16:21:46,139] log.py->message():118 -- MESSAGE -- Loaded plugin 7_data
+[2024-06-21 16:21:46,141] log.py->message():118 -- MESSAGE -- Importing plugin 7_example
+[2024-06-21 16:21:46,143] log.py->message():118 -- MESSAGE -- Imported plugin 7_example
+[2024-06-21 16:21:46,144] log.py->message():118 -- MESSAGE -- Loading plugin 7_example
+[2024-06-21 16:21:46,168] log.py->message():118 -- MESSAGE -- Loaded plugin 7_example
+[2024-06-21 16:21:46,171] log.py->message():118 -- MESSAGE -- Importing plugin 7_expression_mixer
+[2024-06-21 16:21:46,173] log.py->message():118 -- MESSAGE -- Imported plugin 7_expression_mixer
+[2024-06-21 16:21:46,174] log.py->message():118 -- MESSAGE -- Loading plugin 7_expression_mixer
+[2024-06-21 16:21:46,186] log.py->message():118 -- MESSAGE -- Loaded plugin 7_expression_mixer
+[2024-06-21 16:21:46,189] log.py->message():118 -- MESSAGE -- Importing plugin 7_logging
+[2024-06-21 16:21:46,191] log.py->message():118 -- MESSAGE -- Imported plugin 7_logging
+[2024-06-21 16:21:46,192] log.py->message():118 -- MESSAGE -- Loading plugin 7_logging
+[2024-06-21 16:21:46,197] log.py->message():118 -- MESSAGE -- Loaded plugin 7_logging
+[2024-06-21 16:21:46,199] log.py->message():118 -- MESSAGE -- Importing plugin 7_material_editor
+[2024-06-21 16:21:46,202] log.py->message():118 -- MESSAGE -- Imported plugin 7_material_editor
+[2024-06-21 16:21:46,203] log.py->message():118 -- MESSAGE -- Loading plugin 7_material_editor
+[2024-06-21 16:21:46,212] log.py->message():118 -- MESSAGE -- Loaded plugin 7_material_editor
+[2024-06-21 16:21:46,213] log.py->message():118 -- MESSAGE -- Importing plugin 7_profile
+[2024-06-21 16:21:46,217] log.py->message():118 -- MESSAGE -- Imported plugin 7_profile
+[2024-06-21 16:21:46,218] log.py->message():118 -- MESSAGE -- Loading plugin 7_profile
+[2024-06-21 16:21:46,227] log.py->message():118 -- MESSAGE -- Loaded plugin 7_profile
+[2024-06-21 16:21:46,230] log.py->message():118 -- MESSAGE -- Importing plugin 7_save_targets
+[2024-06-21 16:21:46,233] log.py->message():118 -- MESSAGE -- Imported plugin 7_save_targets
+[2024-06-21 16:21:46,234] log.py->message():118 -- MESSAGE -- Loading plugin 7_save_targets
+[2024-06-21 16:21:46,240] log.py->message():118 -- MESSAGE -- Loaded plugin 7_save_targets
+[2024-06-21 16:21:46,242] log.py->message():118 -- MESSAGE -- Importing plugin 7_scene_editor
+[2024-06-21 16:21:46,243] log.py->message():118 -- MESSAGE -- Imported plugin 7_scene_editor
+[2024-06-21 16:21:46,244] log.py->message():118 -- MESSAGE -- Loading plugin 7_scene_editor
+[2024-06-21 16:21:46,245] mhmain.py->addSetting():355 -- NOTICE -- Setting rendering_width is already declared. Adding it again has no effect.
+[2024-06-21 16:21:46,246] mhmain.py->addSetting():355 -- NOTICE -- Setting rendering_height is already declared. Adding it again has no effect.
+[2024-06-21 16:21:46,247] log.py->debug():97 -- DEBUG -- Assigning setting Scene_Editor_FileDlgPath value C:/Users/andal/Documents/makehuman/v1py3/data/scenes that was loaded before the setting was declared.
+[2024-06-21 16:21:46,249] log.py->message():118 -- MESSAGE -- Loaded plugin 7_scene_editor
+[2024-06-21 16:21:46,250] log.py->message():118 -- MESSAGE -- Importing plugin 7_scripting
+[2024-06-21 16:21:46,252] log.py->message():118 -- MESSAGE -- Imported plugin 7_scripting
+[2024-06-21 16:21:46,253] log.py->message():118 -- MESSAGE -- Loading plugin 7_scripting
+[2024-06-21 16:21:46,258] log.py->message():118 -- MESSAGE -- Loaded plugin 7_scripting
+[2024-06-21 16:21:46,261] log.py->message():118 -- MESSAGE -- Importing plugin 7_shell
+[2024-06-21 16:21:46,265] log.py->message():118 -- MESSAGE -- Imported plugin 7_shell
+[2024-06-21 16:21:46,266] log.py->message():118 -- MESSAGE -- Loading plugin 7_shell
+[2024-06-21 16:21:46,270] log.py->message():118 -- MESSAGE -- Loaded plugin 7_shell
+[2024-06-21 16:21:46,272] log.py->message():118 -- MESSAGE -- Importing plugin 7_targets
+[2024-06-21 16:21:46,274] log.py->message():118 -- MESSAGE -- Imported plugin 7_targets
+[2024-06-21 16:21:46,275] log.py->message():118 -- MESSAGE -- Loading plugin 7_targets
+[2024-06-21 16:21:46,278] log.py->message():118 -- MESSAGE -- Loaded plugin 7_targets
+[2024-06-21 16:21:46,280] log.py->message():118 -- MESSAGE -- Importing plugin 8_asset_downloader
+[2024-06-21 16:21:46,289] log.py->message():118 -- MESSAGE -- Imported plugin 8_asset_downloader
+[2024-06-21 16:21:46,290] log.py->message():118 -- MESSAGE -- Loading plugin 8_asset_downloader
+[2024-06-21 16:21:46,869] log.py->message():118 -- MESSAGE -- Loaded plugin 8_asset_downloader
+[2024-06-21 16:21:46,872] log.py->message():118 -- MESSAGE -- Importing plugin 8_server_socket
+[2024-06-21 16:21:46,877] log.py->message():118 -- MESSAGE -- Imported plugin 8_server_socket
+[2024-06-21 16:21:46,878] log.py->message():118 -- MESSAGE -- Loading plugin 8_server_socket
+[2024-06-21 16:21:46,888] log.py->message():118 -- MESSAGE -- Loaded plugin 8_server_socket
+[2024-06-21 16:21:46,889] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_bvh
+[2024-06-21 16:21:46,893] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_bvh
+[2024-06-21 16:21:46,896] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_bvh
+[2024-06-21 16:21:46,897] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_bvh
+[2024-06-21 16:21:46,902] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_collada
+[2024-06-21 16:21:46,904] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_collada
+[2024-06-21 16:21:46,905] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_collada
+[2024-06-21 16:21:46,912] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_collada
+[2024-06-21 16:21:46,915] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_fbx
+[2024-06-21 16:21:46,917] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_fbx
+[2024-06-21 16:21:46,919] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_fbx
+[2024-06-21 16:21:46,920] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_fbx
+[2024-06-21 16:21:46,924] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_light
+[2024-06-21 16:21:46,925] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_light
+[2024-06-21 16:21:46,928] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_light
+[2024-06-21 16:21:46,928] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_light
+[2024-06-21 16:21:46,932] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_obj
+[2024-06-21 16:21:46,935] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_obj
+[2024-06-21 16:21:46,937] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_obj
+[2024-06-21 16:21:46,938] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_obj
+[2024-06-21 16:21:46,942] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_ogre
+[2024-06-21 16:21:46,945] log.py->warning():104 -- WARNING -- Could not load 9_export_ogre
+Traceback (most recent call last):
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\core\mhmain.py", line 579, in loadPlugin
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\plugins\9_export_ogre\__init__.py", line 41, in <module>
+    import imp
+ModuleNotFoundError: No module named 'imp'
+[2024-06-21 16:21:46,958] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_stl
+[2024-06-21 16:21:46,960] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_stl
+[2024-06-21 16:21:46,962] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_stl
+[2024-06-21 16:21:46,963] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_stl
+[2024-06-21 16:21:46,967] log.py->message():118 -- MESSAGE -- Importing plugin 9_export_uvmap
+[2024-06-21 16:21:46,968] log.py->message():118 -- MESSAGE -- Imported plugin 9_export_uvmap
+[2024-06-21 16:21:46,970] log.py->message():118 -- MESSAGE -- Loading plugin 9_export_uvmap
+[2024-06-21 16:21:46,971] log.py->message():118 -- MESSAGE -- Loaded plugin 9_export_uvmap
+[2024-06-21 16:21:46,975] log.py->message():118 -- MESSAGE -- Importing plugin 9_massproduce
+[2024-06-21 16:21:46,980] log.py->message():118 -- MESSAGE -- Imported plugin 9_massproduce
+[2024-06-21 16:21:46,981] log.py->message():118 -- MESSAGE -- Loading plugin 9_massproduce
+[2024-06-21 16:21:47,431] log.py->message():118 -- MESSAGE -- Loaded plugin 9_massproduce
+[2024-06-21 16:21:47,439] log.py->message():118 -- MESSAGE -- Loading GUI
+[2024-06-21 16:21:47,459] log.py->debug():97 -- DEBUG -- showing category Modelling
+[2024-06-21 16:21:47,459] log.py->debug():97 -- DEBUG -- showing task Macro modelling
+[2024-06-21 16:21:47,563] log.py->message():118 -- MESSAGE -- Loading theme
+[2024-06-21 16:21:47,565] log.py->message():118 -- MESSAGE -- Theme makehuman version 1.2.0
+[2024-06-21 16:21:47,566] log.py->debug():97 -- DEBUG -- Loaded theme data/themes/makehuman.mht
+[2024-06-21 16:21:50,413] log.py->debug():97 -- DEBUG -- Loaded Qt style data/themes/makehuman.qss
+[2024-06-21 16:21:50,437] log.py->message():118 -- MESSAGE -- Applying targets
+[2024-06-21 16:21:50,704] log.py->debug():97 -- DEBUG -- Updating skeleton joint positions
+[2024-06-21 16:21:50,756] log.py->debug():97 -- DEBUG -- Done baking animations
+[2024-06-21 16:21:50,936] log.py->message():118 -- MESSAGE -- Loading macro targets
+[2024-06-21 16:21:50,937] log.py->message():118 -- MESSAGE -- Loading done
+[2024-06-21 16:21:50,937] log.py->message():118 -- MESSAGE -- 
+[2024-06-21 16:21:51,036] log.py->debug():97 -- DEBUG -- Creating new texture for dynamic image data/litspheres/adaptive_skin_tone.png.
+[2024-06-21 16:21:51,037] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:21:51,051] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/materials/brown_eye.png.
+[2024-06-21 16:21:51,079] log.py->debug():97 -- DEBUG -- initTexture: 1024, 1024, False
+[2024-06-21 16:21:51,081] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/litspheres/skinmat_eye.png.
+[2024-06-21 16:21:51,084] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:21:55,243] log.py->debug():97 -- DEBUG -- hiding category Modelling
+[2024-06-21 16:21:55,243] log.py->debug():97 -- DEBUG -- showing category Files
+[2024-06-21 16:21:55,243] log.py->debug():97 -- DEBUG -- hiding task Macro modelling
+[2024-06-21 16:21:55,243] log.py->debug():97 -- DEBUG -- showing task Load
+[2024-06-21 16:22:02,367] log.py->message():118 -- MESSAGE -- Loading human from MHM file C:/Users/andal/Desktop/3dify/MH_Files\selfNew.mhm.
+[2024-06-21 16:22:02,711] log.py->debug():97 -- DEBUG -- Loading skeleton from None
+[2024-06-21 16:22:04,206] log.py->debug():97 -- DEBUG -- Loading special foot pose from None
+[2024-06-21 16:22:04,293] log.py->debug():97 -- DEBUG -- Loading expression from None
+[2024-06-21 16:22:04,389] log.py->debug():97 -- DEBUG -- Clothes library: updating face masks (face hiding enabled).
+[2024-06-21 16:22:04,392] log.py->debug():97 -- DEBUG -- 0 faces masked for base.obj
+[2024-06-21 16:22:04,479] log.py->message():118 -- MESSAGE -- Selecting proxy file "data/eyes/high-poly/high-poly.mhclo" from eyes library.
+[2024-06-21 16:22:04,479] log.py->debug():97 -- DEBUG -- Loading binary proxy data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:22:04,479] log.py->debug():97 -- DEBUG -- Loading proxy file: data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:22:04,484] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/materials/brown.mhmat
+[2024-06-21 16:22:04,486] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.npz.
+[2024-06-21 16:22:04,486] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 4
+[2024-06-21 16:22:04,490] log.py->debug():97 -- DEBUG -- remapping weights for proxy HighPolyEyes
+[2024-06-21 16:22:04,519] log.py->debug():97 -- DEBUG -- remapping weights for HighPolyEyes took 0.02624 seconds
+[2024-06-21 16:22:04,648] log.py->debug():97 -- DEBUG -- Eye material reset to <material.Material object at 0x000002158CE09610>
+[2024-06-21 16:22:04,752] log.py->message():118 -- MESSAGE -- Version v1.2.1
+[2024-06-21 16:22:05,460] log.py->message():118 -- MESSAGE -- Selecting proxy file "C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.mhpxy" from tongue library.
+[2024-06-21 16:22:05,460] log.py->debug():97 -- DEBUG -- Loading binary proxy C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.mhpxy.
+[2024-06-21 16:22:05,461] log.py->debug():97 -- DEBUG -- Loading proxy file: C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.mhpxy.
+[2024-06-21 16:22:05,464] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.mhmat
+[2024-06-21 16:22:05,467] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:05,467] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:05,468] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:22:05,468] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:05,469] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:05,469] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:22:05,470] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.npz.
+[2024-06-21 16:22:05,471] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 4
+[2024-06-21 16:22:05,473] log.py->debug():97 -- DEBUG -- remapping weights for proxy tongue01
+[2024-06-21 16:22:05,492] log.py->debug():97 -- DEBUG -- remapping weights for tongue01 took 0.01827 seconds
+[2024-06-21 16:22:05,618] log.py->message():118 -- MESSAGE -- Selecting proxy file "C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/teeth_base/teeth_base.mhpxy" from teeth library.
+[2024-06-21 16:22:05,618] log.py->debug():97 -- DEBUG -- Loading binary proxy C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/teeth_base/teeth_base.mhpxy.
+[2024-06-21 16:22:05,619] log.py->debug():97 -- DEBUG -- Loading proxy file: C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/teeth_base/teeth_base.mhpxy.
+[2024-06-21 16:22:05,626] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/materials/teeth.mhmat
+[2024-06-21 16:22:05,638] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontLightModelProduct.sceneColor'
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontMaterial.ambient'
+[2024-06-21 16:22:05,639] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].ambient'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].diffuse'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].halfVector'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].position'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].specular'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewMatrix'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:05,640] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,641] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:05,641] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,642] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontLightModelProduct.sceneColor'
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontMaterial.ambient'
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].ambient'
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].diffuse'
+[2024-06-21 16:22:05,643] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].halfVector'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].position'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].specular'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewMatrix'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:05,644] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:05,661] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,661] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:05,661] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:05,663] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/teeth_base/teeth_base.npz.
+[2024-06-21 16:22:05,664] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 5
+[2024-06-21 16:22:05,673] log.py->debug():97 -- DEBUG -- remapping weights for proxy Teeth_Base
+[2024-06-21 16:22:05,705] log.py->debug():97 -- DEBUG -- remapping weights for Teeth_Base took 0.02746 seconds
+[2024-06-21 16:22:05,832] log.py->message():118 -- MESSAGE -- Selecting proxy file "C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.mhpxy" from hair library.
+[2024-06-21 16:22:05,832] log.py->debug():97 -- DEBUG -- Loading binary proxy C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.mhpxy.
+[2024-06-21 16:22:05,838] log.py->debug():97 -- DEBUG -- Loading proxy file: C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.mhpxy.
+[2024-06-21 16:22:05,843] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.mhmat
+[2024-06-21 16:22:05,852] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.npz.
+[2024-06-21 16:22:05,857] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 4
+[2024-06-21 16:22:05,862] log.py->debug():97 -- DEBUG -- remapping weights for proxy afro01
+[2024-06-21 16:22:05,894] log.py->debug():97 -- DEBUG -- remapping weights for afro01 took 0.02674 seconds
+[2024-06-21 16:22:06,017] log.py->debug():97 -- DEBUG -- Loading skeleton from C:/Users/andal/Documents/gits/makehuman/makehuman/data/rigs/default_no_toes.mhskel
+[2024-06-21 16:22:06,047] log.py->debug():97 -- DEBUG -- Weight reference bone toe1-3.L, referenced by toe1-1.L is not present in reference weights. This is probably harmless.
+[2024-06-21 16:22:06,047] log.py->debug():97 -- DEBUG -- Weight reference bone toe1-3.R, referenced by toe1-1.R is not present in reference weights. This is probably harmless.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator02.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator02.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone special01, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone special03, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone special06.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone special06.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone temporalis01.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone temporalis01.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone temporalis02.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone temporalis02.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator03.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator03.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris04.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris04.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris06, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oculi02.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oculi02.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone risorius02.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,049] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone risorius02.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,050] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris02, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,050] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris06.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,050] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone oris06.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,050] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator04.L, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,050] log.py->debug():97 -- DEBUG -- No explicit weight reference bone mapping for bone levator04.R, and cannot implicitly map by name. This bone will not have any weights. This might be normal if this is for example a proxy only weighted to a few bones.
+[2024-06-21 16:22:06,082] log.py->message():118 -- MESSAGE -- Skeleton Default simplified has 12 weights per vertex.
+[2024-06-21 16:22:06,204] log.py->debug():97 -- DEBUG -- Calculated maximum number of faces for one vertex: 4
+[2024-06-21 16:22:06,228] log.py->debug():97 -- DEBUG -- Calculated maximum number of poles for one vertex: 4
+[2024-06-21 16:22:06,240] log.py->debug():97 -- DEBUG -- Reloading texture for dynamic image data/litspheres/adaptive_skin_tone.png.
+[2024-06-21 16:22:06,240] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:22:06,245] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:22:06,246] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:06,246] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:06,246] log.py->debug():97 -- DEBUG -- VectorUniform(AdditiveShading) = [0.]
+[2024-06-21 16:22:06,246] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01_diffuse.png.
+[2024-06-21 16:22:06,273] log.py->debug():97 -- DEBUG -- initTexture: 1024, 1024, False
+[2024-06-21 16:22:06,274] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/litspheres/lit_matte.png.
+[2024-06-21 16:22:06,277] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:22:06,278] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:06,279] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:06,279] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:06,279] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:06,279] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontLightModelProduct.sceneColor'
+[2024-06-21 16:22:06,279] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_FrontMaterial.ambient'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].ambient'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].diffuse'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].halfVector'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].position'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_LightSource[0].specular'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewMatrix'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrixTranspose'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:06,280] log.py->debug():97 -- DEBUG -- VectorUniform(diffuse) = [0. 0. 0. 0.]
+[2024-06-21 16:22:06,281] log.py->debug():97 -- DEBUG -- VectorUniform(emissive) = [0. 0. 0.]
+[2024-06-21 16:22:06,281] log.py->debug():97 -- DEBUG -- VectorUniform(specular) = [0. 0. 0. 0.]
+[2024-06-21 16:22:06,282] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/materials/teeth.png.
+[2024-06-21 16:22:06,418] log.py->debug():97 -- DEBUG -- initTexture: 2048, 2048, False
+[2024-06-21 16:22:06,422] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro_diffuse.png.
+[2024-06-21 16:22:06,586] log.py->debug():97 -- DEBUG -- initTexture: 2048, 2048, False
+[2024-06-21 16:22:06,631] log.py->message():118 -- MESSAGE -- Selecting proxy file "C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.mhpxy" from eyes library.
+[2024-06-21 16:22:06,631] log.py->debug():97 -- DEBUG -- Loading binary proxy C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:22:06,632] log.py->debug():97 -- DEBUG -- Loading proxy file: C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.mhpxy.
+[2024-06-21 16:22:06,636] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/materials/brown.mhmat
+[2024-06-21 16:22:06,638] log.py->debug():97 -- DEBUG -- Proxy with UUID 2c12f43b-1303-432c-b7ce-d78346baf2e6 (C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/high-poly/high-poly.mhpxy) already loaded in eyes library. Skipping.
+[2024-06-21 16:22:06,642] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/skins/rock_skin/rock_skin.mhmat
+[2024-06-21 16:22:06,710] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/hair/afro01/afro01.mhmat
+[2024-06-21 16:22:06,722] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/eyes/materials/brown.mhmat
+[2024-06-21 16:22:06,736] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/teeth/materials/teeth.mhmat
+[2024-06-21 16:22:06,749] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/gits/makehuman/makehuman/data/tongue/tongue01/tongue01.mhmat
+[2024-06-21 16:22:06,776] log.py->debug():97 -- DEBUG -- Finalizing MHM loading.
+[2024-06-21 16:22:06,776] log.py->debug():97 -- DEBUG -- Clothes library: updating face masks (face hiding enabled).
+[2024-06-21 16:22:06,779] log.py->debug():97 -- DEBUG -- 0 faces masked for base.obj
+[2024-06-21 16:22:08,391] log.py->debug():97 -- DEBUG -- Updating skeleton joint positions
+[2024-06-21 16:22:08,436] log.py->debug():97 -- DEBUG -- Done baking animations
+[2024-06-21 16:22:08,562] log.py->message():118 -- MESSAGE -- Done loading MHM file.
+[2024-06-21 16:22:08,570] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/skins/textures/full_body_texture_with_face.png.
+[2024-06-21 16:22:08,738] log.py->debug():97 -- DEBUG -- initTexture: 2048, 2048, False
+[2024-06-21 16:22:08,741] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/gits/makehuman/makehuman/data/litspheres/lit_standard_skin.png.
+[2024-06-21 16:22:08,744] log.py->debug():97 -- DEBUG -- initTexture: 256, 256, False
+[2024-06-21 16:22:39,673] log.py->debug():97 -- DEBUG -- hiding category Files
+[2024-06-21 16:22:39,674] log.py->debug():97 -- DEBUG -- showing category Pose/Animate
+[2024-06-21 16:22:39,674] log.py->debug():97 -- DEBUG -- hiding task Load
+[2024-06-21 16:22:39,674] log.py->debug():97 -- DEBUG -- showing task Skeleton
+[2024-06-21 16:22:39,674] log.py->debug():97 -- DEBUG -- Loading material from file data/materials/xray.mhmat
+[2024-06-21 16:22:39,677] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:39,677] log.py->debug():97 -- DEBUG -- VectorUniform(edgefalloff) = [1.]
+[2024-06-21 16:22:39,677] log.py->debug():97 -- DEBUG -- VectorUniform(intensity) = [0.7]
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewMatrix'
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_ModelViewProjectionMatrix'
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- Shader: adding built-in uniform b'gl_NormalMatrix'
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- VectorUniform(ambient) = [0. 0. 0.]
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- VectorUniform(edgefalloff) = [1.]
+[2024-06-21 16:22:39,678] log.py->debug():97 -- DEBUG -- VectorUniform(intensity) = [0.7]
+[2024-06-21 16:22:39,750] log.py->debug():97 -- DEBUG -- Calculated maximum number of faces for one vertex: 4
+[2024-06-21 16:22:39,773] log.py->debug():97 -- DEBUG -- Calculated maximum number of poles for one vertex: 4
+[2024-06-21 16:22:40,581] log.py->debug():97 -- DEBUG -- hiding category Pose/Animate
+[2024-06-21 16:22:40,616] log.py->debug():97 -- DEBUG -- showing category Rendering
+[2024-06-21 16:22:40,616] log.py->debug():97 -- DEBUG -- hiding task Skeleton
+[2024-06-21 16:22:40,617] log.py->debug():97 -- DEBUG -- showing task Render
+[2024-06-21 16:22:41,129] log.py->debug():97 -- DEBUG -- hiding task Render
+[2024-06-21 16:22:41,130] log.py->debug():97 -- DEBUG -- showing task Scene
+[2024-06-21 16:23:32,100] log.py->debug():97 -- DEBUG -- hiding category Rendering
+[2024-06-21 16:23:32,101] log.py->debug():97 -- DEBUG -- showing category Geometries
+[2024-06-21 16:23:32,102] log.py->debug():97 -- DEBUG -- hiding task Scene
+[2024-06-21 16:23:32,102] log.py->debug():97 -- DEBUG -- showing task Clothes
+[2024-06-21 16:23:32,384] log.py->debug():97 -- DEBUG -- Loading material from file data/materials/xray.mhmat
+[2024-06-21 16:23:35,002] log.py->message():118 -- MESSAGE -- Selecting proxy file "C:/Users/andal/Documents/makehuman/v1py3/data/clothes\TBM_Glasses_Frames_01\TBM_Glasses_Frames_01.mhpxy" from clothes library.
+[2024-06-21 16:23:35,002] log.py->debug():97 -- DEBUG -- Loading binary proxy C:/Users/andal/Documents/makehuman/v1py3/data/clothes\TBM_Glasses_Frames_01\TBM_Glasses_Frames_01.mhpxy.
+[2024-06-21 16:23:35,003] log.py->debug():97 -- DEBUG -- Loading proxy file: C:/Users/andal/Documents/makehuman/v1py3/data/clothes\TBM_Glasses_Frames_01\TBM_Glasses_Frames_01.mhpxy.
+[2024-06-21 16:23:35,006] log.py->debug():97 -- DEBUG -- Loading material from file C:/Users/andal/Documents/makehuman/v1py3/data/clothes/TBM_Glasses_Frames_01/TBM_Glasses_Frames_01.mhmat
+[2024-06-21 16:23:35,007] log.py->debug():97 -- DEBUG -- Loading binary mesh C:/Users/andal/Documents/makehuman/v1py3/data/clothes/TBM_Glasses_Frames_01/TBM_Glasses_Frames_01.npz.
+[2024-06-21 16:23:35,007] log.py->debug():97 -- DEBUG -- NPZ-File: maxmimum number of faces for one vertex: 5
+[2024-06-21 16:23:35,027] log.py->debug():97 -- DEBUG -- remapping weights for proxy TBM Glasses Frames 01
+[2024-06-21 16:23:35,047] log.py->debug():97 -- DEBUG -- remapping weights for TBM Glasses Frames 01 took 0.01853 seconds
+[2024-06-21 16:23:35,125] log.py->debug():97 -- DEBUG -- Clothes library: updating face masks (face hiding enabled).
+[2024-06-21 16:23:35,125] log.py->debug():97 -- DEBUG -- 0 faces masked for TBM_Glasses_Frames_01.obj
+[2024-06-21 16:23:35,126] log.py->debug():97 -- DEBUG -- Loaded 0 deleted verts (0 faces) from TBM Glasses Frames 01 proxy.
+[2024-06-21 16:23:35,129] log.py->debug():97 -- DEBUG -- 0 faces masked for base.obj
+[2024-06-21 16:23:35,223] log.py->message():118 -- MESSAGE -- do Change clothes
+[2024-06-21 16:23:35,233] log.py->debug():97 -- DEBUG -- Creating new texture for image C:/Users/andal/Documents/makehuman/v1py3/data/clothes/TBM_Glasses_Frames_01/TBM_Glasses_Frames_01.png.
+[2024-06-21 16:23:35,233] log.py->debug():97 -- DEBUG -- initTexture: 32, 32, False
+[2024-06-21 16:24:50,904] qtui.py->stop():741 -- NOTICE -- ABOUT TO STOP APPLICATION
+[2024-06-21 16:24:50,906] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_0_modifiers
+[2024-06-21 16:24:50,906] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_0_modifiers
+[2024-06-21 16:24:50,906] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_1_bodyshapes
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_8_random
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_8_random
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_9_custom_targets
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_9_custom_targets
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_a_measurement
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_a_measurement
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 0_modeling_background
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 0_modeling_background
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 1_convert_model_tags
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 1_convert_model_tags
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 1_mhapi
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 1_mhapi
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 2_foot_posing
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 2_foot_posing
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 2_posing_expression
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 2_posing_expression
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_animation
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_animation
+[2024-06-21 16:24:50,907] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_clothes_chooser
+[2024-06-21 16:24:50,908] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_clothes_chooser
+[2024-06-21 16:24:50,908] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_eye_chooser
+[2024-06-21 16:24:50,908] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_eye_chooser
+[2024-06-21 16:24:50,909] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_eyebrows
+[2024-06-21 16:24:50,909] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_eyebrows
+[2024-06-21 16:24:50,909] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_eyelashes
+[2024-06-21 16:24:50,909] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_eyelashes
+[2024-06-21 16:24:50,909] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_material_chooser
+[2024-06-21 16:24:50,913] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_material_chooser
+[2024-06-21 16:24:50,913] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_polygon_hair_chooser
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_pose
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_pose
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_proxy_chooser
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_proxy_chooser
+[2024-06-21 16:24:50,914] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_skeleton
+[2024-06-21 16:24:50,915] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_skeleton
+[2024-06-21 16:24:50,915] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_teeth
+[2024-06-21 16:24:50,915] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_teeth
+[2024-06-21 16:24:50,915] log.py->message():118 -- MESSAGE -- Unloading plugin 3_libraries_tongue
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 3_libraries_tongue
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 4_rendering_9_viewer
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 4_rendering_9_viewer
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 4_rendering_opengl
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 4_rendering_opengl
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 4_rendering_scene
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 4_rendering_scene
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 5_settings_0_settings
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 5_settings_0_settings
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 5_settings_mouse
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 5_settings_mouse
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 5_settings_shortcuts
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 5_settings_shortcuts
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 5_settings_userplugins
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloaded plugin 5_settings_userplugins
+[2024-06-21 16:24:50,916] log.py->message():118 -- MESSAGE -- Unloading plugin 6_help
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 6_help
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloading plugin 7_data
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_data
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloading plugin 7_example
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_example
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloading plugin 7_expression_mixer
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_expression_mixer
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloading plugin 7_logging
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_logging
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloading plugin 7_material_editor
+[2024-06-21 16:24:50,917] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_material_editor
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_profile
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_profile
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_save_targets
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_save_targets
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_scene_editor
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_scene_editor
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_scripting
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_scripting
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_shell
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_shell
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 7_targets
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 7_targets
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 8_asset_downloader
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 8_asset_downloader
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 8_server_socket
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 8_server_socket
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_bvh
+[2024-06-21 16:24:50,918] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_bvh
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_collada
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_collada
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_fbx
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_fbx
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_light
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_light
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_obj
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_obj
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_stl
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_stl
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_export_uvmap
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_export_uvmap
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloading plugin 9_massproduce
+[2024-06-21 16:24:50,919] log.py->message():118 -- MESSAGE -- Unloaded plugin 9_massproduce
+[2024-06-21 16:24:50,919] log.py->warning():104 -- WARNING -- Exception during event onStop
+Traceback (most recent call last):
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\core\events3d.py", line 211, in callEvent
+    method(event)
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\core\mhmain.py", line 866, in onStop
+    self.files.load.unload()
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\apps/gui\guiload.py", line 175, in unload
+    self.onUnload()
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\lib\filecache.py", line 311, in onUnload
+    self.storeCache()
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\lib\filecache.py", line 317, in storeCache
+    self._filecache.cleanup()
+  File "C:\Users\andal\Documents\gits\makehuman\makehuman\lib\filecache.py", line 81, in cleanup
+    for fileId in self._cache.keys():
+RuntimeError: dictionary changed size during iteration

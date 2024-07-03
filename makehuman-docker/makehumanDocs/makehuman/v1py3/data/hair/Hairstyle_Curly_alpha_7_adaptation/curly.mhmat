@@ -1,0 +1,36 @@
+# Material definition for Curly
+
+name Curly
+description Curly material
+ambientColor 0.498039215686 0.498039215686 0.498039215686
+diffuseColor 1.0 1.0 1.0
+specularColor 0.0980392156863 0.0980392156863 0.0980392156863
+shininess 0.2
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture curly.png
+
+shaderParam AdditiveShading -0.2
+shaderParam litsphereTexture litspheres/lit_refl_sharp_aniso_hard.png
+
+shaderConfig ambientOcclusion True
+shaderConfig normal True
+shaderConfig bump True
+shaderConfig displacement True
+shaderConfig vertexColors True
+shaderConfig spec True
+shaderConfig transparency True
+shaderConfig diffuse True

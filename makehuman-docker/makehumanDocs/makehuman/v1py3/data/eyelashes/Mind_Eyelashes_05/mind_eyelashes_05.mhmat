@@ -1,0 +1,23 @@
+# MakeHuman Material definition
+
+name mind_eyelashes_05
+
+// Color shading attributes
+diffuseColor  0 0 0
+specularColor  0 0 0
+shininess 0
+opacity 1
+
+// Textures and properties
+
+// Shader programme
+shader data/shaders/glsl/normalmap
+backfaceCull False
+
+// Configure built-in shader defines
+shaderConfig diffuse false
+shaderConfig bump false
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  false
+shaderConfig vertexColors false

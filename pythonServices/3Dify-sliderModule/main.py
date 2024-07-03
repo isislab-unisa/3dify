@@ -1,13 +1,16 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from imageProcess import process, extractLandmarks
-from cli.mh.genericCommandPy import sendCommand
+from cli.mh.genericCommandPy import sendCommand, sendCommandParameters
 from fastapi.middleware.cors import CORSMiddleware
 
 class Request(BaseModel):
     imageBase64: str | None = None
     gender : str | None = None
     age : float | None = None
+    
+class BuildRequest(BaseModel):
+    sliders: dict | None = None
 
 class Response(BaseModel):
     sliders: dict | None = None
@@ -51,6 +54,13 @@ async def generateSliders(request: Request) -> Response:
 
 @app.get("/downloadFbxZip")
 async def downloadFbxZip() -> Response:
+    data = sendCommand("exportFbx")
+    return Response(zipFile64=data)
+    
+@app.get("/applyAndDownload")
+async def applyAndDownload(request: BuildRequest) -> Response:
+    sliders = request.sliders
+    sendCommandParameters("applyModifiers", sliders)
     data = sendCommand("exportFbx")
     return Response(zipFile64=data)
     

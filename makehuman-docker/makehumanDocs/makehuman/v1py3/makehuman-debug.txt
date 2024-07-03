@@ -1,0 +1,37 @@
+VERSION: master:eb1d1c64
+SHORT VERSION: alpha
+LONG VERSION: 1.2.1 alpha (master:eb1d1c64)
+BASEMESH VERSION: hm08
+IS BUILT (FROZEN): No
+IS RELEASE VERSION: No
+DEFAULT ENCODING: utf-8
+FILESYSTEM ENCODING: utf-8
+STDOUT ENCODING: cp1252
+LOCALE PREFERRED ENCODING: cp1252
+WORKING DIRECTORY: C:\Users\andal\Documents\gits\makehuman\makehuman
+HOME LOCATION: C:/Users/andal/Documents
+PYTHON PATH: ./;./lib;./apps;./shared;./apps/gui;./core;C:\Users\andal\Documents\gits\makehuman\makehuman;C:\Users\andal\miniforge3\envs\makehuman\python312.zip;C:\Users\andal\miniforge3\envs\makehuman\DLLs;C:\Users\andal\miniforge3\envs\makehuman\Lib;C:\Users\andal\miniforge3\envs\makehuman;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\win32;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\win32\lib;C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\Pythonwin
+DLL PATH: C:\Users\andal\miniforge3\envs\makehuman\Lib\site-packages\PyQt5\Qt5\bin;C:\Users\andal\miniforge3\envs\makehuman;C:\Users\andal\miniforge3\envs\makehuman\Library\mingw-w64\bin;C:\Users\andal\miniforge3\envs\makehuman\Library\usr\bin;C:\Users\andal\miniforge3\envs\makehuman\Library\bin;C:\Users\andal\miniforge3\envs\makehuman\Scripts;C:\Users\andal\miniforge3\envs\makehuman\bin;C:\Program Files\PowerShell\7;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\libnvvp;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\libnvvp;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Users\andal\miniforge3\condabin;C:\Program Files\PuTTY;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.21.3482.0_x64__8wekyb3d8bbwe;C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.1.0;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PowerShell\7;C:\Program Files\Tailscale;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\extras\CUPTI\lib64;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\libnvvp;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.3.1;C:\ProgramData\chocolatey\bin;C:\Program Files\PowerShell\7;C:\Users\andal\miniforge3\condabin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY;C:\Users\andal\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\andal\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\andal\AppData\Local\Programs\Pyth;C:\Users\andal\AppData\Local\Microsoft\WinGet\Links;C:\Users\andal\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\andal\AppData\Local\Programs\Hyper\resources\bin;C:\Users\andal\AppData\Local\Programs\mongosh;C:\Users\andal\AppData\Local\JetBrains\Toolbox\scripts;.
+SYS.VERSION: 3.12.1 | packaged by conda-forge | (main, Dec 23 2023, 07:53:56) [MSC v.1937 64 bit (AMD64)]
+SYS.PLATFORM: win32
+SYS.EXECUTABLE: C:\Users\andal\miniforge3\envs\makehuman\python.exe
+PLATFORM.MACHINE: AMD64
+PLATFORM.PROCESSOR: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel
+PLATFORM.UNAME.RELEASE: 11
+PLATFORM.WIN32_VER: 11 10.0.22631 SP0 Multiprocessor Free
+NUMPY.VERSION: 1.26.4
+QT.VERSION: 5.15.2
+QT.JPG_SUPPORT: supported
+QT.SVG_SUPPORT: supported
+QT.PLUGIN_PATH: C:/Users/andal/miniforge3/envs/makehuman/Lib/site-packages/PyQt5/Qt5/plugins;C:/Users/andal/miniforge3/envs/makehuman
+QT.PLUGIN_PATH_ENV: 
+QT.CONF: NOT PRESENT
+PYOPENGL.VERSION: 3.1.7
+NOSHADERS: not set
+NOSAMPLEBUFFERS: not set
+GL.VENDOR: NVIDIA Corporation
+GL.RENDERER: NVIDIA GeForce RTX 4070 Ti/PCIe/SSE2
+GL.VERSION: 4.6.0 NVIDIA 552.41
+GLSL.VERSION: 4.60 NVIDIA
+GL.EXTENSION: GL_ARB_multisample not available (0x samples)
+GL.EXTENSION: GL_ARB_texture_non_power_of_two enabled

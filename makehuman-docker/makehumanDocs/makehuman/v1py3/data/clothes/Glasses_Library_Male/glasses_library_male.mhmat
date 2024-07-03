@@ -1,0 +1,23 @@
+# MakeHuman Material definition
+
+name lambert8sg_23Material
+
+// Color shading attributes
+diffuseColor  0 0 0
+specularColor  0.4602 0.4602 0.4602
+shininess 0.04706
+opacity 1
+
+// Textures and properties
+diffuseTexture Glasses2.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump false
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  false
+shaderConfig vertexColors false
