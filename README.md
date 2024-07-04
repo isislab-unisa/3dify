@@ -1,6 +1,6 @@
-# 3Dify Cloud-native
+# 3Dify
 
-Cloud-native 3Dify web application.
+3Dify web application.
 
 ## Architecture
 
