@@ -65,7 +65,7 @@ services:
         - path: ./makehuman-docker
           action: rebuild
     environment:
-      - DISPLAY=$DISPLAY
+      - DISPLAY=${DISPLAY:-host.docker.internal:1}
       - QT_QPA_PLATFORM=xcb
     volumes:
       - '/tmp/.X11-unix:/tmp/.X11-unix'
