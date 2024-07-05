@@ -324,12 +324,12 @@ def process(imgBase64, gender, age):
     
     skins = {
         "male": {
-            "young": "skins/young_caucasian_male/young_caucasian_male.mhmat",
+            "young": "skins/middleage_caucasian_male/middleage_caucasian_male.mhmat",
             "middleAge": "skins/middleage_caucasian_male/middleage_caucasian_male.mhmat",
             "old": "skins/old_caucasian_male/old_caucasian_male.mhmat",
         },
         "female": {
-            "young": "skins/young_caucasian_female/young_caucasian_female2.mhmat",
+            "young": "skins/middleage_caucasian_female/middleage_caucasian_female2.mhmat",
             "middleAge": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
             "old": "skins/old_caucasian_female/old_caucasian_female.mhmat",
         },
@@ -349,7 +349,7 @@ def process(imgBase64, gender, age):
     makeHumanParameters["eyelashes"] = "Eyelashes01 d533836f-13ad-4836-8b65-051108253cd2";
     makeHumanParameters["eyebrows"] = "eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084";
     makeHumanParameters["eyes"] = "HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6";
-    makeHumanParameters["material HighPolyEyes"] = "2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat";
+    makeHumanParameters["material HighPolyEyes"] = "2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brownlight.mhmat";
     makeHumanParameters["material eyebrow001"] = "9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat";
     makeHumanParameters["material Eyelashes01"] = "d533836f-13ad-4836-8b65-051108253cd2 eyelashes01.mhmat";
         

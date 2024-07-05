@@ -57,7 +57,7 @@ async def downloadFbxZip() -> Response:
     data = sendCommand("exportFbx")
     return Response(zipFile64=data)
     
-@app.get("/applyAndDownload")
+@app.post("/applyAndDownload")
 async def applyAndDownload(request: BuildRequest) -> Response:
     sliders = request.sliders
     sendCommandParameters("applyModifiers", sliders)
