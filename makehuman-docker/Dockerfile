@@ -22,11 +22,11 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 # 
 COPY ./custom_makehuman /code/makehuman
-# COPY ./makehumanMonitor.py /code/makehumanMonitor.py
+COPY ./makehumanMonitor.py /code/makehumanMonitor.py
 COPY ./makehumanDocs/makehuman /root/makehuman
 
 
 EXPOSE 12345
 # 
-CMD ["python", "makehuman/makehuman/makehuman.py"]
-#CMD ["python", "makehumanMonitor.py"]
+# CMD ["python", "makehuman/makehuman/makehuman.py"]
+CMD ["python", "makehumanMonitor.py"]

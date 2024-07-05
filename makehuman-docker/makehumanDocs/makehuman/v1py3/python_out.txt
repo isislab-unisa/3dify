@@ -1,0 +1,3 @@
+PRE STARTUP SETTING: useHDPI = False
+PRE STARTUP SETTING: noShaders = False
+PRE STARTUP SETTING: noSampleBuffers = False

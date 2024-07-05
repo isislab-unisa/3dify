@@ -35,7 +35,7 @@ __pycache__/
 *.list
 *.bvh
 *.mhskel
-/makehuman/data/*
+# /makehuman/data/*
 base_1-1_contents.txt
 
 # Pydev Eclipse#
