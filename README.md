@@ -1,6 +1,6 @@
 The 3Dify project aims to permit avatar creation using advanced AI and a modular software architecture. Such modular architecture allowed a flexible and scalable development, ensuring easy updates and improvement.
 
-## Application front end
+# Application front end
 
 The front end provides users with a gallery of pictures they have uploaded to generate their avatars. The gallery is proposed as a grid of photos to make it look familiar to users accustomed to picture galleries installed on their smartphones. Alongside the gallery, users are provided with a box to upload their pictures through drag-and-drop and selection from their computer.
 
@@ -8,7 +8,7 @@ Consider that a user uploads a picture either way; the platform shows users the 
 
 The application does not support logging in yet, but it is already designed with the capabilities to do so, and this is why users can already see buttons for logging in and out. This functionality will be enabled in future versions.
 
-### Architecture
+## Architecture
 
 The application front end architecture comprises a web application, a file store, and a NoSQL database.
 
@@ -20,9 +20,9 @@ The application front end architecture comprises a web application, a file store
 
 ![Architecture](assets/3dify_architecture.png 'Architecture')
 
-## Avatar customization and rendering WebGL web front-end
+# Avatar customization and rendering WebGL web front-end
 
-## Run the Application Locally
+# Run the Application Locally
 
 Download the Docker Compose file at [https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml](https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml).
 
@@ -38,7 +38,7 @@ Stop all the containers of the application:
 docker compose down
 ```
 
-## Getting Started with Development
+# Getting Started with Development
 
 Get the code at the repo [https://github.com/isislab-unisa/3dify/tree/main](https://github.com/isislab-unisa/3dify/tree/main).
 
@@ -60,4 +60,4 @@ Stop all the containers of the application:
 docker compose -f dev.docker-compose.yml down
 ```
 
-### Where to Apply Changes?
+## Where to Apply Changes?
