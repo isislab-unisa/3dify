@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   3dify:
+    platform: linux/amd64
     image: isislab/3dify-next:latest
     ports:
       - 3000:3000
@@ -38,6 +39,7 @@ services:
     networks:
       - 3dify
   python:
+    platform: linux/amd64
     image: isislab/3dify-python:latest
     ports:
       - 3001:80
@@ -51,6 +53,7 @@ services:
     networks:
       - 3dify
   makehuman:
+    platform: linux/amd64
     image: isislab/3dify-makehuman:latest
     ports:
       - 12345:12345
@@ -69,6 +72,7 @@ services:
         ipv4_address: 10.5.0.5
 
   unity:
+    platform: linux/amd64
     image: isislab/3dify-unity:latest
     ports:
       - 8000:8000
