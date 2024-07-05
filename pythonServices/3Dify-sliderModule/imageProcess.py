@@ -329,7 +329,7 @@ def process(imgBase64, gender, age):
             "old": "skins/old_caucasian_male/old_caucasian_male.mhmat",
         },
         "female": {
-            "young": "skins/middleage_caucasian_female/middleage_caucasian_female2.mhmat",
+            "young": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
             "middleAge": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
             "old": "skins/old_caucasian_female/old_caucasian_female.mhmat",
         },

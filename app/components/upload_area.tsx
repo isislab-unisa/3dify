@@ -30,6 +30,12 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
     const isImage = file.type.includes('image');
     if (!isImage) {
       message.error(`${file.name} is not an image file.`);
+      return false;
+    }
+    const isJpegOrPng = file.type.includes('png') || file.type.includes('jpeg') || file.type.includes('jpg');
+    if (!isJpegOrPng) {
+        message.error(`${file.name} is not a PNG or JPEG file.`);
+        return false;
     }
     const ext = file.name.split('.').pop();
     setFileInfo({ name: file.name, ext: ext, type: file.type });
