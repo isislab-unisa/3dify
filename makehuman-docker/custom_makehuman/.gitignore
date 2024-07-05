@@ -21,22 +21,22 @@ __pycache__/
 
 # data files for MakeHuman  Project #
 #####################################
-*.obj
-*.png
-*.thumb
-*.mhclo
-*.mhmat
-*.mhpose
-*.meta
-*.mhuv
-*.mhw
-*.proxy
-*.mhpxy
-*.list
-*.bvh
-*.mhskel
-/makehuman/data/*
-base_1-1_contents.txt
+# *.obj
+# *.png
+# *.thumb
+# *.mhclo
+# *.mhmat
+# *.mhpose
+# *.meta
+# *.mhuv
+# *.mhw
+# *.proxy
+# *.mhpxy
+# *.list
+# *.bvh
+# *.mhskel
+# /makehuman/data/*
+# base_1-1_contents.txt
 
 # Pydev Eclipse#
 ################

@@ -5,7 +5,7 @@ FROM python:3.8
 WORKDIR /code
 
 # 
-COPY ./requirements.txt /code/requirements.txt
+COPY ./custom_makehuman/requirements.txt /code/requirements.txt
 
 RUN apt-get update && apt-get install -y \
     python3-pyqt5 \
@@ -20,12 +20,13 @@ RUN apt-get update && apt-get install -y \
     x11-apps
 # 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
 # 
 COPY ./custom_makehuman /code/makehuman
 COPY ./makehumanMonitor.py /code/makehumanMonitor.py
 COPY ./makehumanDocs/makehuman /root/makehuman
 
+
 EXPOSE 12345
 # 
+# CMD ["python", "makehuman/makehuman/makehuman.py"]
 CMD ["python", "makehumanMonitor.py"]
