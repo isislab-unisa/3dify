@@ -61,3 +61,7 @@ docker compose -f dev.docker-compose.yml down
 ```
 
 ## Where to Apply Changes?
+
+- [/app/api](https://github.com/isislab-unisa/3dify/tree/main/app/api): in this folder you will find the code for the serverless APIs that power the application back end. E.g., *uploadPhotos* or *photosGallery*.
+
+- [/app/components](https://github.com/isislab-unisa/3dify/tree/main/app/components): in this folder you will find the code for the UI elements of the application front end, such as the photos gallery.
