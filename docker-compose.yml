@@ -35,6 +35,8 @@ services:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=minioadmin
       - MINIO_API_CORS_ALLOW_ORIGIN='*'
+    networks:
+      - 3dify
   python:
     image: isislab/3dify-python:latest
     ports:
