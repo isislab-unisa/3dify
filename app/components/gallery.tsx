@@ -196,7 +196,6 @@ const Gallery: FC<Props> = ({ refresh }) => {
         {images.map(({ width, height, src }, i) => (
           <Image
             key={i}
-            width={width}
             height={height}
             src={src}
             fallback={fallback}
