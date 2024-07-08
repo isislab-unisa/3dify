@@ -128,7 +128,7 @@ Stop all the containers of the application:
 docker compose -f dev.docker-compose.yml down
 ```
 
-If the application is
+If the application is correctly deployed, it can be run by default at the link [http://localhost:3000/](http://localhost:3000/).
 
 ## Where to Apply Changes?
 
