@@ -6,7 +6,7 @@ The front end provides users with a gallery of pictures they have uploaded to ge
 
 Consider that a user uploads a picture either way; the platform shows users the update's progress to keep them informed about what is happening to avoid refreshes or other actions that could only worsen the user experience, even though loading a picture does not take much time. When the loading is complete, users can access the picture from the gallery, and by clicking on it, they can preview the picture and gain access to several features. Below the preview, they have an action bar with options such as zoom-in, zoom-out, flip horizontally and vertically, rotate in both directions and the most important one–the customization option, which is dedicated to avatar customization and rendering using the Unity-based front end.
 
-The application does not support logging in yet, but it is already designed with the capabilities to do so, and this is why users can already see buttons for logging in and out. This functionality will be enabled in future versions.
+The application does not support logging in yet, but it is already designed with the capabilities to do so, and this is why users can already see buttons for logging in and out. This functionality will be enabled in future versions using the MongoDB database.
 
 The WebGL front-end, developed using the Unity game engine, allows users to preview an initial version of their avatar based on the image uploaded to the web application described above.
 
@@ -18,7 +18,7 @@ Customization is done by adjusting position and size values using sliders or by 
 
 By pressing the Build button in the lower left corner, the user initiates the avatar generation pipeline. This process, which takes more than 10 seconds, sends the new face parameters to the backend services to generate a modified version of the avatar.
 
-## Architecture
+# Architecture
 
 The application front end architecture comprises a web application, a file store, and a NoSQL database.
 
@@ -26,9 +26,12 @@ The application front end architecture comprises a web application, a file store
    The front-end is designed as a Single-Page Application (SPA) and written in **React**, also taking advantage of the abstractions offered by Next.js.
    Another benefit of Next.js is the possibility to use **Next.js API Routes** to create a serverless back-end to optimize resource utilization.
 2. **MinIO** is used as `file store` for persisting uploaded photos, generated avatars, etc.
-3. For the `database`, the application leverages **MongoDB** capabilities for storing users' information and more.
+3. Part of the back-end is implemented in the **Python** language, which handles the facial feature extraction and communication with the Makehuman daemon
+4. For the `database`, the application leverages **MongoDB** capabilities for storing users' information and more.
+5. The `WebGL application` is built with the **Unity** game engine and the **C#** language and lets users customize and preview the avatar and download its 3D model.
+6. The `avatar generation` is handled by a **Makehuman** process running in background. 
 
-![Architecture](assets/3dify_architecture.png 'Architecture')
+![Architecture](assets/3dify_architecture_release_2.png 'Architecture')
 
 # Application deployment
 
@@ -67,6 +70,7 @@ The following are the preliminary steps for executing only for Linux Systems aft
 xhost +local:docker
 ```
 2. Proceed with the instruction for the launch with Docker Compose specified below.
+   
 #### MacOs
 For executing on MacOs Systems is necessary to install both an X11 server, we advise **XQuartz** downloadable from the following [link](https://www.xquartz.org/) and **Docker Desktop**, downloadable from the following [link](https://www.docker.com/products/docker-desktop/).
 
@@ -75,8 +79,8 @@ For executing on MacOs Systems is necessary to install both an X11 server, we ad
 1. After having installed **XQuartz** proceed to open it.
 2. Open a terminal and type:
 ```bash
-xhost +local:docker
-xhost + 127.0.0.1
+      xhost +local:docker
+      xhost + 127.0.0.1
 ```
 3. Open the **docker-compose.yml** and comment the following line:
 ```bash
@@ -102,6 +106,8 @@ Stop all the containers of the application:
 ```bash
 docker compose down
 ```
+
+If the application is correctly deployed, it can be run by default at the link [http://localhost:3000/](http://localhost:3000/).
 
 # Getting Started with Development
 
