@@ -138,6 +138,7 @@ def open_base64_image(imageBase64):
     img_bytes = base64.b64decode(imageBase64)
     img_arr = np.frombuffer(img_bytes, np.uint8)
     img = cv2.imdecode(img_arr, cv2.IMREAD_COLOR)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     return img
 
 def extractLandmarks(imgBase64):

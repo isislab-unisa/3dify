@@ -14,6 +14,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./3Dify-sliderModule /code/3Dify-sliderModule
+COPY ./3Dify-sliderModule/models/.u2net /root/.u2net
 
 EXPOSE 80
 # 
