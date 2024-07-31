@@ -20,14 +20,12 @@ class Response(BaseModel):
     normalizedLandmarks: list | None = None
     zipFile64: str | None = None
     textureFile64: str | None = None
-    
-
 
 app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:8080",
+    "http://localhost:8000",
     "*"
 ]
 
@@ -69,7 +67,7 @@ async def applyAndDownload(request: BuildRequest) -> Response:
     data = sendCommand("exportFbx")
     return Response(zipFile64=data)
     
-@app.get("/getCustomSkin")
+@app.post("/getCustomSkin")
 async def getCustomSkin(request: Request) -> Response:
     imageBase64 = request.imageBase64
     image = open_base64_image(imageBase64)
