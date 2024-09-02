@@ -9,18 +9,30 @@ def sendCommand(command):
     jsc = JsonCall()
     jsc.setFunction(command)
 
-    load_dotenv() 
-    ip = os.environ["MAKEHUMAN_IP"]
-    port = os.environ["MAKEHUMAN_PORT"]
-
-    print("ip " + ip)
+    load_dotenv()
+    try: 
+        ip = os.environ["MAKEHUMAN_IP"]
+        port = os.environ["MAKEHUMAN_PORT"]
+    except KeyError:
+        ip = None
+        port = None
+        
+    ip = None
+    port = None 
 
     if ip is None:
         ip = "localhost"
     if port is None:
         port = "12345"
+        
+    print("ip " + ip)
+    print("port " + port)
 
-    response = jsc.send(ip, int(port))
+    try:
+        response = jsc.send(ip, int(port))
+    except Exception as e:
+        raise RuntimeError("Could not connect to Makehuman Daemon")
+
     if not response:
         print("Command failed (returned null response)\n")
         sys.exit(1)
@@ -34,25 +46,35 @@ def sendCommandParameters(command, parameters):
     jsc = JsonCall()
     jsc.setFunction(command)
 
-    load_dotenv() 
-    ip = os.environ["MAKEHUMAN_IP"]
-    port = os.environ["MAKEHUMAN_PORT"]
-
-    print("ip " + ip)
-    print("port " + port)
+    load_dotenv()
+    try: 
+        ip = os.environ["MAKEHUMAN_IP"]
+        port = os.environ["MAKEHUMAN_PORT"]
+    except KeyError:
+        ip = None
+        port = None
+        
+    ip = None
+    port = None
 
     if ip is None:
         ip = "localhost"
     if port is None:
         port = "12345"
         
+    print("ip " + ip)
+    print("port " + port)
+        
     for (key, value) in parameters.items():
         keySplit = key.split(' ')
         if keySplit[0] != "#":
             print(key + ' ' + value)
             jsc.setParam(key, value)
-
-    response = jsc.send(ip, int(port))
+    try:
+        response = jsc.send(ip, int(port))
+    except Exception as e:
+        raise RuntimeError("Could not connect to Makehuman Daemon")
+    
     if not response:
         print("Command failed (returned null response)\n")
         sys.exit(1)
