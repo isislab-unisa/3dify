@@ -1,8 +1,13 @@
 //import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
-import {FaceLandmarker, FilesetResolver} from '@mediapipe/tasks-vision';
-import * as faceapi from 'face-api.js';
-import * as canvas from 'canvas';
-import { changeFaceDetector, isFaceDetectionModelLoaded } from './faceDetectionControls';
+// import {FaceLandmarker, FilesetResolver} from '@mediapipe/tasks-vision';
+// import * as faceapi from 'face-api.js';
+// import * as canvas from 'canvas';
+// import { changeFaceDetector, isFaceDetectionModelLoaded } from './faceDetectionControls';
+
+const {FaceLandmarker, FilesetResolver} = require("@mediapipe/tasks-vision");
+const faceapi = require("face-api.js");
+const canvas = require("canvas");
+const { changeFaceDetector, isFaceDetectionModelLoaded } = require('./faceDetectionControls');
 
 const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
 
@@ -89,7 +94,7 @@ async function createFaceLandmarker(){
     });
 }
 
-export async function GetGenderAndAgeFromPhoto(base64img, widthImg)
+async function GetGenderAndAgeFromPhoto(base64img, widthImg)
 {
     console.log("1")
     const faceDetectionNet = faceapi.nets.ssdMobilenetv1
@@ -126,7 +131,7 @@ export async function GetGenderAndAgeFromPhoto(base64img, widthImg)
 }
 
 // inputImg = html <img> element containing input image with width and height
-export async function GetLandmarksFromPhoto(base64img, widthImg)
+async function GetLandmarksFromPhoto(base64img, widthImg)
 {
     vision = (await import("@mediapipe/tasks-vision"));
     await createFaceLandmarker();
@@ -243,3 +248,5 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
 
     return {landmarks: faceLandmarkerResult.faceLandmarks, normalizedLandmarks: normalizedLandmarks, age: 0.5, gender: genderValue};
 }
+
+module.exports = {GetLandmarksFromPhoto, GetGenderAndAgeFromPhoto};

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test": "jest",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^0.10.14",
+    "3dify-cloud-native": "file:",
     "adm-zip": "^0.5.12",
     "antd": "^5.16.1",
     "aws-sdk": "^2.1605.0",
@@ -34,6 +36,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.2",
     "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",

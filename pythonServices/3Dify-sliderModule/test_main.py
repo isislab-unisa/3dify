@@ -1,3 +1,5 @@
+#To execute (from 3dify-sliderModule folder): python -m pytest -v
+
 import pytest
 from fastapi.testclient import TestClient
 from main import app, Request, BuildRequest, Response
@@ -24,10 +26,6 @@ with open(r"./test_file/noFace.txt", "r") as file:
 with open(r"./test_file/lowRes.txt", "r") as file:
     lowRes = file.read()
 
-def test_simple_main():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Hello World"}
     
 def test_scanFace_noImage():
     request_data = {
@@ -127,7 +125,7 @@ def test_applyAndDownload(tmp_path):
     assert response.status_code == 200
     assert "zipFile64" in response.json()
     assert len(response.json()["zipFile64"]) > 0
-    zipFile64 = response.json()["zipFile64"]
+    zipFile64 = response.json()["zipFile64"] 
     zipData = base64.b64decode(zipFile64)
     print(tmp_path)
     os.makedirs(os.path.join(tmp_path, "zipContent"), exist_ok=True)

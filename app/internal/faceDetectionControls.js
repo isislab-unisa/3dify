@@ -1,4 +1,5 @@
-import * as faceapi from 'face-api.js';
+// import * as faceapi from 'face-api.js';
+const faceapi = require("face-api.js");
 
 const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
 const TINY_FACE_DETECTOR = 'tiny_face_detector'
@@ -75,7 +76,7 @@ function getCurrentFaceDetectionNet() {
   }
 }
 
-export function isFaceDetectionModelLoaded() {
+function isFaceDetectionModelLoaded() {
   return !!getCurrentFaceDetectionNet().params
 }
 
@@ -97,7 +98,7 @@ async function changeFaceDetector_client(detector) {
   $('#loader').hide()
 }
 
-export async function changeFaceDetector(detector) {
+async function changeFaceDetector(detector) {
   selectedFaceDetector = detector
   if (!isFaceDetectionModelLoaded()) {
     await getCurrentFaceDetectionNet().loadFromUri('http://localhost:3000/weights/')
@@ -122,3 +123,5 @@ function initFaceDetectionControls() {
   inputSizeSelect.on('change', onInputSizeChanged)
   inputSizeSelect.material_select()
 }
+
+module.exports = { isFaceDetectionModelLoaded, changeFaceDetector }
