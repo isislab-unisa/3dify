@@ -58,6 +58,6 @@ docker compose -f dev.docker-compose.yml down
 The following features have been tested:
 
 * Correct functioning of front-end and back-end operations when uploading an image of a face
-* Blocking of the execution if a file other than an image is sent trought
+* Blocking of the execution if a file other than an image is sent through
 * Blocking of the execution if an image of something other than a face is sent
 * Correct functioning of operations for downloading the zip file containing the finalized human model
