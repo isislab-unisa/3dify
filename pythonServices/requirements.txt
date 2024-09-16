@@ -1,5 +1,5 @@
 mediapipe>=0.10.9
-fastapi>=0.111.0
+fastapi==0.111.0
 pydantic>=2.7.1
 opencv-python-headless>=4.9.0.80
 matplotlib>=3.8.3

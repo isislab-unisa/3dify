@@ -102,8 +102,8 @@ def plot_face_blendshapes_bar_graph(face_blendshapes):
 def initializeMediaPipe():
     try:
         base_options = python.BaseOptions(
-            # model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
-            model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+            model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+            # model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
         )
         options = vision.FaceLandmarkerOptions(
             base_options=base_options,

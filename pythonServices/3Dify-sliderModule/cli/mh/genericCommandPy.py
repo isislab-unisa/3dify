@@ -17,9 +17,6 @@ def sendCommand(command):
         ip = None
         port = None
         
-    ip = None
-    port = None 
-
     if ip is None:
         ip = "localhost"
     if port is None:
@@ -53,9 +50,6 @@ def sendCommandParameters(command, parameters):
     except KeyError:
         ip = None
         port = None
-        
-    ip = None
-    port = None
 
     if ip is None:
         ip = "localhost"
