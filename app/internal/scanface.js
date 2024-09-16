@@ -1,8 +1,13 @@
 //import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
-import {FaceLandmarker, FilesetResolver} from '@mediapipe/tasks-vision';
-import * as faceapi from 'face-api.js';
-import * as canvas from 'canvas';
-import { changeFaceDetector, isFaceDetectionModelLoaded } from './faceDetectionControls';
+// import {FaceLandmarker, FilesetResolver} from '@mediapipe/tasks-vision';
+// import * as faceapi from 'face-api.js';
+// import * as canvas from 'canvas';
+// import { changeFaceDetector, isFaceDetectionModelLoaded } from './faceDetectionControls';
+
+const {FaceLandmarker, FilesetResolver} = require("@mediapipe/tasks-vision");
+const faceapi = require("face-api.js");
+const canvas = require("canvas");
+const { changeFaceDetector, isFaceDetectionModelLoaded } = require('./faceDetectionControls');
 
 const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
 
@@ -89,9 +94,8 @@ async function createFaceLandmarker(){
     });
 }
 
-export async function GetGenderAndAgeFromPhoto(base64img, widthImg)
+async function GetGenderAndAgeFromPhoto(base64img, widthImg)
 {
-    console.log("1")
     const faceDetectionNet = faceapi.nets.ssdMobilenetv1
     const minConfidence = 0.5
 
@@ -119,14 +123,14 @@ export async function GetGenderAndAgeFromPhoto(base64img, widthImg)
 
     let age = results[0].age
 
-    console.log("GENDER : " + gender)
-    console.log("AGE : " + age)
+    // console.log("GENDER : " + gender)
+    // console.log("AGE : " + age)
 
     return {age: age, gender: gender.toLowerCase()};
 }
 
 // inputImg = html <img> element containing input image with width and height
-export async function GetLandmarksFromPhoto(base64img, widthImg)
+async function GetLandmarksFromPhoto(base64img, widthImg)
 {
     vision = (await import("@mediapipe/tasks-vision"));
     await createFaceLandmarker();
@@ -136,14 +140,14 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
     await faceapi.loadFaceLandmarkModel('http://localhost:3000/weights/')
     await faceapi.nets.ageGenderNet.load('http://localhost:3000/weights/')
     //const inputImgEl = $('#inputImg').get(0)
-    console.log(inputImg)
+    // console.log(inputImg)
     
 
     //FaceAPI for gender and age
-    if (!isFaceDetectionModelLoaded()) {
-        console.log("Face detection model not loaded")
-        return
-    }
+    // if (!isFaceDetectionModelLoaded()) {
+    //     console.log("Face detection model not loaded")
+    //     return
+    // }
 
     const options = faceapi.SsdMobilenetv1Options(0.5)
 
@@ -169,14 +173,14 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
     //makeHumanParameters["modifier macrodetails/Age"] = "0.500000";
 
 
-    console.log("GENDER : " + gender)
-    console.log("AGE : " + age)
+    // console.log("GENDER : " + gender)
+    // console.log("AGE : " + age)
 
 
-    if(!vision){
-        console.log("faceLandmarker not ready");
-        return;
-    }
+    // if(!vision){
+    //     console.log("faceLandmarker not ready");
+    //     return;
+    // }
 
     //Rilevazione misure della testa
     // const { spawn} = require('child_process');
@@ -189,7 +193,7 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
     }*/
 
     //Rileva i landmark del volto e li disegna su un canvas creato appositamente
-    console.log(faceLandmarker)
+    // console.log(faceLandmarker)
     const faceLandmarkerResult = faceLandmarker.detect(inputImg);
     /*const canvas = document.createElement("canvas");
     canvas.setAttribute("class", "canvas");
@@ -204,7 +208,7 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
     //const ctx = drawMediaPipeLandmarks(inputImg, canvas, faceLandmarkerResult);
     
 
-    console.log(faceLandmarkerResult.faceLandmarks);
+    // console.log(faceLandmarkerResult.faceLandmarks);
     let limits = calculateLimits(faceLandmarkerResult.faceLandmarks);
     
     //Disegna un quadrato di riferimento intorno alla mesh creata    
@@ -243,3 +247,5 @@ export async function GetLandmarksFromPhoto(base64img, widthImg)
 
     return {landmarks: faceLandmarkerResult.faceLandmarks, normalizedLandmarks: normalizedLandmarks, age: 0.5, gender: genderValue};
 }
+
+module.exports = {GetLandmarksFromPhoto, GetGenderAndAgeFromPhoto};

@@ -100,18 +100,21 @@ def plot_face_blendshapes_bar_graph(face_blendshapes):
     plt.show()
     
 def initializeMediaPipe():
-    base_options = python.BaseOptions(
-        model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
-        # model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
-    )
-    options = vision.FaceLandmarkerOptions(
-        base_options=base_options,
-        output_face_blendshapes=True,
-        output_facial_transformation_matrixes=True,
-        num_faces = 1,
-        min_face_presence_confidence = 0.5,
-    )
-    detector = vision.FaceLandmarker.create_from_options(options)
+    try:
+        base_options = python.BaseOptions(
+            # model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+            model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+        )
+        options = vision.FaceLandmarkerOptions(
+            base_options=base_options,
+            output_face_blendshapes=True,
+            output_facial_transformation_matrixes=True,
+            num_faces = 1,
+            min_face_presence_confidence = 0.5,
+        )
+        detector = vision.FaceLandmarker.create_from_options(options)
+    except Exception as e:
+        raise RuntimeError(f"Failed to initialize MediaPipe: {e}")
     return detector
 
 
@@ -135,11 +138,16 @@ def calculate_limits(landmarks):
     return {"minX": min_x, "minY": min_y, "maxX": max_x, "maxY": max_y}
 
 def open_base64_image(imageBase64):
-    img_bytes = base64.b64decode(imageBase64)
-    img_arr = np.frombuffer(img_bytes, np.uint8)
-    img = cv2.imdecode(img_arr, cv2.IMREAD_COLOR)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    return img
+    try:
+        img_bytes = base64.b64decode(imageBase64)
+        img_arr = np.frombuffer(img_bytes, np.uint8)
+        img = cv2.imdecode(img_arr, cv2.IMREAD_COLOR)
+        if img is None:
+            raise ValueError("Invalid imageBase64")
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        return img
+    except cv2.error as e:
+        raise RuntimeError(f"Invalid imageBase64 : {e}")
 
 def extractLandmarks(imgBase64):
     detector = initializeMediaPipe()
@@ -173,8 +181,7 @@ def extractLandmarks(imgBase64):
         landmarks = detection_result.face_landmarks[0]
     except Exception as e:
         # print("SKIPPED NO LANDMARKS")
-        skipped += 1
-        return
+        raise ValueError("No face detected")
 
     limits = calculate_limits(landmarks)
 

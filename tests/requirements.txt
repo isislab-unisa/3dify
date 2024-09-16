@@ -1,0 +1,14 @@
+numpy
+PyQt5
+PyOpenGL
+python-dotenv
+backgroundremover
+scikit-image
+pandas
+mediapipe
+httpx
+fastapi
+pytest
+opencv-python
+pillow
+scipy
