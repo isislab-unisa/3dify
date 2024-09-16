@@ -137,22 +137,11 @@ def test_applyAndDownload(tmp_path):
     assert os.path.exists(os.path.join(zipContentDir, "myHuman.fbx"))
     assert os.path.exists(os.path.join(zipContentDir, "textures"))
     
-# def test_applyAndDownload_noMakehuman():
-#     request_data = {
-#         "sliders": {
-#             "modifier head/head-age-decr|incr": "-0.4",
-#         }
-#     }
-#     with pytest.raises(RuntimeError, match="Could not connect to Makehuman Daemon"):
-#         response = client.post("/applyAndDownload", json=request_data)    
-
-
-# def test_failedMediapipeInitialization():
-#     request_data = {
-#         "imageBase64" : correctContent,
-#         "gender" : "male",
-#         "age" : 20,
-#         "skinColor" : 1
-#     }
-#     with pytest.raises(RuntimeError, match="Failed to initialize MediaPipe:"):
-#         response = client.post("/extractFeatures", json=request_data)
+def test_applyAndDownload_noMakehuman():
+    request_data = {
+        "sliders": {
+            "modifier head/head-age-decr|incr": "-0.4",
+        }
+    }
+    with pytest.raises(RuntimeError, match="Could not connect to Makehuman Daemon"):
+        response = client.post("/applyAndDownload", json=request_data)    
