@@ -13,6 +13,7 @@ from faceFeatures import calculateFaceFeatureDistances, normalizeminus11, reset_
 import base64
 # from faceShapeFeatures import inferFaceShapeSliders
 import traceback
+import os
 
 
 
@@ -100,10 +101,21 @@ def plot_face_blendshapes_bar_graph(face_blendshapes):
     plt.show()
     
 def initializeMediaPipe():
+    parent_dir = os.path.join(os.getcwd(), "..")
+    up_dir = os.listdir(parent_dir)
+    model_path = ""
+    if ".dockerenv" in up_dir:
+        print("Running in Docker")
+        model_path = r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+    else:
+        print("Running locally")
+        model_path = r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+
     try:
         base_options = python.BaseOptions(
-            model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+            # model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
             # model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
+            model_asset_path = model_path
         )
         options = vision.FaceLandmarkerOptions(
             base_options=base_options,
