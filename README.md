@@ -1,3 +1,21 @@
+## Table of Content
+1. [Introduction](#introduction)
+2. [Application Front End](#application-front-end)
+3. [Architecture](#architecture)
+4. [Application Deployement](#application-deployment)
+5. [Run the Application Locally](#run-the-application-locally)
+   1. [Prerequisites](#prerequisites)
+      1. [Windows](#windows)
+      2. [Linux](#linux)
+      3. [MacOS](#macos)
+   2. [Launch](#launch)
+6. [Getting Started with Development](#getting-started-with-development)
+     1. [Prerequisites](#prerequisites-1)
+     2. [Launch](#launch-1)
+8. [Where to apply changes](#where-to-apply-changes)
+9. [3Dify Test Suite](#3dify-test-suite)
+
+# Introduction
 The 3Dify project aims to enable avatar creation using advanced AI and a modular software architecture. Such a modular architecture allows for flexible and scalable development, ensuring easy updates and improvements.
 
 3dify allows users to create fully-animated 3D avatars by uploading a single picture of a face. Using AI, 3dify scans the face from the input photo, extracts its features and uses the [MakeHuman](http://www.makehumancommunity.org/) avatar generation suite to create 3D animated avatars based on the facial features extracted from the 3dify software modules.
@@ -165,3 +183,17 @@ If the application is correctly deployed, it can be run by default at the link [
    - *scanFace*: extracts the 478 landmarks that map the face of the input face portrayed in the image
    - *extractFeatures*: the outputs of genderAge and scanFace are processed to calculate facial parameters in terms of sizes and distances of all parts of the face (head, eyes, nose, mouth,...). Such parameters are numerical normalized in the [-1, 1] interval or a choice in an enumeration
    - *applyAndDownload*: communicates with the makehuman daemon which will in turn generate an avatar based on a series of facial parameters given in input
+
+# 3Dify Test Suite
+## Prerequisites
+In order to proceed with the execution of the tests suite, it is necessary to:
+1. Install miniforge at the following [link](https://github.com/conda-forge/miniforge)
+2. Create a new environment named "makehuman" and activate it by typing
+```bash
+conda create -n makehuman && conda activate makehuman
+```
+3. Install in the environment all the packages inside "tests/requirements.txt" by using
+```bash
+pip install -r requirements.txt
+```
+4. Execute the test.bat or test.bash script
