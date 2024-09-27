@@ -32,7 +32,7 @@ export default async function RootLayout({
           <Navbar />
 
           <Layout>
-            <Sidebar />
+            {session && session?.user && <Sidebar />}
 
             <Layout className='w-full'>
               <Content className='mb-1'>
