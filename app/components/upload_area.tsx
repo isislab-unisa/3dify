@@ -3,6 +3,7 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
+import { useSession } from 'next-auth/react';
 
 type Props = {
   setRefresh: Dispatch<SetStateAction<boolean>>;
@@ -25,6 +26,8 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
     ext: '',
     type: '',
   });
+
+  const { data: session, status, update } = useSession();
 
   const beforeUpload = (file: any) => {
     const isImage = file.type.includes('image');
@@ -90,6 +93,19 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
           onError('Failed to upload file');
         } else {
           console.log('keys success', Object.keys(body ?? {}));
+
+          const response: Response = await fetch(process.env.NEXT_PUBLIC_ADD_IMAGE_ID as string, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: session?.user?.email,
+              imageId: body.bucketName,
+            }),
+          });
+          await response.json()
+
           setRefresh((prev) => !prev);
           onSuccess();
         }
