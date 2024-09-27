@@ -8,6 +8,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
+import { signOut } from 'next-auth/react';
 
 const items = [
   {
@@ -49,8 +50,7 @@ const Sidebar: FC = () => {
             console.log('Upload');
           }
           if (key === 'logout') {
-            // TODO: Implement logout
-            console.log('Logout');
+            signOut();
           }
         }}
       />
