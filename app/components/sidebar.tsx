@@ -2,13 +2,8 @@
 
 import { FC } from 'react';
 import { Menu } from 'antd';
-import {
-  FileImageOutlined,
-  UploadOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { FileImageOutlined, UploadOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
-import { signOut } from 'next-auth/react';
 
 const items = [
   {
@@ -20,11 +15,6 @@ const items = [
     key: 'upload',
     icon: <UploadOutlined />,
     label: 'Upload',
-  },
-  {
-    key: 'logout',
-    icon: <UserOutlined />,
-    label: 'Logout',
   },
 ];
 
@@ -48,9 +38,6 @@ const Sidebar: FC = () => {
           if (key === 'upload') {
             // TODO: Implement upload
             console.log('Upload');
-          }
-          if (key === 'logout') {
-            signOut();
           }
         }}
       />

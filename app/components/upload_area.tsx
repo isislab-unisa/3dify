@@ -2,7 +2,7 @@
 
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { Alert, message, Upload } from 'antd';
 import { useSession } from 'next-auth/react';
 
 type Props = {
@@ -28,6 +28,16 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
   });
 
   const { data: session, status, update } = useSession();
+  if (!session || !session.user) {
+    return (
+      <Alert
+        message='Login to upload'
+        description="Login to start uploading your pictures."
+        type="warning"
+        className='mb-10'
+      />
+    );
+  }
 
   const beforeUpload = (file: any) => {
     const isImage = file.type.includes('image');
@@ -116,7 +126,7 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
       onError('Failed to upload file');
     }
   };
-  
+
   return (
     <div id='upload-area' className='mb-10'>
       <Dragger
