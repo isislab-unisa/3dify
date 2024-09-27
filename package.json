@@ -22,6 +22,7 @@
     "exec": "^0.2.1",
     "face-api.js": "^0.22.2",
     "next": "14.1.2",
+    "next-auth": "4.24.8",
     "original-fs": "^1.2.0",
     "react": "^18",
     "react-dom": "^18",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.5",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
