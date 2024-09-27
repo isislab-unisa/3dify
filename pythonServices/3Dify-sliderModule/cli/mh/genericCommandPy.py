@@ -10,12 +10,22 @@ def sendCommand(command):
     jsc.setFunction(command)
 
     load_dotenv()
-    try: 
-        ip = os.environ["MAKEHUMAN_IP"]
-        port = os.environ["MAKEHUMAN_PORT"]
-    except KeyError:
-        ip = None
-        port = None
+    ip = None
+    port = None
+    
+    parent_dir = os.path.join(os.getcwd(), "..")
+    up_dir = os.listdir(parent_dir)
+    if ".dockerenv" in up_dir:
+        print("Running in Docker")
+        try: 
+            ip = os.environ["MAKEHUMAN_IP"]
+            port = os.environ["MAKEHUMAN_PORT"]
+        except KeyError:
+            ip = None
+            port = None
+    else:
+        print("Running locally")
+        
         
     if ip is None:
         ip = "localhost"
@@ -44,12 +54,21 @@ def sendCommandParameters(command, parameters):
     jsc.setFunction(command)
 
     load_dotenv()
-    try: 
-        ip = os.environ["MAKEHUMAN_IP"]
-        port = os.environ["MAKEHUMAN_PORT"]
-    except KeyError:
-        ip = None
-        port = None
+    ip = None
+    port = None
+    
+    parent_dir = os.path.join(os.getcwd(), "..")
+    up_dir = os.listdir(parent_dir)
+    if ".dockerenv" in up_dir:
+        print("Running in Docker")
+        try: 
+            ip = os.environ["MAKEHUMAN_IP"]
+            port = os.environ["MAKEHUMAN_PORT"]
+        except KeyError:
+            ip = None
+            port = None
+    else:
+        print("Running locally")
 
     if ip is None:
         ip = "localhost"

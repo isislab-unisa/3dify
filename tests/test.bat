@@ -1,8 +1,11 @@
 @echo off
 
+echo The current user is: %USERNAME%
+
 echo "Booting up Makehuman Daemon"
-call "C:\Users\%USERNAME%\mambaforge\Scripts\activate.bat" "C:\%USERNAME%\Gigi\mambaforge"\
+call C:\Users\%USERNAME%\mambaforge\Scripts\activate.bat C:\Users\%USERNAME%\mambaforge
 call conda activate makehuman
+cd ..
 cd makehuman-docker\custom_makehuman\makehuman
 start "Makehuman Daemon" cmd /c "python makehuman.py > NUL 2>&1"
 
