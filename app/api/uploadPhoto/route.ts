@@ -72,7 +72,7 @@ export async function POST(req: Request) {
       })
       .promise();
 
-    return Response.json({ message: 'File uploaded successfully' });
+    return Response.json({ message: 'File uploaded successfully', bucketName });
   } catch (error) {
     console.error('Error:', error);
     return Response.json({ error: 'Failed to upload file' });
