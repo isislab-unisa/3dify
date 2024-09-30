@@ -16,6 +16,7 @@
     "3dify-cloud-native": "file:",
     "adm-zip": "^0.5.12",
     "antd": "^5.16.1",
+    "antd-style": "^3.6.3",
     "aws-sdk": "^2.1605.0",
     "canvas": "^2.11.2",
     "encoding": "^0.1.13",

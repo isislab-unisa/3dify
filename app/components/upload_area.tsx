@@ -4,6 +4,8 @@ import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
 import { Alert, message, Upload } from 'antd';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
+import Title from 'antd/es/typography/Title';
 
 type Props = {
   setRefresh: Dispatch<SetStateAction<boolean>>;
@@ -142,6 +144,25 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         </p>
         <p className='ant-upload-text'>Click or drag your picture to upload!</p>
       </Dragger>
+
+      <div className='mt-5'>
+        <div className='mb-5 flex-end'>
+          <Title className='inline' level={3}>
+            {'Don\'t know which picture to upload? Don\'t worry!'}
+          </Title>
+          <br />
+          <Title className='inline' level={3}>
+            {'Just try to look like this passport guy!'}
+          </Title>
+        </div>
+        <Image
+          src='/passport.jpg'
+          alt='Passport'
+          width={300}
+          height={100}
+          priority
+        />
+      </div>
     </div>
   );
 };
