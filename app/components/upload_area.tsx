@@ -145,23 +145,29 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         <p className='ant-upload-text'>Click or drag your picture to upload!</p>
       </Dragger>
 
-      <div className='mt-5'>
-        <div className='mb-5 flex-end'>
-          <Title className='inline' level={3}>
-            {'Don\'t know which picture to upload? Don\'t worry!'}
-          </Title>
-          <br />
-          <Title className='inline' level={3}>
-            {'Just try to look like this passport guy!'}
-          </Title>
+      <div className='mt-10 flex justify-center'>
+        <div className='border-2 flex border-gray-200 pr-8 rounded-xl shadow-xl'>
+          <Image
+            src='/passport.jpg'
+            alt='Passport'
+            width={400}
+            height={200}
+            priority
+          />
+          <div className='mb-5 ml-10 mt-[7%]'>
+            <Title className='inline' level={2}>
+              {'You don\'t know which picture to upload?'}
+            </Title>
+            <br />
+            <Title className='inline' level={2}>
+              {'We have the perfect example for you!'}
+            </Title>
+            <br />
+            <Title className='inline' level={2}>
+              {'Try to look like this passport guy!'}
+            </Title>
+          </div>
         </div>
-        <Image
-          src='/passport.jpg'
-          alt='Passport'
-          width={300}
-          height={100}
-          priority
-        />
       </div>
     </div>
   );
