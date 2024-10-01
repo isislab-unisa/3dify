@@ -5,7 +5,7 @@ import { InboxOutlined } from '@ant-design/icons';
 import { Alert, message, Upload } from 'antd';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import Title from 'antd/es/typography/Title';
+import Text from 'antd/es/typography/Text';
 
 type Props = {
   setRefresh: Dispatch<SetStateAction<boolean>>;
@@ -150,22 +150,22 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
           <Image
             src='/passport.jpg'
             alt='Passport'
-            width={400}
-            height={200}
+            width={300}
+            height={100}
             priority
           />
-          <div className='mb-5 ml-10 mt-[7%]'>
-            <Title className='inline' level={2}>
+          <div className='mb-5 ml-10 mt-[8%]'>
+            <Text className='inline text-xl'>
               {'You don\'t know which picture to upload?'}
-            </Title>
+            </Text>
             <br />
-            <Title className='inline' level={2}>
+            <Text className='inline text-xl'>
               {'We have the perfect example for you!'}
-            </Title>
+            </Text>
             <br />
-            <Title className='inline' level={2}>
+            <Text className='inline text-xl'>
               {'Try to look like this passport guy!'}
-            </Title>
+            </Text>
           </div>
         </div>
       </div>

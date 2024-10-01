@@ -9,7 +9,7 @@ const items = [
   {
     key: 'my-avatars',
     icon: <FileImageOutlined />,
-    label: 'Pictures & Avatars',
+    label: 'My Avatars',
   },
   {
     key: 'upload',

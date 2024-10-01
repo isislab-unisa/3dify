@@ -133,8 +133,8 @@ const Gallery: FC<Props> = ({ refresh }) => {
   }, [refresh]);
 
   const images = photos.map((photo) => ({
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
     src: `data:image/png;base64,${photo.image}`,
     bucket: photo.bucket,
     name: photo.name,
@@ -189,8 +189,8 @@ const Gallery: FC<Props> = ({ refresh }) => {
 
   return (
     <div id='gallery'>
-      <Title level={1}>
-        {'Your Pictures & Avatars'}
+      <Title level={2}>
+        {'Your Avatars'}
       </Title>
       <PreviewGroup
         preview={{
@@ -263,6 +263,10 @@ const Gallery: FC<Props> = ({ refresh }) => {
             src={src}
             fallback={fallback}
             className='p-0.5 border-gray-200 shadow-lg'
+            preview={{
+              mask: 'Preview & Customize',
+              visible: true,
+            }}
           />
         ))}
       </PreviewGroup>
