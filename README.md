@@ -19,6 +19,7 @@ The architecture comprises a web application, a file store, and a NoSQL database
 ![External Client API Flow](assets/3dify_api_flow.png 'External Client API Flow')
 
 ## Getting Started
+[Git LFS](https://git-lfs.com/) is required in order to correctly clone the repository.
 
 The easiest way to start the application is to run the development server:
 

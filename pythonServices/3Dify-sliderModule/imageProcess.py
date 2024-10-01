@@ -372,6 +372,8 @@ def process(imgBase64, gender, age):
     makeHumanParameters["material HighPolyEyes"] = "2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brownlight.mhmat";
     makeHumanParameters["material eyebrow001"] = "9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat";
     makeHumanParameters["material Eyelashes01"] = "d533836f-13ad-4836-8b65-051108253cd2 eyelashes01.mhmat";
+    makeHumanParameters["tongue"] = "tongue01 52ad91a3-caad-4e50-8c38-67634e5e789c"
+    makeHumanParameters["teeth"] = "Teeth_Base 0a5ec82a-0d5f-43ce-a765-8f076f95692d"
         
     return makeHumanParameters
 
