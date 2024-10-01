@@ -4,7 +4,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { Header } from 'antd/es/layout/layout';
 import Title from 'antd/es/typography/Title';
-import SignInButton from './signin_button';
+// import SignInButton from './signin_button';
 import SignOutButton from './signout_button';
 import { useSession } from 'next-auth/react';
 
@@ -70,7 +70,9 @@ const Navbar: FC = () => {
               <SignOutButton/>
             </div>
             :
-            <SignInButton/>}
+            <>
+              {/* <SignInButton/> */}
+            </>}
 
       </div>
     </Header>
