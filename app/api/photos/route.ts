@@ -1,3 +1,5 @@
+import { connectToMongoDB } from '@/lib/mongodb';
+import User from '@/models/user';
 import AWS from 'aws-sdk';
 import {
   DeleteBucketRequest,
@@ -13,16 +15,30 @@ type Img = {
   name: string;
 };
 
-export async function GET() {
-  const s3 = new AWS.S3({
-    region: process.env.MINIO_REGION as string,
-    endpoint: process.env.MINIO_ENDPOINT as string,
-    accessKeyId: process.env.MINIO_ACCESS_KEY as string,
-    secretAccessKey: process.env.MINIO_SECRET_KEY as string,
-    s3ForcePathStyle: true, // Required for MinIO
-  });
-
+export async function GET(req: Request) {
   try {
+    await connectToMongoDB();
+    const { searchParams } = new URL(req.url);
+    const userEmail = searchParams.get('userEmail');
+    if (!userEmail) {
+        return Response.json({ message: 'userEmail is required.' });
+    }
+
+    console.log('userEmail:', userEmail);
+    const existingUser = await User.findOne({ email: userEmail });
+    console.log('existingUser:', existingUser);
+    if (!existingUser) {
+        return Response.json({ message: 'user does not exist.' });
+    }
+
+    const s3 = new AWS.S3({
+      region: process.env.MINIO_REGION as string,
+      endpoint: process.env.MINIO_ENDPOINT as string,
+      accessKeyId: process.env.MINIO_ACCESS_KEY as string,
+      secretAccessKey: process.env.MINIO_SECRET_KEY as string,
+      s3ForcePathStyle: true, // Required for MinIO
+    });
+
     let images: Img[] = [];
 
     const data = await s3.listBuckets().promise();
@@ -32,6 +48,12 @@ export async function GET() {
     }
 
     for (const bucket of buckets) {
+      // if the bucket is not in the user's imageIds, skip it
+      // because we only want to show images that the user has access to
+      if (!existingUser.imageIds.includes(bucket.Name as string)) {
+        continue
+      }
+
       // List all objects in the bucket with the prefix 'image'
       const listObjectsParams: ListObjectsV2Request = {
         Bucket: bucket.Name as string,

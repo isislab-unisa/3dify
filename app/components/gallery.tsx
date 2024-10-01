@@ -1,6 +1,16 @@
 'use client';
 
-import { Alert, Button, ConfigProvider, Empty, Image, Space, Spin, Tooltip, message } from 'antd';
+import {
+  Alert,
+  Button,
+  ConfigProvider,
+  Empty,
+  Image,
+  Space,
+  Spin,
+  Tooltip,
+  message,
+} from 'antd';
 import {
   DownloadOutlined,
   RotateLeftOutlined,
@@ -88,7 +98,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
         }}
       >
         <div className='flex justify-center'>
-          <Button type="primary" size="large" danger icon={<LoginOutlined />}  onClick={() => signIn('google')}>
+          <Button type="primary" size="large" danger icon={<LoginOutlined />} onClick={() => signIn('google')}>
             Login with Google
           </Button>
         </div>
@@ -100,7 +110,8 @@ const Gallery: FC<Props> = ({ refresh }) => {
     setLoading(true);
     const fetchPhotos = async () => {
       try {
-        const response: Response = await fetch(process.env.NEXT_PUBLIC_GALLERY as string);
+        const fetchPhotosUrl = `${process.env.NEXT_PUBLIC_GALLERY}?userEmail=${session.user?.email as string}`;
+        const response: Response = await fetch(fetchPhotosUrl);
         console.log('response:', response);
         const body = await response.json();
         console.log('body:', body);
@@ -122,8 +133,8 @@ const Gallery: FC<Props> = ({ refresh }) => {
   }, [refresh]);
 
   const images = photos.map((photo) => ({
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
     src: `data:image/png;base64,${photo.image}`,
     bucket: photo.bucket,
     name: photo.name,
@@ -179,7 +190,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
   return (
     <div id='gallery'>
       <Title level={1}>
-        {'Your Pictures'}
+        {'Your Pictures & Avatars'}
       </Title>
       <PreviewGroup
         preview={{
@@ -251,7 +262,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
             height={height}
             src={src}
             fallback={fallback}
-            className='p-0.5'
+            className='p-0.5 border-gray-200 shadow-lg'
           />
         ))}
       </PreviewGroup>
