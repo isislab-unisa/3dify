@@ -112,9 +112,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
       try {
         const fetchPhotosUrl = `${process.env.NEXT_PUBLIC_GALLERY}?userEmail=${session.user?.email as string}`;
         const response: Response = await fetch(fetchPhotosUrl);
-        console.log('response:', response);
         const body = await response.json();
-        console.log('body:', body);
 
         if (Object.keys(body ?? {}).includes('error')) {
           message.error('Error fetching photos:', body.error);
@@ -154,6 +152,51 @@ const Gallery: FC<Props> = ({ refresh }) => {
         URL.revokeObjectURL(url);
         link.remove();
       });
+  };
+
+  const onDownloadAvatar = async (imgIndex: number, type: string) => {
+    const img = images[imgIndex];
+    const name = img.name;
+    const bucket = img.bucket;
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_DOWNLOAD_FBX as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          bucket,
+          type,
+        }),
+      });
+
+      if (!response.ok) {
+        console.log(`failed to download ${type} avatar`);
+        message.error(`Failed to download your ${type.toUpperCase()} avatar`);
+        return;
+      }
+
+      const blob = await response.blob();
+      if (blob.size < 1) {
+        console.log(`failed to download ${type} avatar because it is empty`);
+        message.error(`Use the Customize button to create your ${type.toUpperCase()} avatar first`);
+        return;
+      }
+
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `avatar.${type === 'fbx' ? 'zip' : 'mhm'}`);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+
+      message.success(`Your ${type.toUpperCase()} avatar was downloaded successfully`);
+    } catch (error) {
+      console.error('failed to download fbx avatar:', error);
+    }
   };
 
   const getImgBucket = (imgIndex: number): string => {
@@ -241,7 +284,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   onClick={onZoomIn}
                   className='toolbar-icon'
                 />
-                <Tooltip title='Customize your Avatar!'>
+                <Tooltip title='Customize your Avatar'>
                   <a
                     href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}`}
                     target='_blank'
@@ -249,6 +292,36 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   >
                     Customize
                   </a>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Download your Makehuman Avatar (.mhm).
+                    <br />
+                    <br />
+                    You need to first create your Makehuman Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => onDownloadAvatar(current, 'mhm')}
+                    className='toolbar-icon'
+                  >
+                    Download Makehuman Avatar
+                  </div>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Download your FBX Avatar (.fbx).
+                    <br />
+                    <br />
+                    You need to first create your FBX Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => onDownloadAvatar(current, 'fbx')}
+                    className='toolbar-icon'
+                  >
+                    Download FBX Avatar
+                  </div>
                 </Tooltip>
               </Space>
             );
