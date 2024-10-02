@@ -24,9 +24,7 @@ export async function GET(req: Request) {
         return Response.json({ message: 'userEmail is required.' });
     }
 
-    console.log('userEmail:', userEmail);
     const existingUser = await User.findOne({ email: userEmail });
-    console.log('existingUser:', existingUser);
     if (!existingUser) {
         return Response.json({ message: 'user does not exist.' });
     }

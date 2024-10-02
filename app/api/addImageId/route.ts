@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         revalidatePath("/");
         return Response.json({ message: 'added image id to the user successfully.' });
     } catch (error) {
-        console.log(error);
+        console.error('error adding image id to the user', error);
         return Response.json({ message: 'error adding image id to the user.' });
     }
 }

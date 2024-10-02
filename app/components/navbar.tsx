@@ -10,11 +10,9 @@ import { useSession } from 'next-auth/react';
 
 const Navbar: FC = () => {
   const { data: session, status, update } = useSession();
-  console.log('session', {session});
 
   const storeUser = async () => {
     if (!session || !session.user) {
-      console.log('No session or user.');
       return;
     }
 

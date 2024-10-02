@@ -4,8 +4,6 @@ import { Button } from 'antd';
 import { signIn } from 'next-auth/react';
 
 export default function SignInButton() {
-  console.log('signin button');
-
   return (
     <Button
       type='primary'

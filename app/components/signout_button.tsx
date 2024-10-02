@@ -4,7 +4,6 @@ import { Button } from 'antd';
 import { signOut } from 'next-auth/react';
 
 export default function SignOutButton() {
-  console.log('signout button');
   return (
     <Button
       type='primary'

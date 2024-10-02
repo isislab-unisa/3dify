@@ -32,12 +32,10 @@ const Sidebar: FC = () => {
         defaultSelectedKeys={['my-avatars']}
         onClick={({ key }) => {
           if (key === 'my-avatars') {
-            // TODO: Implement my avatars
-            console.log('My Avatars');
+            // Implement my avatars
           }
           if (key === 'upload') {
-            // TODO: Implement upload
-            console.log('Upload');
+            // Implement upload
           }
         }}
       />

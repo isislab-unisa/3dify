@@ -101,10 +101,10 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         const body = await response.json();
 
         if (Object.keys(body ?? {}).includes('error')) {
-          console.log('keys', Object.keys(body ?? {}));
+          // console.log('keys', Object.keys(body ?? {}));
           onError('Failed to upload file');
         } else {
-          console.log('keys success', Object.keys(body ?? {}));
+          // console.log('keys success', Object.keys(body ?? {}));
 
           const response: Response = await fetch(process.env.NEXT_PUBLIC_ADD_IMAGE_ID as string, {
             method: 'POST',
