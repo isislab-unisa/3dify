@@ -90,27 +90,27 @@ const Gallery: FC<Props> = ({ refresh }) => {
   const { styles } = useStyle();
 
   const { data: session, status, update } = useSession();
-  if (!session || !session.user) {
-    return (
-      <ConfigProvider
-        button={{
-          className: styles.linearGradientButton,
-        }}
-      >
-        <div className='flex justify-center'>
-          <Button type="primary" size="large" danger icon={<LoginOutlined />} onClick={() => signIn('google')}>
-            Login with Google
-          </Button>
-        </div>
-      </ConfigProvider>
-    );
-  }
+  // if (!session || !session.user) {
+  //   return (
+  //     <ConfigProvider
+  //       button={{
+  //         className: styles.linearGradientButton,
+  //       }}
+  //     >
+  //       <div className='flex justify-center'>
+  //         <Button type="primary" size="large" danger icon={<LoginOutlined />} onClick={() => signIn('google')}>
+  //           Login with Google
+  //         </Button>
+  //       </div>
+  //     </ConfigProvider>
+  //   );
+  // }
 
   useEffect(() => {
     setLoading(true);
     const fetchPhotos = async () => {
       try {
-        const fetchPhotosUrl = `${process.env.NEXT_PUBLIC_GALLERY}?userEmail=${session.user?.email as string}`;
+        const fetchPhotosUrl = `${process.env.NEXT_PUBLIC_GALLERY}?userEmail=${session?.user?.email as string}`;
         const response: Response = await fetch(fetchPhotosUrl);
         const body = await response.json();
 
@@ -128,7 +128,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
     };
 
     fetchPhotos();
-  }, [refresh]);
+  }, [refresh, session?.user?.email]);
 
   const images = photos.map((photo) => ({
     width: 250,
