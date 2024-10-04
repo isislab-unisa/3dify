@@ -5,10 +5,11 @@
 4. [Application Deployement](#application-deployment)
 5. [Run the Application Locally](#run-the-application-locally)
    1. [Prerequisites](#prerequisites)
-      1. [Windows](#windows)
-      2. [Linux](#linux)
-      3. [MacOS](#macos)
-   2. [Launch](#launch)
+      1. [Common](#common)
+      2. [Windows](#windows)
+      3. [Linux](#linux)
+      4. [MacOS](#macos)
+   3. [Launch](#launch)
 6. [Getting Started with Development](#getting-started-with-development)
      1. [Prerequisites](#prerequisites-1)
      2. [Launch](#launch-1)
@@ -68,18 +69,26 @@ The application front end architecture comprises a web application, a file store
 
 # Application deployment
 
-The application consists of five docker containers:
+The application consists of seven docker containers:
 - [3dify-makehuman](https://hub.docker.com/repository/docker/isislab/3dify-makehuman/general): The container that executes a customized version of MakeHuman that permits to elaborate the sliders value extracted from a photo into a rendered 3D avatar.
 - [3dify-unity](https://hub.docker.com/repository/docker/isislab/3dify-unity/general): The container which starts a simple python HTTP web server which hosts the WebGL application for the avatar preview
 - [3dify-python](https://hub.docker.com/repository/docker/isislab/3dify-python/general): Container containing the logic behind the conversion between facial landmarks and MakeHuman ’s parameters, as well as the logic connecting the application to MakeHuman for sending new sliders value and for exporting and downloading the final 3D model .FBX file.
 - [filestore](https://hub.docker.com/r/minio/minio): Container including MinIO, an object storage application compatible with the Amazon S3 API
 - [3dify-next](https://hub.docker.com/repository/docker/isislab/3dify-next/general): Containers based on this image start the web application for the avatar management front-end.
+- [mongo](https://hub.docker.com/_/mongo): Container including MongoDB, an open-source document-oriented database based on NoSQL.
+- [mongo-express](https://hub.docker.com/extensions/saniewski/mongo-express-docker-extension): Extension that allows to connect to any (local or remote) MongoDB server without having to install Mongo Express locally.
 
 The deployment of these containers is coordinated by the [Docker Compose](https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml) configuration file.
 
 # Run the Application Locally
 
 ## Prerequisites
+### Common
+In order to use the authentication process, it is necessary to obtain a **Google Client ID** and a **Client Secret** from a Google Cloud instance and putting them inside the Docker Compose file.
+For the retrieval of informations, you can follow a guide at the following [link](https://www.balbooa.com/help/gridbox-documentation/integrations/other/google-client-id).
+
+Alternatively, if the authentication module is not needed, you can switch to the [main-no-auth](https://github.com/isislab-unisa/3dify/tree/main-no-auth) branch and build the application with the Docker Compose from there.
+
 #### Windows
 For executing on Windows Systems it is necessary to install beforehand an X11 Server, we advise **VcXsrv Windows X Server** that can be found at the following [link](https://sourceforge.net/projects/vcxsrv/), as well as **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
 
