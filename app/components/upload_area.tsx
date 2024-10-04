@@ -2,7 +2,9 @@
 
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { Alert, message, Upload } from 'antd';
+import Image from 'next/image';
+import Text from 'antd/es/typography/Text';
 
 type Props = {
   setRefresh: Dispatch<SetStateAction<boolean>>;
@@ -116,6 +118,31 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         </p>
         <p className='ant-upload-text'>Click or drag your picture to upload!</p>
       </Dragger>
+
+      <div className='mt-10 flex justify-center'>
+        <div className='border-2 flex border-gray-200 pr-8 rounded-xl shadow-xl'>
+          <Image
+            src='/passport.jpg'
+            alt='Passport'
+            width={300}
+            height={100}
+            priority
+          />
+          <div className='mb-5 ml-10 mt-[8%]'>
+            <Text className='inline text-xl'>
+              {'You don\'t know which picture to upload?'}
+            </Text>
+            <br />
+            <Text className='inline text-xl'>
+              {'We have the perfect example for you!'}
+            </Text>
+            <br />
+            <Text className='inline text-xl'>
+              {'Try to look like this passport guy!'}
+            </Text>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
