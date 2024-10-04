@@ -20,11 +20,14 @@ services:
           action: rebuild
     depends_on:
       - filestore
+      - mongo
     environment:
       - MAKEHUMAN_IP = 10.5.0.5
       - MAKEHUMAN_PORT = 12345
     networks:
       - 3dify
+
+
   filestore:
     image: minio/minio
     ports:
@@ -39,6 +42,40 @@ services:
       - MINIO_API_CORS_ALLOW_ORIGIN='*'
     networks:
       - 3dify
+
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - 3dify
+
+
+  db-dashboard:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mongoadmin
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH_ENABLED: 'true'
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: expressadmin
+    depends_on:
+      - mongo
+    networks:
+      - 3dify
+
+
   python:
     build:
       context: ./pythonServices
@@ -54,6 +91,8 @@ services:
       - MAKEHUMAN_PORT = 12345
     networks:
       - 3dify
+
+
   makehuman:
     build:
       context: ./makehuman-docker
@@ -74,6 +113,7 @@ services:
       3dify:
         ipv4_address: 10.5.0.5
 
+
   unity:
     build:
       context: ./unityClient
@@ -86,9 +126,15 @@ services:
           action: rebuild
     networks:
       - 3dify
+
+
 volumes:
   minio_data:
     driver: local
+  mongodb_data:
+    driver: local
+
+
 networks:
   3dify:
     driver: bridge

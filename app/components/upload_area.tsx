@@ -2,7 +2,10 @@
 
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { Alert, message, Upload } from 'antd';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
+import Text from 'antd/es/typography/Text';
 
 type Props = {
   setRefresh: Dispatch<SetStateAction<boolean>>;
@@ -25,6 +28,18 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
     ext: '',
     type: '',
   });
+
+  const { data: session, status, update } = useSession();
+  if (!session || !session.user) {
+    return (
+      <Alert
+        message='Login to upload'
+        description="Login to start uploading your pictures."
+        type="warning"
+        className='mb-10'
+      />
+    );
+  }
 
   const beforeUpload = (file: any) => {
     const isImage = file.type.includes('image');
@@ -86,10 +101,23 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         const body = await response.json();
 
         if (Object.keys(body ?? {}).includes('error')) {
-          console.log('keys', Object.keys(body ?? {}));
+          // console.log('keys', Object.keys(body ?? {}));
           onError('Failed to upload file');
         } else {
-          console.log('keys success', Object.keys(body ?? {}));
+          // console.log('keys success', Object.keys(body ?? {}));
+
+          const response: Response = await fetch(process.env.NEXT_PUBLIC_ADD_IMAGE_ID as string, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: session?.user?.email,
+              imageId: body.bucketName,
+            }),
+          });
+          await response.json()
+
           setRefresh((prev) => !prev);
           onSuccess();
         }
@@ -100,7 +128,7 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
       onError('Failed to upload file');
     }
   };
-  
+
   return (
     <div id='upload-area' className='mb-10'>
       <Dragger
@@ -116,6 +144,31 @@ const UploadArea: FC<Props> = ({ setRefresh }) => {
         </p>
         <p className='ant-upload-text'>Click or drag your picture to upload!</p>
       </Dragger>
+
+      <div className='mt-10 flex justify-center'>
+        <div className='border-2 flex border-gray-200 pr-8 rounded-xl shadow-xl'>
+          <Image
+            src='/passport.jpg'
+            alt='Passport'
+            width={300}
+            height={100}
+            priority
+          />
+          <div className='mb-5 ml-10 mt-[8%]'>
+            <Text className='inline text-xl'>
+              {'You don\'t know which picture to upload?'}
+            </Text>
+            <br />
+            <Text className='inline text-xl'>
+              {'We have the perfect example for you!'}
+            </Text>
+            <br />
+            <Text className='inline text-xl'>
+              {'Try to look like this passport guy!'}
+            </Text>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

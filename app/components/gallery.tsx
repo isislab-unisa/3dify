@@ -1,6 +1,16 @@
 'use client';
 
-import { Alert, Empty, Image, Space, Spin, Tooltip, message } from 'antd';
+import {
+  Alert,
+  Button,
+  ConfigProvider,
+  Empty,
+  Image,
+  Space,
+  Spin,
+  Tooltip,
+  message,
+} from 'antd';
 import {
   DownloadOutlined,
   RotateLeftOutlined,
@@ -8,8 +18,12 @@ import {
   SwapOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
+  LoginOutlined,
 } from '@ant-design/icons';
 import { FC, useEffect, useState } from 'react';
+import Title from 'antd/es/typography/Title';
+import { signIn, useSession } from 'next-auth/react';
+import { createStyles } from 'antd-style';
 
 const PreviewGroup = Image.PreviewGroup;
 
@@ -44,18 +58,61 @@ type PhotoData = {
 const fallback =
   'data:image/png;base64,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';
 
+  const useStyle = createStyles(({ prefixCls, css }) => ({
+    linearGradientButton: css`
+      &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
+        border-width: 0;
+  
+        > span {
+          position: relative;
+        }
+  
+        &::before {
+          content: '';
+          background: linear-gradient(135deg, #6253e1, #04befe);
+          position: absolute;
+          inset: 0;
+          opacity: 1;
+          transition: all 0.3s;
+          border-radius: inherit;
+        }
+  
+        &:hover::before {
+          opacity: 0;
+        }
+      }
+    `,
+  }));
+
 const Gallery: FC<Props> = ({ refresh }) => {
   const [photos, setPhotos] = useState<Img[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const { styles } = useStyle();
+
+  const { data: session, status, update } = useSession();
+  // if (!session || !session.user) {
+  //   return (
+  //     <ConfigProvider
+  //       button={{
+  //         className: styles.linearGradientButton,
+  //       }}
+  //     >
+  //       <div className='flex justify-center'>
+  //         <Button type="primary" size="large" danger icon={<LoginOutlined />} onClick={() => signIn('google')}>
+  //           Login with Google
+  //         </Button>
+  //       </div>
+  //     </ConfigProvider>
+  //   );
+  // }
 
   useEffect(() => {
     setLoading(true);
     const fetchPhotos = async () => {
       try {
-        const response: Response = await fetch(process.env.NEXT_PUBLIC_GALLERY as string);
-        console.log('response:', response);
+        const fetchPhotosUrl = `${process.env.NEXT_PUBLIC_GALLERY}?userEmail=${session?.user?.email as string}`;
+        const response: Response = await fetch(fetchPhotosUrl);
         const body = await response.json();
-        console.log('body:', body);
 
         if (Object.keys(body ?? {}).includes('error')) {
           message.error('Error fetching photos:', body.error);
@@ -71,11 +128,11 @@ const Gallery: FC<Props> = ({ refresh }) => {
     };
 
     fetchPhotos();
-  }, [refresh]);
+  }, [refresh, session?.user?.email]);
 
   const images = photos.map((photo) => ({
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
     src: `data:image/png;base64,${photo.image}`,
     bucket: photo.bucket,
     name: photo.name,
@@ -95,6 +152,51 @@ const Gallery: FC<Props> = ({ refresh }) => {
         URL.revokeObjectURL(url);
         link.remove();
       });
+  };
+
+  const onDownloadAvatar = async (imgIndex: number, type: string) => {
+    const img = images[imgIndex];
+    const name = img.name;
+    const bucket = img.bucket;
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_DOWNLOAD_FBX as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          bucket,
+          type,
+        }),
+      });
+
+      if (!response.ok) {
+        console.log(`failed to download ${type} avatar`);
+        message.error(`Failed to download your ${type.toUpperCase()} avatar`);
+        return;
+      }
+
+      const blob = await response.blob();
+      if (blob.size < 1) {
+        console.log(`failed to download ${type} avatar because it is empty`);
+        message.error(`Use the Customize button to create your ${type.toUpperCase()} avatar first`);
+        return;
+      }
+
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `avatar.${type === 'fbx' ? 'zip' : 'mhm'}`);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+
+      message.success(`Your ${type.toUpperCase()} avatar was downloaded successfully`);
+    } catch (error) {
+      console.error('failed to download fbx avatar:', error);
+    }
   };
 
   const getImgBucket = (imgIndex: number): string => {
@@ -130,6 +232,9 @@ const Gallery: FC<Props> = ({ refresh }) => {
 
   return (
     <div id='gallery'>
+      <Title level={2}>
+        {'Your Avatars'}
+      </Title>
       <PreviewGroup
         preview={{
           countRender: () => null,
@@ -179,7 +284,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   onClick={onZoomIn}
                   className='toolbar-icon'
                 />
-                <Tooltip title='Customize your Avatar!'>
+                <Tooltip title='Customize your Avatar'>
                   <a
                     href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}`}
                     target='_blank'
@@ -187,6 +292,36 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   >
                     Customize
                   </a>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Download your Makehuman Avatar (.mhm).
+                    <br />
+                    <br />
+                    You need to first create your Makehuman Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => onDownloadAvatar(current, 'mhm')}
+                    className='toolbar-icon'
+                  >
+                    Download Makehuman Avatar
+                  </div>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Download your FBX Avatar (.fbx).
+                    <br />
+                    <br />
+                    You need to first create your FBX Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => onDownloadAvatar(current, 'fbx')}
+                    className='toolbar-icon'
+                  >
+                    Download FBX Avatar
+                  </div>
                 </Tooltip>
               </Space>
             );
@@ -200,7 +335,11 @@ const Gallery: FC<Props> = ({ refresh }) => {
             height={height}
             src={src}
             fallback={fallback}
-            className='p-0.5'
+            className='p-0.5 border-gray-200 shadow-lg'
+            preview={{
+              mask: 'Preview & Customize',
+              visible: true,
+            }}
           />
         ))}
       </PreviewGroup>
