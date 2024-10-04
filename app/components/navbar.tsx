@@ -4,7 +4,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { Header } from 'antd/es/layout/layout';
 import Title from 'antd/es/typography/Title';
-import { Button } from 'antd';
+// import { Button } from 'antd';
 
 const Navbar: FC = () => {
   return (
@@ -24,11 +24,11 @@ const Navbar: FC = () => {
           3Dify
         </Title>
       </div>
-      <div className='flex items-center'>
+      {/* <div className='flex items-center'>
         <Button type='primary' size='large' block ghost>
           Logout
         </Button>
-      </div>
+      </div> */}
     </Header>
   );
 };

@@ -28,7 +28,7 @@ export default function RootLayout({
         <Layout>
           <Sidebar />
 
-          <Layout className='w-full'>
+          <Layout className='w-full bg-white'>
             <Content className='mb-1'>
               <div className='min-h-screen items-center justify-between p-8'>
                 {children}
