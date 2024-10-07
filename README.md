@@ -1,6 +1,6 @@
 # 3Dify
 
-3Dify web application.
+3Dify web application. Version without authentication.
 
 ## Architecture
 
