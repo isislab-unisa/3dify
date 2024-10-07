@@ -2,7 +2,7 @@ version: '3.8'
 services:
   3dify:
     platform: linux/x86_64
-    image: isislab/3dify-next:latest
+    image: isislab/3dify-no-auth:latest
     ports:
       - 3000:3000
     develop:
