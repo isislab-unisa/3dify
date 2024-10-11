@@ -54,17 +54,12 @@ def calculateChin(normalizedLandmarks, distanceDictionary, faceShapeCoord, lipsC
 def calculateFaceShape(faceShapeCoord, distanceDictionary, gender):
     distanceUpperFace = abs(faceShapeCoord[2]["x"] - faceShapeCoord[3]["x"])
     distanceDictionary["distanceUpperFace"] = distanceUpperFace
-    # normalizedDistanceDictionary["head/head-round"] = normalize(distanceUpperFace, 0.871, 1.742);
-
 
     distanceLeftLowerFace = abs(faceShapeCoord[2]["x"] - faceShapeCoord[4]["x"])
     distanceRightLowerFace = abs(faceShapeCoord[3]["x"] - faceShapeCoord[5]["x"])
     meanDistanceLowerFace = (distanceLeftLowerFace + distanceRightLowerFace) * 0.5
     distanceDictionary["meanDistanceLowerFace"] = meanDistanceLowerFace
     normalizedDistanceDictionary["head/head-fat-decr|incr"] = normalizeminus11(meanDistanceLowerFace, limits[gender]["meanDistanceLowerFace"][0], limits[gender]["meanDistanceLowerFace"][1])
-
-    # normalizedDistanceDictionary["head/head-rectangular"] = normalizeminus11(meanDistanceLowerFace, 0.087, 0.196);
-
 
     distanceUpDownFace = abs(faceShapeCoord[0]["y"] - faceShapeCoord[1]["y"])
     distanceDictionary["distanceUpDownFace"] = distanceUpDownFace
@@ -451,8 +446,8 @@ def calculateFaceShape2(normalizedLandmarks, jawCoord, templeCoord, cheeksCoord,
     #Head Vertical Scaling
     lengthToWidthRatio = distanceForeheadChin / distanceTemple
     distanceDictionary["lengthToWidthRatio"] = lengthToWidthRatio
-    if gender == "female":
-        normalizedDistanceDictionary["head/head-scale-vert-decr|incr"] = 0.35
+    # if gender == "female":
+    #     normalizedDistanceDictionary["head/head-scale-vert-decr|incr"] = 0.15
     # normalizedDistanceDictionary["head/head-scale-vert-decr|incr"] = 0.4
 
 
