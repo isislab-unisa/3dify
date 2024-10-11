@@ -184,15 +184,62 @@ def cv2_image_to_base64(image):
     png_as_text = base64.b64encode(buffer)
     return png_as_text.decode("utf-8")
 
+def create_fade_mask_from_start_points(image, start_points, fade_width):
+    h, w = image.shape[:2]
+    mask = np.ones((h, w), dtype=np.float32)
+
+    for x, y in start_points:
+        for i in range(fade_width):
+            fade_value = (fade_width - i) / fade_width
+            if x - i >= 0:
+                mask[:, x - i] *= fade_value
+
+    return mask
+
+def apply_fade_out_from_points(image, fade_width=50):    
+    # Assicurati che l'immagine abbia un canale alfa (per la trasparenza)
+    if image.shape[2] != 4:
+        raise ValueError("The image does not have an alpha channel.")
+    
+    # Trova i punti di partenza per la dissolvenza (i punti rossi)
+    start_points = []
+    for y in range(image.shape[0]):
+        row_pixel = 0
+        for x in range(image.shape[1]):
+            r, g, b, a = image[y, x]
+            if a != 0:
+                row_pixel +=1
+                if row_pixel == 5:# Punto rosso
+                    start_points.append((x, y))
+                    break  # Passa alla prossima riga
+
+    # Crea la maschera di dissolvenza
+    fade_mask = create_fade_mask_from_start_points(image, start_points, fade_width)
+
+    # Separa i canali colore e alfa
+    b, g, r, a = cv2.split(image)
+
+    # Normalizza la maschera di dissolvenza nell'intervallo [0, 255]
+    fade_mask = (fade_mask * 255).astype(np.uint8)
+
+    # Assicurati che il canale alfa e la maschera di dissolvenza siano entrambi di tipo float32
+    a = a.astype(np.float32)
+    fade_mask = fade_mask.astype(np.float32)
+
+    # Combina il canale alfa con la maschera di dissolvenza
+    new_alpha = cv2.multiply(a, fade_mask / 255.0).astype(np.uint8)
+
+    # Unisci i canali di nuovo
+    faded_image = cv2.merge((b, g, r, new_alpha))
+    
+    return faded_image
+
+
 def createCustomSkin(skinColor, gender, age, image=None):
-    # uv_path = "./mediapipe_models/uv_map.json" #taken from https://github.com/spite/FaceMeshFaceGeometry/blob/353ee557bec1c8b55a5e46daf785b57df819812c/js/geometry.js
     uv_path = r"3Dify-sliderModule/mediapipe_models/uv_map.json"
     uv_map_dict = json.load(open(uv_path))
     uv_map = np.array([ (uv_map_dict["u"][str(i)],uv_map_dict["v"][str(i)]) for i in range(468)])
 
-    # img_path = "faces/Driver.png"
-    # # img_path = "eye_fade_mask.png"
-    # img_ori = skimage.io.imread(img_path)
     img_ori = image.copy()
     img_ori = convert(img_ori, 0, 255, np.uint8)
 
@@ -214,12 +261,18 @@ def createCustomSkin(skinColor, gender, age, image=None):
     face_landmarks = results.multi_face_landmarks[0]
     keypoints = np.array([(W*point.x,H*point.y) for point in face_landmarks.landmark[0:468]])
 
-    H_new,W_new = 512,512
+    # H_new, W_new = 512,512
+    H_new,W_new = 1024,1024
     keypoints_uv = np.array([(W_new*x, H_new*y) for x,y in uv_map])
 
     tform = PiecewiseAffineTransform()
     tform.estimate(keypoints_uv,keypoints)
     texture = warp(img_ori, tform, output_shape=(H_new,W_new))
+    
+    #Sharpening filter
+    # sharpening_kernel = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
+    # texture = cv2.filter2D(texture, -1, sharpening_kernel)
+    
     texture = (255*texture).astype(np.uint8)
 
     #Create a Fading Mask for the eyes
@@ -293,6 +346,7 @@ def createCustomSkin(skinColor, gender, age, image=None):
     #Transfer the color from the makehuman skin to the face texture
     source = faceNoBGTransparent
     source = source.rotate(90)
+    source = source.resize((512, 512), Image.LANCZOS)
     source_rgb, source_alpha = split_alpha(source)
     face_position = (1518, 798, 1518 + source.width, 798 + source.height)
     skins = {
@@ -353,6 +407,7 @@ def createCustomSkin(skinColor, gender, age, image=None):
     new_alpha = cv2.bitwise_and(a, border_fade_mask)
     faded_image = cv2.merge((b, g, r, new_alpha))
     left_part_faded = faded_image
+    left_part_faded = apply_fade_out_from_points(left_part_faded, fade_width=50)
 
     image = right_part
     image = cv2.cvtColor(np.array(image), cv2.COLOR_RGBA2BGRA)
@@ -366,30 +421,29 @@ def createCustomSkin(skinColor, gender, age, image=None):
     #Stretch the left face texture to fit the base skin
     left_part_faded = cv2.resize(left_part_faded, (214, 344), interpolation=cv2.INTER_LINEAR)
     
+    #Compression up-down
+    compression_factor = 0.8
+    new_height_left = int(left_part_faded.shape[0] * compression_factor)
+    new_height_right = int(right_part_faded.shape[0] * compression_factor)
+    
+    left_part_faded = cv2.resize(left_part_faded, (left_part_faded.shape[1], new_height_left), interpolation=cv2.INTER_LINEAR)
+    right_part_faded = cv2.resize(right_part_faded, (right_part_faded.shape[1], new_height_right), interpolation=cv2.INTER_LINEAR)
+    
     #Blend the face texture on the base skin selected
     body_texture = Image.open(base_skin)
     face_up_texture = left_part_faded
     face_up_texture = Image.fromarray(cv2.cvtColor(face_up_texture, cv2.COLOR_BGRA2RGBA))
     face_down_texture = right_part_faded
     face_down_texture = Image.fromarray(cv2.cvtColor(face_down_texture, cv2.COLOR_BGRA2RGBA))
-    face_up_position = (1572, 888, 1572 + face_up_texture.width, 888 + face_up_texture.height)
-    face_down_position = (1795, 885, 1795 + face_down_texture.width, 885 + face_down_texture.height)
+    # face_up_position = (1572, 888, 1572 + face_up_texture.width, 888 + face_up_texture.height)
+    # face_down_position = (1795, 885, 1795 + face_down_texture.width, 885 + face_down_texture.height)
+    
+    face_up_position = (1574, 920, 1574 + face_up_texture.width, 920 + face_up_texture.height)
+    face_down_position = (1802, 921, 1802 + face_down_texture.width, 921 + face_down_texture.height)
+
 
 
     result = blend_face_texture_alpha(body_texture, face_up_texture, face_down_texture, face_up_position, face_down_position)
-    # result.save("blended_texture.png")
     result = cv2.cvtColor(np.array(result), cv2.COLOR_RGBA2BGRA)
     base64_result = cv2_image_to_base64(np.array(result))
     return base64_result
-
-
-# if __name__ == "__main__":
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("--skinColor", type=int, default=0)
-#     parser.add_argument("--age", type=float, default=35.0)
-#     parser.add_argument("--gender", type=str)
-#     args = parser.parse_args()
-    
-#     createCustomSkin(args.skinColor, args.gender, args.age)
-
-# createCustomSkin(0, "male", 32)

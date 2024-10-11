@@ -11,7 +11,6 @@ from const import (nosePoints, faceShapePoints, rightEyePoints, rightEyeBrowPoin
                    leftEyePoints, leftEyeBrowPoints, lipsPoints, points, max_width, jawPoints, foreheadPoints, templePoints, cheeksPoints, noseCurvePoints, chinPoints)
 from faceFeatures import calculateFaceFeatureDistances, normalizeminus11, reset_normalizedDistanceDictionary
 import base64
-# from faceShapeFeatures import inferFaceShapeSliders
 import traceback
 import os
 
@@ -113,8 +112,6 @@ def initializeMediaPipe():
 
     try:
         base_options = python.BaseOptions(
-            # model_asset_path=r"3Dify-sliderModule/mediapipe_models/face_landmarker_v2_with_blendshapes.task"
-            # model_asset_path=r"./mediapipe_models/face_landmarker_v2_with_blendshapes.task"
             model_asset_path = model_path
         )
         options = vision.FaceLandmarkerOptions(
@@ -164,9 +161,7 @@ def open_base64_image(imageBase64):
 def extractLandmarks(imgBase64):
     detector = initializeMediaPipe()
     img = open_base64_image(imgBase64)
-    # img = cv2.imread(imgPath)
-    # img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-    # imshow(img)
+    
     global skipped
     try:
         original_height, original_width = img.shape[:2]
@@ -178,7 +173,6 @@ def extractLandmarks(imgBase64):
         scale = max_width / float(original_width)
         new_height = int(original_height * scale)
         img = cv2.resize(img, (max_width, new_height))
-    # img = cv2.imread("Senza titolo.png")
     image = mp.Image(image_format=mp.ImageFormat.SRGB, data=img)
 
     # STEP 4: Detect face landmarks from the input image.
@@ -192,7 +186,6 @@ def extractLandmarks(imgBase64):
     try:
         landmarks = detection_result.face_landmarks[0]
     except Exception as e:
-        # print("SKIPPED NO LANDMARKS")
         raise ValueError("No face detected")
 
     limits = calculate_limits(landmarks)
@@ -205,10 +198,6 @@ def extractLandmarks(imgBase64):
     # Angolo in alto a sinistra del quadrato di riferimento
     start_x_up_sx = limits["minX"] * image_width + (width - square_size) / 2
     start_y_up_sx = limits["minY"] * image_height + (height - square_size) / 2
-
-    # Angolo in basso a sinistra del quadrato di riferimento
-    # start_x_down_sx = limits["minX"] * image_width
-    # start_y_down_sx = limits["maxY"] * image_height - square_size
 
     start_x_down_sx = start_x_up_sx
     start_y_down_sx = start_y_up_sx + square_size
@@ -322,14 +311,7 @@ def process(imgBase64, gender, age):
                 color = (255, 0, 255)
                 chinCoord.append(lm1)
                 
-            # x1 = int(lm1["x"] * square_size + start_x_down_sx)
-            # y1 = int(lm1["y"] * square_size + start_y_down_sx)
-
-            # cv2.rectangle(annotated_image, (x1, y1), (x1 + 2, y1 + 2), color, -1)
-
-    # cv2_imshow(cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR))
-    # imshow(annotated_image)
-
+                
     distance_dictionary = {}
     normalized_distance_dictionary = calculateFaceFeatureDistances(normalizedLandmarks, distance_dictionary, faceShapeCoord, noseCoord, lipsCoord, rightEyeCoord, leftEyeCoord,
                                   rightEyeBrowCoord, leftEyeBrowCoord, jawCoord, templeCoord, cheeksCoord, foreheadCoord, noseCurveCoord, chinCoord, gender)
@@ -340,7 +322,6 @@ def process(imgBase64, gender, age):
     
     makeHumanParameters["modifier head/head-age-decr|incr"] = str(normalizeminus11(age, 0.0, 100.0))
     makeHumanParameters["modifier macrodetails/Gender"] = str(genderValue)
-    # makeHumanParameters["modifier forehead/forehead-scale-vert-decr|incr"] = "-0.25"
     
     skins = {
         "male": {
