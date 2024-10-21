@@ -8,7 +8,7 @@ npm test --silent
 
 echo "Booting up Makehuman Daemon"
 # source "C:\\Users\\$username\\mambaforge\\etc\\profile.d\\conda.sh"
-source /home/$username/mambaforge/etc/profile.d/conda.sh
+source /home/$username/miniforge3/etc/profile.d/conda.sh
 conda activate makehuman
 cd ../makehuman-docker/custom_makehuman/makehuman
 python makehuman.py > /dev/null 2>&1 &

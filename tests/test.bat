@@ -3,7 +3,7 @@
 echo The current user is: %USERNAME%
 
 echo "Booting up Makehuman Daemon"
-call C:\Users\%USERNAME%\mambaforge\Scripts\activate.bat C:\Users\%USERNAME%\mambaforge
+call C:\Users\%USERNAME%\miniforge3\Scripts\activate.bat C:\Users\%USERNAME%\miniforge3
 call conda activate makehuman
 cd ..
 cd makehuman-docker\custom_makehuman\makehuman
