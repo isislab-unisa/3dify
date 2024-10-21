@@ -2,7 +2,7 @@
 
 import pytest
 from fastapi.testclient import TestClient
-from main import app, Request, BuildRequest, Response
+from main import app, Request, BuildRequest, Response, CustomHTTPException
 import base64
 import os
 import zipfile
@@ -34,8 +34,10 @@ def test_scanFace_noImage():
         "age" : 20,
         "skinColor" : 1
     }
-    with pytest.raises(ValueError, match="Invalid imageBase64"):
-        response = client.post("/scanFace", json=request_data)
+    
+    response = client.post("/scanFace", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error extracting Landmarks from image"
         
 def test_scanFace_correctImage():
     request_data = {
@@ -58,8 +60,10 @@ def test_scanFace_noFace():
         "age" : 20,
         "skinColor" : 1
     }
-    with pytest.raises(ValueError, match="No face detected"):
-        response = client.post("/scanFace", json=request_data)
+    response = client.post("/scanFace", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error extracting Landmarks from image"
+
 
 def test_extractFeatures_noImage():
     request_data = {
@@ -68,8 +72,10 @@ def test_extractFeatures_noImage():
         "age" : 20,
         "skinColor" : 1
     }
-    with pytest.raises(ValueError, match="Invalid imageBase64"):
-        response = client.post("/extractFeatures", json=request_data)
+    response = client.post("/extractFeatures", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error extracting features from image"
+
         
 def test_extractFeatures_correctImage():
     request_data = {
@@ -90,8 +96,9 @@ def test_extractFeatures_noFace():
         "age" : 20,
         "skinColor" : 1
     }
-    with pytest.raises(ValueError, match="No face detected"):
-        response = client.post("/extractFeatures", json=request_data)
+    response = client.post("/extractFeatures", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error extracting features from image"
         
 def test_extractFeatures_lowRes():
     request_data = {
@@ -112,8 +119,10 @@ def test_customSkin_noImage():
         "age" : 20,
         "skinColor" : 1
     }
-    with pytest.raises(ValueError, match="Invalid imageBase64"):
-        response = client.post("/getCustomSkin", json=request_data)
+    response = client.post("/getCustomSkin", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error creating custom skin"
+
         
 def test_applyAndDownload(tmp_path):
     request_data = {
@@ -143,5 +152,7 @@ def test_applyAndDownload_noMakehuman():
             "modifier head/head-age-decr|incr": "-0.4",
         }
     }
-    with pytest.raises(RuntimeError, match="Could not connect to Makehuman Daemon"):
-        response = client.post("/applyAndDownload", json=request_data)    
+    response = client.post("/applyAndDownload", json=request_data)
+    assert response.status_code == 202
+    assert response.json()["detail"] == "Error applying modifiers and downloading FBX zip"
+

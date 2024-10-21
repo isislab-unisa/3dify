@@ -2,6 +2,8 @@
 username=$(whoami)
 echo Current User is $username
 
+echo "Installing npm packages"
+npm install --silent
 npm test --silent
 
 echo "Booting up Makehuman Daemon"

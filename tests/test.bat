@@ -23,6 +23,10 @@ echo "Makehuman Daemon is down"
 
 call python -m pytest -v --disable-warnings test_main.py::test_applyAndDownload_noMakehuman
 
+call conda deactivate
+
 cd ..
 cd ..
+echo "Installing npm packages"
+call npm install --silent
 call npm test --silent

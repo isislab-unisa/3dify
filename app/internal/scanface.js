@@ -96,37 +96,45 @@ async function createFaceLandmarker(){
 
 async function GetGenderAndAgeFromPhoto(base64img, widthImg)
 {
-    const faceDetectionNet = faceapi.nets.ssdMobilenetv1
-    const minConfidence = 0.5
-
-    // TinyFaceDetectorOptions
-    const inputSize = 408
-    const scoreThreshold = 0.5
-
-    function getFaceDetectorOptions(net) {
-    return net === faceapi.nets.ssdMobilenetv1
-        ? new faceapi.SsdMobilenetv1Options({ minConfidence })
-        : new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
-    }
-
-    const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
-    
-    await faceDetectionNet.loadFromDisk(process.cwd() + '/app/internal/weights')
-    await faceapi.nets.faceLandmark68Net.loadFromDisk(process.cwd() + '/app/internal/weights')
-    await faceapi.nets.ageGenderNet.loadFromDisk(process.cwd() + '/app/internal/weights')
-    const buf = Buffer.from(base64img, "base64");
+    // try {
+            const faceDetectionNet = faceapi.nets.ssdMobilenetv1
+            const minConfidence = 0.5
         
-    const img = await canvas.loadImage(buf);
-
-    const results = await faceapi.detectAllFaces(img, faceDetectionOptions).withAgeAndGender()
-    let gender = results[0].gender
-
-    let age = results[0].age
-
-    // console.log("GENDER : " + gender)
-    // console.log("AGE : " + age)
-
-    return {age: age, gender: gender.toLowerCase()};
+            // TinyFaceDetectorOptions
+            const inputSize = 408
+            const scoreThreshold = 0.5
+        
+            function getFaceDetectorOptions(net) {
+            return net === faceapi.nets.ssdMobilenetv1
+                ? new faceapi.SsdMobilenetv1Options({ minConfidence })
+                : new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
+            }
+        
+            const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
+            
+            await faceDetectionNet.loadFromDisk(process.cwd() + '/app/internal/weights')
+            await faceapi.nets.faceLandmark68Net.loadFromDisk(process.cwd() + '/app/internal/weights')
+            await faceapi.nets.ageGenderNet.loadFromDisk(process.cwd() + '/app/internal/weights')
+            const buf = Buffer.from(base64img, "base64");
+                
+            const img = await canvas.loadImage(buf);
+        
+            const results = await faceapi.detectAllFaces(img, faceDetectionOptions).withAgeAndGender()
+            let gender = results[0].gender
+        
+            let age = results[0].age
+        
+            // console.log("GENDER : " + gender)
+            // console.log("AGE : " + age)
+        
+            return {age: age, gender: gender.toLowerCase()};
+        
+    // } catch (error) {
+    //     console.error(error);
+    //     const defaultAge = 50.0;
+    //     const defaultGender = "male";
+    //     return {age: defaultAge, gender: defaultGender, error: {code:1024, message: "Error in faceapi detection"}};
+    // }
 }
 
 // inputImg = html <img> element containing input image with width and height
