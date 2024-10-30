@@ -1,0 +1,25 @@
+# MakeHuman Material definition
+
+name f_suit_double_breastedMaterial
+
+// Color shading attributes
+diffuseColor  0.64 0.64 0.64
+specularColor  0.2 0.2 0.2
+shininess 0.9176
+opacity 1
+
+// Textures and properties
+diffuseTexture DB-suit-Fem.png
+normalmapTexture DB-suit-Fem-norm.png
+specularmapTexture DB-suit-spec.png 
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump false
+shaderConfig normal true
+shaderConfig displacement  false
+shaderConfig spec true
+shaderConfig vertexColors false

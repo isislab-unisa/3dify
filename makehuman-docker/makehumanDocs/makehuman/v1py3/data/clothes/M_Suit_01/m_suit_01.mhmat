@@ -1,0 +1,25 @@
+# MakeHuman Material definition
+
+name m_suit_01
+
+// Color shading attributes
+diffuseColor  1 1 1
+specularColor  0 0 0
+shininess 0.1961
+opacity 0
+
+// Textures and properties
+diffuseTexture M_Suit_01.png
+normalmapTexture M_Suit_01_NRM.png
+specularTexture M_Suit_01_SPEC.png
+
+// Shader programme
+shader data/shaders/glsl/normalmap
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump false
+shaderConfig normal  true
+shaderConfig displacement  false
+shaderConfig spec  true
+shaderConfig vertexColors false

@@ -1,0 +1,33 @@
+# Material definition for Sport_sunglasses
+
+name Sport_sunglasses
+description Sport_sunglasses material
+ambientColor 0.498039215686 0.498039215686 0.498039215686
+diffuseColor 1.0 1.0 1.0
+specularColor 0.701960784314 0.701960784314 0.701960784314
+shininess 0.6
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture sport_sunglasses.png
+
+shaderConfig ambientOcclusion True
+shaderConfig normal True
+shaderConfig bump True
+shaderConfig displacement True
+shaderConfig vertexColors True
+shaderConfig spec True
+shaderConfig transparency True
+shaderConfig diffuse True

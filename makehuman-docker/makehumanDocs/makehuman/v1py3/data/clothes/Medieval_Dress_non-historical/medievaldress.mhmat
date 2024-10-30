@@ -1,0 +1,39 @@
+# Material definition for medievaldress
+
+name medievaldress
+description MedievalDress material
+ambientColor 0.505882352941 0.505882352941 0.505882352941
+diffuseColor 1.0 1.0 1.0
+specularColor 0.152941176471 0.152941176471 0.152941176471
+shininess 0.1961
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent False
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture medievaldress.png
+normalmapTexture medievaldress_norm.png
+normalmapIntensity 1.0
+
+shader shaders/glsl/litsphere
+
+shaderParam litsphereTexture litspheres/lit_leather.png
+
+shaderConfig ambientOcclusion True
+shaderConfig normal True
+shaderConfig bump False
+shaderConfig displacement False
+shaderConfig vertexColors False
+shaderConfig spec False
+shaderConfig transparency True
+shaderConfig diffuse True

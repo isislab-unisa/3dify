@@ -1,0 +1,40 @@
+# Material definition for material.003Material
+
+name material.003Material
+description Elvs_knottydress_full1 material
+ambientColor 1.0 1.0 1.0
+diffuseColor 0.64 0.64 0.64
+specularColor 0.5 0.5 0.5
+shininess 0.0
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent False
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture knottydresstex3.png
+
+shader shaders/glsl/litsphere
+
+shaderParam AdditiveShading -0.1
+shaderParam litsphereTexture litspheres/lit_hair.png
+
+shaderDefine CALC_NORMAL_Z
+
+shaderConfig ambientOcclusion True
+shaderConfig normal False
+shaderConfig bump False
+shaderConfig displacement False
+shaderConfig vertexColors False
+shaderConfig spec False
+shaderConfig transparency True
+shaderConfig diffuse True

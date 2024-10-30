@@ -1,0 +1,44 @@
+# Material definition for material.001Material
+
+name material.001Material
+description Cornrowsofelv5 material
+ambientColor 1.0 1.0 1.0
+diffuseColor 0.741 0.6957 0.7879
+specularColor 0.5 0.5 0.5
+shininess 0.0
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull True
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture mh_cornrowstex1.png
+normalmapTexture normals.png
+normalmapIntensity 1.5
+aomapTexture chrome.png
+aomapIntensity 0.5
+
+shader shaders/glsl/litsphere
+
+shaderParam AdditiveShading 0.1
+shaderParam litsphereTexture litspheres/lit_hair.png
+
+shaderDefine CALC_NORMAL_Z
+
+shaderConfig ambientOcclusion True
+shaderConfig normal True
+shaderConfig bump False
+shaderConfig displacement False
+shaderConfig vertexColors False
+shaderConfig spec False
+shaderConfig transparency True
+shaderConfig diffuse True

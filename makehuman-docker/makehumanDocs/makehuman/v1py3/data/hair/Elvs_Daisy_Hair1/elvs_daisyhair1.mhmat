@@ -1,0 +1,42 @@
+# Material definition for hairdaisyMaterial
+
+name hairdaisyMaterial
+description Elvs_daisyhair1 material
+ambientColor 1.0 1.0 1.0
+diffuseColor 0.64 0.64 0.64
+specularColor 0.5 0.5 0.5
+shininess 0.0
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture daisyhair1.png
+normalmapTexture daisyhair1_normals.png
+normalmapIntensity 0.9
+
+shader shaders/glsl/litsphere
+
+shaderParam litsphereTexture litspheres/lit_hair.png
+shaderParam AdditiveShading 0.02
+
+shaderDefine CALC_NORMAL_Z
+
+shaderConfig diffuse True
+shaderConfig bump False
+shaderConfig normal True
+shaderConfig displacement False
+shaderConfig spec False
+shaderConfig vertexColors False
+shaderConfig transparency True
+shaderConfig ambientOcclusion True

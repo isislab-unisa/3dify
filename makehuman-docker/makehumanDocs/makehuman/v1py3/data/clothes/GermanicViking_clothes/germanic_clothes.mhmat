@@ -1,0 +1,26 @@
+# MakeHuman Material definition
+
+name germanic_clothes_green
+
+// Color shading attributes
+diffuseColor  1 1 1
+specularColor  0.2 0.2 0.2
+shininess 0.1
+opacity 1
+
+backfaceCull false
+
+// Textures and properties
+diffuseTexture green.png
+specularTexture germanic_clothes_glossy.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse True
+shaderConfig bump false
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  True
+shaderConfig vertexColors false

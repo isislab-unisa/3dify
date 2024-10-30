@@ -1,0 +1,40 @@
+# Material definition for elvs_that80sbabe_m1
+
+name elvs_that80sbabe_m1
+description Elvs_that80sbabe_m1 material
+ambientColor 1.0 1.0 1.0
+diffuseColor 0.5 0.5 0.5
+specularColor 0.5 0.5 0.5
+shininess 0.5
+emissiveColor 0.0 0.0 0.0
+opacity 1.0
+translucency 0.0
+
+shadeless False
+wireframe False
+transparent True
+alphaToCoverage True
+backfaceCull False
+depthless False
+
+castShadows True
+
+receiveShadows True
+
+diffuseTexture 80shairtex8.png
+normalmapTexture 80snormals.png
+normalmapIntensity 1.6
+
+shader shaders/glsl/litsphere
+
+shaderParam litsphereTexture litspheres/lit_hair.png
+shaderParam AdditiveShading -0.03
+
+shaderConfig diffuse True
+shaderConfig bump True
+shaderConfig normal True
+shaderConfig displacement True
+shaderConfig spec True
+shaderConfig vertexColors True
+shaderConfig transparency True
+shaderConfig ambientOcclusion True
