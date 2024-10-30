@@ -1,0 +1,25 @@
+# MakeHuman Material definition
+
+name jacket_tie_pantsMaterial
+
+// Color shading attributes
+diffuseColor  0.64 0.64 0.64
+specularColor  0.2 0.2 0.2
+shininess 0.1961
+opacity 1
+
+// Textures and properties
+bumpTexture Suit-tie-Jacket-bump.png
+specularTexture Suit-tie-Jacket-spec.png
+diffuseTexture Suit-tie-Jacket-diff.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump true
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  true
+shaderConfig vertexColors false

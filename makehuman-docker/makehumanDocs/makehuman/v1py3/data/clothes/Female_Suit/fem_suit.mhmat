@@ -1,0 +1,25 @@
+# MakeHuman Material definition
+
+name suitmatMaterial
+
+// Color shading attributes
+diffuseColor  0.7523 0.7523 0.7523
+specularColor  0.2 0.2 0.2
+shininess 1
+opacity 0
+
+// Textures and properties
+diffuseTexture MHSuitsFem-diff.png
+specularTexture MHSuitsFem-spec.png
+bumpTexture MHSuitsFem-bump.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump true
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  true
+shaderConfig vertexColors false

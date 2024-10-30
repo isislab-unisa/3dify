@@ -1,0 +1,25 @@
+# MakeHuman Material definition
+
+name f_beach_dress_01
+
+// Color shading attributes
+diffuseColor  1 1 1
+specularColor  0 0 0
+shininess 0.1961
+opacity 0
+
+// Textures and properties
+diffuseTexture F_Beach_Dress_01.png
+normalmapTexture F_Beach_Dress_01_NRM.png
+specularTexture F_Beach_Dress_01_SPEC.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump false
+shaderConfig normal  true
+shaderConfig displacement  false
+shaderConfig spec  true
+shaderConfig vertexColors false
