@@ -24,7 +24,8 @@ export async function POST(req: Request) {
     const defaultAge = 50.0;
     const defaultGender = "male";
     const responseInit : ResponseInit = {status: 202, statusText: "Error in faceapi detection"};
-    const responseBody = JSON.stringify({code:'202', status:"ERROR", message: "Error in faceapi detection", age: defaultAge, gender: defaultGender});
+    const responseContent = {age: defaultAge, gender: defaultGender};
+    const responseBody = JSON.stringify({code:'202', status:"ERROR", error: "Error in faceapi detection", message: responseContent});
     return new Response(responseBody, responseInit);
 }
 }
