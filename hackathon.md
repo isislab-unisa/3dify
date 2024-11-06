@@ -1,5 +1,8 @@
-## Prerequisites
+**3Dify** is an application for creating 3D avatars from a single image. In this hackathon, participants will use 3Dify to create the best avatars possible and compete for first place. The final winner will receive a Meta Quest 3.
 
+Checkout the poster of the Hackathon at the following [link](hackathon_poster).
+
+## Prerequisites
 
 ### Windows
 For executing on Windows Systems it is necessary to install beforehand an X11 Server, we advise **VcXsrv Windows X Server** that can be found at the following [link](https://sourceforge.net/projects/vcxsrv/), as well as **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
@@ -92,10 +95,12 @@ Once done with the customization of the avatar, for submitting it, you will have
 
 ## Video Tutorial
 
-## Submission
-For submitting your personalized avatar you will firstly have to submit your answers to an evalutation questionnaire about the software you have just used at the following [link]().
+[![Video](https://img.youtube.com/vi/rxa-XgzOe4o/maxresdefault.jpg)](https://www.youtube.com/watch?v=rxa-XgzOe4o)
 
-Once done with the questionnaire you will receive a One Time Code that you will need to submit you avatar at the following [link]().
+## Submission
+For submitting your personalized avatar you will firstly have to submit your answers to an evalutation questionnaire about the software you have just used at the following [link](https://docs.google.com/forms/d/e/1FAIpQLSe5DHaWyE-WkAVEWZfn_ILZGjaDoMOo7jQkZExTNvNfIa3pXw/viewform?usp=sf_link).
+
+Once done with the questionnaire you will receive a One Time Code that you will need to submit you avatar at the following [link](https://docs.google.com/forms/d/e/1FAIpQLSfQ6ZGOpwhaT1pxhsL_FKPeHul-4rumglk9ij3Out-Vxsa5Ew/viewform?usp=sf_link).
 In the avatar submission form you will be asked for your original input Image, a .zip archive containing the exported .FBX from the software and the One Time Code that you will have received previously.
 
 
