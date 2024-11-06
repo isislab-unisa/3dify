@@ -95,6 +95,8 @@ Once done with the customization of the avatar, for submitting it, you will have
 
 ## Video Tutorial
 
+Please watch the video below for a tutorial on creating your first avatar.
+
 [![Video](https://img.youtube.com/vi/rxa-XgzOe4o/maxresdefault.jpg)](https://www.youtube.com/watch?v=rxa-XgzOe4o)
 
 ## Submission
