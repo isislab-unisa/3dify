@@ -1,0 +1,24 @@
+# MakeHuman Material definition
+
+name full_beardMaterial
+
+// Color shading attributes
+diffuseColor  0.8 0.8 0.8
+specularColor  0.001376 0.001376 0.001376
+shininess 0.003922
+opacity 0
+
+// Textures and properties
+diffuseTexture Full_beard_black_diff.png
+bumpTexture Full_beard_black_diff_hn.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump true
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  false
+shaderConfig vertexColors false

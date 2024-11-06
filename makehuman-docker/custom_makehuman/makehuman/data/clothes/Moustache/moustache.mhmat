@@ -1,0 +1,24 @@
+# MakeHuman Material definition
+
+name materialMaterial
+
+// Color shading attributes
+diffuseColor  1 1 1
+specularColor  0.0002166 0.0002166 0.0002166
+shininess 0.003922
+opacity 0
+
+// Textures and properties
+diffuseTexture Moustache_black_diff.png
+bumpTexture Moustache_black_diff_hn.png
+
+// Shader programme
+shader data/shaders/glsl/phong
+
+// Configure built-in shader defines
+shaderConfig diffuse true
+shaderConfig bump true
+shaderConfig normal  false
+shaderConfig displacement  false
+shaderConfig spec  false
+shaderConfig vertexColors false
