@@ -16,6 +16,12 @@
 8. [Where to apply changes](#where-to-apply-changes)
 9. [3Dify Test Suite](#3dify-test-suite)
 
+# Hackathon
+
+A Hackathon is currently underway where 3Dify users will compete to create the best avatars. After two phases, a panel will select the winner, who will receive a **Meta Quest 3**.
+
+If you’re interested, head over to the [official Hackathon page](hackathon_poster).
+
 # Introduction
 The 3Dify project aims to enable avatar creation using advanced AI and a modular software architecture. Such a modular architecture allows for flexible and scalable development, ensuring easy updates and improvements.
 
