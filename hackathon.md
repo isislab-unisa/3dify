@@ -111,3 +111,9 @@ In the avatar submission form you will be asked for your original input Image, a
 To read more about the software you can follow up at the following [link](https://isislab-unisa.github.io/3dify/)
 
 If you need any help or technical support you can contact damonaco@unisa.it
+
+3Dify is part of the [SERMAS project](https://sermasproject.eu/) 
+
+![Sermas Logo](assets/SermasLogo.png)
+
+
