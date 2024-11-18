@@ -108,6 +108,8 @@ The following are the preliminary steps for executing only for Windows Systems.
 6. Open **Docker Desktop**
 7. Proceed with the instruction for the launch with Docker Compose specified below.
 
+**N.B.** The steps from 1. to 5. must be repeated at every restart of the PC.
+
 #### Linux
 For executing on Linux Systems it is just necessary to install **Docker Engine** by following the guide for your distro at the following [link](https://docs.docker.com/engine/). (**ATTENTION** Currently this version only work by using Docker Engine with sudo command and is not compatible with Docker Desktop for linux systems.)
 
@@ -118,6 +120,8 @@ The following are the preliminary steps for executing only for Linux Systems aft
 xhost +local:docker
 ```
 2. Proceed with the instruction for the launch with Docker Compose specified below.
+
+**N.B.** The first step must be repeated at every restart of your machine.
    
 #### MacOs
 For executing on MacOs Systems is necessary to install both an X11 server, we advise **XQuartz** downloadable from the following [link](https://www.xquartz.org/) and **Docker Desktop**, downloadable from the following [link](https://www.docker.com/products/docker-desktop/).
@@ -140,8 +144,12 @@ For executing on MacOs Systems is necessary to install both an X11 server, we ad
 ```
 5. Proceed with the instruction for the launch with Docker Compose specified below.
 
+**N.B.** The first two steps must be repeated at the system restart.
+
 ## Launch
 Download the Docker Compose file at [https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml](https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml) for the version with authentication, otherwise download the Docker Compose file [here](https://github.com/isislab-unisa/3dify/blob/main-no-auth/docker-compose.yml).
+
+**N.B** Ensure you have launched the XServer (XLaunch or XQuartz)
 
 Launch all the containers required to run the application:
 
