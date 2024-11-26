@@ -7,6 +7,11 @@ Checkout the poster of the Hackathon at the following [link](hackathon_poster).
 ### Windows
 For executing on Windows Systems it is necessary to install beforehand an X11 Server, we advise **VcXsrv Windows X Server** that can be found at the following [link](https://sourceforge.net/projects/vcxsrv/), as well as **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
 
+If when opening Docker Desktop should appear an error mentioning WSL open the command prompt and type:
+```bash
+wsl --update
+```
+
 The following are the preliminary steps for executing only for Windows Systems.
 
 1. After having installed VcXsrv proceed to open with **XLaunch** 
