@@ -98,6 +98,11 @@ Alternatively, if the authentication module is not needed, you can switch to the
 #### Windows
 For executing on Windows Systems it is necessary to install beforehand an X11 Server, we advise **VcXsrv Windows X Server** that can be found at the following [link](https://sourceforge.net/projects/vcxsrv/), as well as **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
 
+If when opening Docker Desktop for the first time should appear an error mentioning WSL try to open the command prompt and type: 
+```bash
+wsl --update
+```
+
 The following are the preliminary steps for executing only for Windows Systems.
 
 1. After having installed VcXsrv proceed to open with **XLaunch** 
