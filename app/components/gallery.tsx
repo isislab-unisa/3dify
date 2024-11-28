@@ -13,12 +13,13 @@ import {
 } from 'antd';
 import {
   DownloadOutlined,
+  EditOutlined,
+  LinkOutlined,
   RotateLeftOutlined,
   RotateRightOutlined,
   SwapOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
-  LoginOutlined,
 } from '@ant-design/icons';
 import { FC, useEffect, useState } from 'react';
 import Title from 'antd/es/typography/Title';
@@ -154,6 +155,15 @@ const Gallery: FC<Props> = ({ refresh }) => {
       });
   };
 
+  const linkToAvatar = (imgIndex: number, type: string) => {
+    const img = images[imgIndex];
+    const name = img.name;
+    const bucket = img.bucket;
+    const url = `${process.env.NEXT_PUBLIC_DOWNLOAD_FBX as string}?name=${name}&bucket=${bucket}&type=${type}`;
+    navigator.clipboard.writeText(url);
+    message.success(`Copied link to your ${type.toUpperCase()} avatar`);
+  }
+
   const onDownloadAvatar = async (imgIndex: number, type: string) => {
     const img = images[imgIndex];
     const name = img.name;
@@ -184,10 +194,18 @@ const Gallery: FC<Props> = ({ refresh }) => {
         return;
       }
 
+      let ext = 'mhm';
+      if (type === 'fbx') {
+        ext = 'zip';
+      }
+      if (type === 'glb') {
+        ext = 'glb';
+      }
+
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `avatar.${type === 'fbx' ? 'zip' : 'mhm'}`);
+      link.setAttribute('download', `avatar.${ext}`);
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -284,13 +302,15 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   onClick={onZoomIn}
                   className='toolbar-icon'
                 />
-                <Tooltip title='Customize your Avatar'>
+                <Tooltip title='Customize your Avatar!'>
                   <a
                     href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}`}
                     target='_blank'
                     className='toolbar-icon'
                   >
-                    Customize
+                    <div style={{ textAlign: 'center' }}>
+                      <EditOutlined /> <br/> Customize
+                    </div>
                   </a>
                 </Tooltip>
                 <Tooltip title={(
@@ -304,8 +324,9 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   <div
                     onClick={() => onDownloadAvatar(current, 'mhm')}
                     className='toolbar-icon'
+                    style={{ textAlign: 'center' }}
                   >
-                    Download Makehuman Avatar
+                    <DownloadOutlined /> <br/> Makehuman
                   </div>
                 </Tooltip>
                 <Tooltip title={(
@@ -319,8 +340,57 @@ const Gallery: FC<Props> = ({ refresh }) => {
                   <div
                     onClick={() => onDownloadAvatar(current, 'fbx')}
                     className='toolbar-icon'
+                    style={{ textAlign: 'center' }}
                   >
-                    Download FBX Avatar
+                    <DownloadOutlined /> <br/> FBX
+                  </div>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Link to FBX Avatar (.fbx).
+                    <br />
+                    <br />
+                    You need to first create your FBX Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => linkToAvatar(current, 'fbx')}
+                    className='toolbar-icon'
+                    style={{ textAlign: 'center' }}
+                  >
+                    <LinkOutlined /> <br/> to FBX Avatar
+                  </div>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Download your GLB Avatar (.glb).
+                    <br />
+                    <br />
+                    You need to first create your GLB Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => onDownloadAvatar(current, 'glb')}
+                    className='toolbar-icon'
+                    style={{ textAlign: 'center' }}
+                  >
+                    <DownloadOutlined /> <br/> GLB
+                  </div>
+                </Tooltip>
+                <Tooltip title={(
+                  <div className='text-center'>
+                    Link to GLB Avatar (.glb).
+                    <br />
+                    <br />
+                    You need to first create your GLB Avatar using the Customize button!
+                  </div>
+                )}>
+                  <div
+                    onClick={() => linkToAvatar(current, 'glb')}
+                    className='toolbar-icon'
+                    style={{ textAlign: 'center' }}
+                  >
+                    <LinkOutlined /> <br/> to GLB Avatar
                   </div>
                 </Tooltip>
               </Space>
