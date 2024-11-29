@@ -5,12 +5,15 @@ import numpy as np
 import mediapipe as mp
 import skimage
 from skimage.transform import PiecewiseAffineTransform, warp
-from backgroundremover.bg import remove
+# from backgroundremover.bg import remove
 from io import BytesIO
 from scipy.ndimage import uniform_filter
 from skimage import color, filters
 from PIL import Image, ImageDraw, ImageFilter
 import base64
+# from imageProcess import open_base64_image
+
+from rembg import remove
 
 def convert(img, target_type_min, target_type_max, target_type):
     imin = img.min()
@@ -38,36 +41,51 @@ def create_fade_mask(size, center, max_radius, fade_strength):
             mask.putpixel((x, y), opacity)
     return mask
 
+# def remove_bg_preserve_alpha(src_img):
+#     img = src_img
+#     alpha_channel = img.split()[-1]
+
+#     data = BytesIO()
+#     src_img.save(data, format="PNG")
+#     data.seek(0)
+
+
+#     model_choices = ["u2net", "u2net_human_seg", "u2netp"]
+#     removed_bg = remove(
+#         data.read(),
+#         model_name=model_choices[0],
+#         alpha_matting=True,
+#         alpha_matting_foreground_threshold=240,
+#         alpha_matting_background_threshold=10,
+#         alpha_matting_erode_structure_size=10,
+#         alpha_matting_base_size=1000,
+#     )
+    
+#     removed_bg_img = Image.open(BytesIO(removed_bg))
+    
+#     new_alpha = Image.fromarray(np.array(removed_bg_img.split()[-1]))
+#     combined_alpha = Image.fromarray(np.minimum(np.array(alpha_channel), np.array(new_alpha)))
+    
+#     final_img = Image.new("RGBA", img.size)
+#     final_img.paste(removed_bg_img.convert("RGB"), (0,0))
+#     final_img.putalpha(combined_alpha)
+    
+#     return final_img
+
 def remove_bg_preserve_alpha(src_img):
     img = src_img
     alpha_channel = img.split()[-1]
-
-    data = BytesIO()
-    src_img.save(data, format="PNG")
-    data.seek(0)
-
-
-    model_choices = ["u2net", "u2net_human_seg", "u2netp"]
-    removed_bg = remove(
-        data.read(),
-        model_name=model_choices[0],
-        alpha_matting=True,
-        alpha_matting_foreground_threshold=240,
-        alpha_matting_background_threshold=10,
-        alpha_matting_erode_structure_size=10,
-        alpha_matting_base_size=1000,
-    )
-    
-    removed_bg_img = Image.open(BytesIO(removed_bg))
-    
-    new_alpha = Image.fromarray(np.array(removed_bg_img.split()[-1]))
+    img = remove(img)
+        
+    new_alpha = Image.fromarray(np.array(img.split()[-1]))
     combined_alpha = Image.fromarray(np.minimum(np.array(alpha_channel), np.array(new_alpha)))
     
     final_img = Image.new("RGBA", img.size)
-    final_img.paste(removed_bg_img.convert("RGB"), (0,0))
+    final_img.paste(img.convert("RGB"), (0,0))
     final_img.putalpha(combined_alpha)
     
     return final_img
+
     
 def make_white_transparent(input_image):
     img = input_image
@@ -237,6 +255,8 @@ def apply_fade_out_from_points(image, fade_width=50):
 
 def createCustomSkin(skinColor, gender, age, image=None):
     uv_path = r"3Dify-sliderModule/mediapipe_models/uv_map.json"
+    # uv_path = "mediapipe_models\\uv_map.json"
+
     uv_map_dict = json.load(open(uv_path))
     uv_map = np.array([ (uv_map_dict["u"][str(i)],uv_map_dict["v"][str(i)]) for i in range(468)])
 
@@ -369,8 +389,7 @@ def createCustomSkin(skinColor, gender, age, image=None):
                 "old": r"3Dify-sliderModule/original_skins/old_darkskinned_female_diffuse.png",
                 "middleAge": r"3Dify-sliderModule/original_skins/middleage_darkskinned_female_diffuse.png",
             },
-
-        }
+        },
     }
     gender = "male"
     age = 35.0
@@ -447,3 +466,11 @@ def createCustomSkin(skinColor, gender, age, image=None):
     result = cv2.cvtColor(np.array(result), cv2.COLOR_RGBA2BGRA)
     base64_result = cv2_image_to_base64(np.array(result))
     return base64_result
+
+# if __name__ == "__main__":
+#     # image = Image.open("C:\\Users\\andal\\Desktop\\3dify\\ImagesFaces\\front.jpg")
+#     image = cv2.imread("C:\\Users\\andal\\Desktop\\3dify\\ImagesFaces\\front.jpg")
+#     image64 = createCustomSkin(0, "male", 35.0, image=image)
+#     image = open_base64_image(image64)
+#     final_image = Image.fromarray(cv2.cvtColor(np.array(image), cv2.COLOR_BGRA2RGBA))
+#     final_image.show()
