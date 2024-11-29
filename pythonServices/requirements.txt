@@ -10,9 +10,3 @@ scikit-image>=0.19.0
 rembg[cpu]
 # moviepy==1.0.3
 # backgroundremover>=0.2.0
-moviepy==1.0.3
-backgroundremover>=0.2.0
-moviepy==1.0.3
-backgroundremover>=0.2.0
-moviepy==1.0.3
-backgroundremover>=0.2.0
