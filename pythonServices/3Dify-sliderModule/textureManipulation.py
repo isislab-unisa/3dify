@@ -5,12 +5,15 @@ import numpy as np
 import mediapipe as mp
 import skimage
 from skimage.transform import PiecewiseAffineTransform, warp
-from backgroundremover.bg import remove
+# from backgroundremover.bg import remove
 from io import BytesIO
 from scipy.ndimage import uniform_filter
 from skimage import color, filters
 from PIL import Image, ImageDraw, ImageFilter
 import base64
+# from imageProcess import open_base64_image
+
+from rembg import remove
 
 def convert(img, target_type_min, target_type_max, target_type):
     imin = img.min()
@@ -38,33 +41,47 @@ def create_fade_mask(size, center, max_radius, fade_strength):
             mask.putpixel((x, y), opacity)
     return mask
 
+# def remove_bg_preserve_alpha(src_img):
+#     img = src_img
+#     alpha_channel = img.split()[-1]
+
+#     data = BytesIO()
+#     src_img.save(data, format="PNG")
+#     data.seek(0)
+
+
+#     model_choices = ["u2net", "u2net_human_seg", "u2netp"]
+#     removed_bg = remove(
+#         data.read(),
+#         model_name=model_choices[0],
+#         alpha_matting=True,
+#         alpha_matting_foreground_threshold=240,
+#         alpha_matting_background_threshold=10,
+#         alpha_matting_erode_structure_size=10,
+#         alpha_matting_base_size=1000,
+#     )
+    
+#     removed_bg_img = Image.open(BytesIO(removed_bg))
+    
+#     new_alpha = Image.fromarray(np.array(removed_bg_img.split()[-1]))
+#     combined_alpha = Image.fromarray(np.minimum(np.array(alpha_channel), np.array(new_alpha)))
+    
+#     final_img = Image.new("RGBA", img.size)
+#     final_img.paste(removed_bg_img.convert("RGB"), (0,0))
+#     final_img.putalpha(combined_alpha)
+    
+#     return final_img
+
 def remove_bg_preserve_alpha(src_img):
     img = src_img
     alpha_channel = img.split()[-1]
-
-    data = BytesIO()
-    src_img.save(data, format="PNG")
-    data.seek(0)
-
-
-    model_choices = ["u2net", "u2net_human_seg", "u2netp"]
-    removed_bg = remove(
-        data.read(),
-        model_name=model_choices[0],
-        alpha_matting=True,
-        alpha_matting_foreground_threshold=240,
-        alpha_matting_background_threshold=10,
-        alpha_matting_erode_structure_size=10,
-        alpha_matting_base_size=1000,
-    )
-    
-    removed_bg_img = Image.open(BytesIO(removed_bg))
-    
-    new_alpha = Image.fromarray(np.array(removed_bg_img.split()[-1]))
+    img = remove(img)
+        
+    new_alpha = Image.fromarray(np.array(img.split()[-1]))
     combined_alpha = Image.fromarray(np.minimum(np.array(alpha_channel), np.array(new_alpha)))
     
     final_img = Image.new("RGBA", img.size)
-    final_img.paste(removed_bg_img.convert("RGB"), (0,0))
+    final_img.paste(img.convert("RGB"), (0,0))
     final_img.putalpha(combined_alpha)
     
     return final_img
