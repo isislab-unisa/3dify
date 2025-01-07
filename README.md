@@ -6,9 +6,8 @@
 5. [Run the Application Locally](#run-the-application-locally)
    1. [Prerequisites](#prerequisites)
       1. [Common](#common)
-      2. [Windows](#windows)
+      2. [Windows and MacOS](#windows-and-macos)
       3. [Linux](#linux)
-      4. [MacOS](#macos)
    3. [Launch](#launch)
 6. [Getting Started with Development](#getting-started-with-development)
      1. [Prerequisites](#prerequisites-1)
@@ -89,66 +88,21 @@ For the retrieval of informations, you can follow a guide at the following [link
 
 Alternatively, if the authentication module is not needed, you can switch to the [main-no-auth](https://github.com/isislab-unisa/3dify/tree/main-no-auth) branch and build the application with the Docker Compose from there.
 
-#### Windows
-For executing on Windows Systems it is necessary to install beforehand an X11 Server, we advise **VcXsrv Windows X Server** that can be found at the following [link](https://sourceforge.net/projects/vcxsrv/), as well as **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
+#### Windows and MacOS
+For executing on Windows and MacOS Systems it is necessary to install beforehand **Docker Desktop** at the following [link](https://www.docker.com/products/docker-desktop/).
 
-If when opening Docker Desktop for the first time should appear an error mentioning WSL try to open the command prompt and type: 
+If when opening Docker Desktop for the first time on Windows machine should appear an error mentioning WSL try to open the command prompt and type: 
 ```bash
 wsl --update
 ```
+(**DISCLAIMER**: Currently on Apple Silicon Processors the software may present some slow down due to the translation layer from x64 to ARM.)
 
-The following are the preliminary steps for executing only for Windows Systems.
-
-1. After having installed VcXsrv proceed to open with **XLaunch** 
-2. Select **Multiple Windows** and specify 1 as **Display number**
-3. Select **Start no client**
-4. Ensure that **Disable access control** is checked
-5. Click **Finish**
-6. Open **Docker Desktop**
-7. Proceed with the instruction for the launch with Docker Compose specified below.
-
-**N.B.** The steps from 1. to 5. must be repeated at every restart of the PC.
 
 #### Linux
 For executing on Linux Systems it is just necessary to install **Docker Engine** by following the guide for your distro at the following [link](https://docs.docker.com/engine/). (**ATTENTION** Currently this version only work by using Docker Engine with sudo command and is not compatible with Docker Desktop for linux systems.)
 
-The following are the preliminary steps for executing only for Linux Systems after having installed Docker Engine.
-
-1. Open the terminal (Restart it if is the same terminal from which you have just installed Docker engine) and type:.
-```bash
-xhost +local:docker
-```
-2. Proceed with the instruction for the launch with Docker Compose specified below.
-
-**N.B.** The first step must be repeated at every restart of your machine.
-   
-#### MacOs
-For executing on MacOs Systems is necessary to install both an X11 server, we advise **XQuartz** downloadable from the following [link](https://www.xquartz.org/) and **Docker Desktop**, downloadable from the following [link](https://www.docker.com/products/docker-desktop/).
-
-(**DISCLAIMER**: Currently on Apple Silicon Processors the software may present some slow down due to the translation layer from x64 to ARM.)
-
-1. After having installed **XQuartz** proceed to open it.
-2. Open a terminal and type:
-```bash
-      xhost +local:docker
-      xhost + 127.0.0.1
-```
-3. Open the **docker-compose.yml** and comment the following line:
-```bash
-      - DISPLAY=${DISPLAY:-host.docker.internal:1}
-```
-4. And remove the comment from the following line:
-```bash
-      # - DISPLAY=host.docker.internal:0
-```
-5. Proceed with the instruction for the launch with Docker Compose specified below.
-
-**N.B.** The first two steps must be repeated at the system restart.
-
 ## Launch
 Download the Docker Compose file at [https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml](https://github.com/isislab-unisa/3dify/blob/main/docker-compose.yml) for the version with authentication, otherwise download the Docker Compose file [here](https://github.com/isislab-unisa/3dify/blob/main-no-auth/docker-compose.yml).
-
-**N.B** Ensure you have launched the XServer (XLaunch or XQuartz)
 
 Launch all the containers required to run the application:
 
