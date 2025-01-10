@@ -1,3 +1,84 @@
+/**
+ * @swagger
+ * /api/genderAge:
+ *   post:
+ *     description: Analyzes a photo for age and gender.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - img
+ *               - width
+ *             properties:
+ *               img:
+ *                 type: string
+ *                 format: base64
+ *                 description: The base64-encoded image for analysis.
+ *                 example: "iVBORw0KGgoAAAANSUhEUgAA... (base64 string)"
+ *               width:
+ *                 type: number
+ *                 description: The width of the image (in pixels) for scaling.
+ *                 example: 400
+ *     responses:
+ *       200:
+ *         description: Successful analysis.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: string
+ *                   description: A unique code for the response.
+ *                   example: "200"
+ *                 status:
+ *                   type: string
+ *                   description: Status of the analysis.
+ *                   example: "OK"
+ *                 message:
+ *                   type: object
+ *                   description: The output from faceapi.
+ *                   properties:
+ *                     age:
+ *                       type: number
+ *                       description: The predicted age of the person.
+ *                       example: 25
+ *                     gender:
+ *                       type: string
+ *                       description: The predicted gender of the person.
+ *                       example: "male"
+ *       202:
+ *         description: Error in faceapi detection.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: string
+ *                   description: A unique error code.
+ *                 status:
+ *                   type: string
+ *                   description: Error status.
+ *                 error:
+ *                   type: string
+ *                   description: A brief error message.
+ *                 message:
+ *                   type: object
+ *                   description: Detailed error explanation.
+ *                   properties:
+ *                     age:
+ *                       type: number
+ *                       description: The default age (if available) in case of error.
+ *                     gender:
+ *                       type: string
+ *                       description: The default gender (if available) in case of error.
+ *     tags:
+ *       - Face Analysis
+ */
 import { GetGenderAndAgeFromPhoto } from "@/app/internal/scanface";
 import { Gender } from "face-api.js";
 
