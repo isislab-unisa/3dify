@@ -304,7 +304,7 @@ const Gallery: FC<Props> = ({ refresh }) => {
                 />
                 <Tooltip title='Customize your Avatar!'>
                   <a
-                    href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}`}
+                    href={`${process.env.NEXT_PUBLIC_UNITY as string}?id=${getImgBucket(current)}&name=${getImgName(current)}&nextEndpoint=${process.env.NEXT_PUBLIC_API as string}&pythonEndpoint=${process.env.NEXT_PUBLIC_PYTHON_ENDPOINT as string}`}
                     target='_blank'
                     className='toolbar-icon'
                   >
