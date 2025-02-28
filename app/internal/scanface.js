@@ -145,8 +145,8 @@ async function GetLandmarksFromPhoto(base64img, widthImg)
 
     const inputImg = GetHtmlImageElement(base64img, widthImg)
     await changeFaceDetector(SSD_MOBILENETV1)
-    await faceapi.loadFaceLandmarkModel('http://localhost:3000/weights/')
-    await faceapi.nets.ageGenderNet.load('http://localhost:3000/weights/')
+    await faceapi.loadFaceLandmarkModel(process.env.FACE_API_HOST)
+    await faceapi.nets.ageGenderNet.load(process.env.FACE_API_HOST)
     //const inputImgEl = $('#inputImg').get(0)
     // console.log(inputImg)
     
