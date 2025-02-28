@@ -101,7 +101,7 @@ async function changeFaceDetector_client(detector) {
 async function changeFaceDetector(detector) {
   selectedFaceDetector = detector
   if (!isFaceDetectionModelLoaded()) {
-    await getCurrentFaceDetectionNet().loadFromUri('http://localhost:3000/weights/')
+    await getCurrentFaceDetectionNet().loadFromUri(process.env.FACE_API_HOST)
   }
 }
 

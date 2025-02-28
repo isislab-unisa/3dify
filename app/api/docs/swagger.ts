@@ -16,7 +16,7 @@ const spec = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
+      url: process.env.SWAGGER_HOST as string,
       description: 'Development server',
     },
   ],

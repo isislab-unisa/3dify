@@ -3,7 +3,8 @@
 import sys
 from mhrc.JsonCall import JsonCall
 import json
-from dotenv import load_dotenv, dotenv_values 
+from dotenv import load_dotenv, dotenv_values
+import os 
 
 def usage():
     print("USAGE:\n")
