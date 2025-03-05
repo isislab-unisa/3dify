@@ -22,6 +22,8 @@ services:
     environment:
       - MAKEHUMAN_IP = 10.5.0.5
       - MAKEHUMAN_PORT = 12345
+    env_file:
+      - ./.env
     networks:
       - 3dify
   filestore:
