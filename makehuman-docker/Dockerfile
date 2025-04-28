@@ -30,8 +30,7 @@ COPY ./makehumanDocs/makehuman /root/makehuman
 
 EXPOSE 12345
 
-ENV DISPLAY=:99
-# 
-# CMD ["python", "makehuman/makehuman/makehuman.py"]
-# CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768x24 & sleep 2 && python makehuman/makehuman/makehuman.py"]
-CMD ["python", "makehumanMonitor.py"]
+RUN touch log.txt
+RUN which xvfb-run
+
+CMD ["sh", "-c", "xvfb-run -a -n 0 python makehumanMonitor.py"]
