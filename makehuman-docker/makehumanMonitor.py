@@ -4,8 +4,8 @@ import time
 def run_process():
     while True:
         try:
-            # process = subprocess.Popen(["python", "makehuman/makehuman/makehuman.py"])
-            process = subprocess.Popen(["sh", "-c", "Xvfb :99 -screen 0 1024x768x24 & sleep 2 && python makehuman/makehuman/makehuman.py"])
+            process = subprocess.Popen(["python", "-u", "makehuman/makehuman/makehuman.py"])
+            # process = subprocess.Popen(["sh", "-c", "Xvfb :99 -screen 0 1024x768x24 & sleep 2 && python makehuman/makehuman/makehuman.py"])
             process.wait()
             
             if process.returncode == 0:
@@ -19,4 +19,5 @@ def run_process():
             
         time.sleep(1)
         
+print("Starting Makehuman...")
 run_process()

@@ -5,6 +5,7 @@ from textureManipulation import createCustomSkin
 from cli.mh.genericCommandPy import sendCommand, sendCommandParameters
 from fastapi.middleware.cors import CORSMiddleware
 
+
 class Request(BaseModel):
     imageBase64: str | None = None
     gender : str | None = None
